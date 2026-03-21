@@ -66,7 +66,10 @@ def get_db():
 def q(sql):
     """Adapteaza placeholder-ul ? -> %s pentru PostgreSQL."""
     if _USE_PG:
-        return sql.replace('?', '%s').replace("date('now')", 'CURRENT_DATE')
+        return (sql
+            .replace('?', '%s')
+            .replace("date('now')", 'CURRENT_DATE::text')
+            .replace('CURRENT_DATE', 'CURRENT_DATE::text'))
     return sql
 
 
