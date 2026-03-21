@@ -6,8 +6,6 @@ COPY mobile/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY mobile/ ./mobile/
-COPY mobile/templates/ ./mobile/templates/
-COPY mobile/static/ ./mobile/static/
 
 EXPOSE 8080
 
