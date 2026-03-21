@@ -1,68 +1,151 @@
-{% extends "base.html" %}
-{% set active_nav = 'dashboard' %}
-{% block title %}Dashboard — Velorix{% endblock %}
-{% block header_title %}Dashboard{% endblock %}
-
-{% block content %}
-<p class="page-meta">{{ today.replace('-', '/') }} &nbsp;·&nbsp; {{ stats.luna }}</p>
-
-<!-- KPI Cards -->
-<div class="kpi-grid">
-  <div class="kpi-card">
-    <div class="kpi-label">Venituri luna</div>
-    <div class="kpi-val">{{ "{:,.0f}".format(stats.venituri) }} RON</div>
-    <div class="kpi-sub">
-      Man: {{ "{:,.0f}".format(stats.man_tva) }}
-      &nbsp;·&nbsp;
-      Piese: {{ "{:,.0f}".format(stats.piese_tva) }}
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velorix — Dashboard</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: #0f1923;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #e0e8f0;
+            min-height: 100vh;
+        }
+        /* NAV */
+        nav {
+            background: #1a2535;
+            padding: 14px 20px;
+            display: flex; align-items: center; justify-content: space-between;
+            border-bottom: 1px solid #2a3a50;
+            position: sticky; top: 0; z-index: 100;
+        }
+        .nav-logo { color: #e8a020; font-weight: 700; font-size: 18px; letter-spacing: 1px; }
+        .nav-user { color: #6b7a8d; font-size: 13px; }
+        .nav-user a { color: #e74c3c; text-decoration: none; margin-left: 10px; font-size: 12px; }
+        /* NAV LINKS */
+        .nav-links {
+            background: #1a2535;
+            display: flex; gap: 0;
+            border-bottom: 1px solid #2a3a50;
+            overflow-x: auto;
+        }
+        .nav-links a {
+            color: #6b7a8d; text-decoration: none;
+            padding: 12px 18px; font-size: 13px; font-weight: 600;
+            white-space: nowrap; border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.activ {
+            color: #e8a020; border-bottom-color: #e8a020;
+        }
+        /* CONTENT */
+        .content { padding: 20px; max-width: 600px; margin: 0 auto; }
+        h2 { font-size: 20px; margin-bottom: 20px; color: #e0e8f0; }
+        /* CARDS STATS */
+        .stats-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 12px; margin-bottom: 24px;
+        }
+        .stat-card {
+            background: #1a2535; border-radius: 12px;
+            padding: 18px; text-align: center;
+            border: 1px solid #2a3a50;
+        }
+        .stat-card .numar {
+            font-size: 32px; font-weight: 700; color: #e8a020;
+        }
+        .stat-card .eticheta {
+            font-size: 12px; color: #6b7a8d;
+            margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .stat-card.critic .numar { color: #e74c3c; }
+        /* SECTIUNE */
+        .sectiune { margin-bottom: 24px; }
+        .sectiune h3 {
+            font-size: 14px; text-transform: uppercase;
+            letter-spacing: 1px; color: #6b7a8d;
+            margin-bottom: 12px;
+        }
+        /* PROGRAMARE ITEM */
+        .prog-item {
+            background: #1a2535; border-radius: 10px;
+            padding: 14px 16px; margin-bottom: 8px;
+            border-left: 3px solid #e8a020;
+        }
+        .prog-item .prog-data {
+            font-size: 12px; color: #6b7a8d; margin-bottom: 4px;
+        }
+        .prog-item .prog-client { font-weight: 600; font-size: 15px; }
+        .prog-item .prog-vehicul { font-size: 13px; color: #8a9bb0; margin-top: 2px; }
+        .prog-item .prog-desc { font-size: 12px; color: #6b7a8d; margin-top: 4px; }
+        .gol { color: #4a5a6d; font-size: 14px; text-align: center; padding: 20px; }
+        /* BTN */
+        .btn-add {
+            display: block; background: #e8a020; color: #0f1923;
+            text-align: center; text-decoration: none;
+            font-weight: 700; font-size: 14px;
+            border-radius: 10px; padding: 14px;
+            margin-bottom: 24px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <span class="nav-logo">VELORIX</span>
+        <span class="nav-user">
+            {{ user }}
+            <a href="/logout">Iesire</a>
+        </span>
+    </nav>
+    <div class="nav-links">
+        <a href="/dashboard" class="activ">Dashboard</a>
+        <a href="/programari">Programari</a>
+        <a href="/clienti">Clienti</a>
+        <a href="/stocuri">Stocuri</a>
     </div>
-  </div>
-  <div class="kpi-card orange">
-    <div class="kpi-label">Lucrări în curs</div>
-    <div class="kpi-val">{{ stats.in_lucru }}</div>
-    <div class="kpi-sub">active</div>
-  </div>
-  <div class="kpi-card green">
-    <div class="kpi-label">Clienți totali</div>
-    <div class="kpi-val">{{ stats.clienti }}</div>
-    <div class="kpi-sub">înregistrați</div>
-  </div>
-  <div class="kpi-card purple">
-    <div class="kpi-label">Programări azi</div>
-    <div class="kpi-val">{{ stats.prog_azi }}</div>
-    <div class="kpi-sub">astăzi</div>
-  </div>
-</div>
 
-<!-- Upcoming appointments -->
-<p class="section-title">📅 Programări următoare</p>
+    <div class="content">
+        <h2>Buna ziua, {{ user }}!</h2>
 
-{% if programari %}
-  {% set ns = namespace(last_date='') %}
-  {% for p in programari %}
-    {% if p.data != ns.last_date %}
-      {% set ns.last_date = p.data %}
-      <p class="date-chip">{{ p.data }}</p>
-    {% endif %}
-    <div class="list-item">
-      <div class="time-badge">
-        {{ p.ora_start }}
-        <small>{{ p.ora_sfarsit }}</small>
-      </div>
-      <div class="list-item-body">
-        <div class="list-item-title">{{ p.client }}</div>
-        <div class="list-item-sub">{{ p.vehicul or '—' }}</div>
-        {% if p.descriere %}
-        <div class="list-item-sub" style="margin-top:3px;">{{ p.descriere }}</div>
-        {% endif %}
-      </div>
-      <span class="badge badge-{{ p.status }}">{{ p.status }}</span>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="numar">{{ total_clienti }}</div>
+                <div class="eticheta">Clienti</div>
+            </div>
+            <div class="stat-card">
+                <div class="numar">{{ total_vehicule }}</div>
+                <div class="eticheta">Vehicule</div>
+            </div>
+            <div class="stat-card">
+                <div class="numar">{{ programari_azi }}</div>
+                <div class="eticheta">Programari azi</div>
+            </div>
+            <div class="stat-card {% if stoc_critic > 0 %}critic{% endif %}">
+                <div class="numar">{{ stoc_critic }}</div>
+                <div class="eticheta">Stoc critic</div>
+            </div>
+        </div>
+
+        <a href="/programari/adauga" class="btn-add">+ Programare noua</a>
+
+        <div class="sectiune">
+            <h3>Urmatoarele programari</h3>
+            {% if programari_urm %}
+                {% for p in programari_urm %}
+                <div class="prog-item">
+                    <div class="prog-data">{{ p.data_programare }} &nbsp; {{ p.ora_start }} – {{ p.ora_sfarsit }}</div>
+                    <div class="prog-client">{{ p.client }}</div>
+                    <div class="prog-vehicul">{{ p.vehicul }}</div>
+                    {% if p.descriere %}
+                    <div class="prog-desc">{{ p.descriere }}</div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="gol">Nicio programare viitoare.</div>
+            {% endif %}
+        </div>
     </div>
-  {% endfor %}
-{% else %}
-  <div class="empty-state">
-    <div class="empty-icon">📭</div>
-    <div class="empty-text">Nicio programare în următoarele 7 zile</div>
-  </div>
-{% endif %}
-{% endblock %}
+</body>
+</html>
