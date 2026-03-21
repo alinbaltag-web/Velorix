@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% set active_nav = 'dashboard' %}
+{% block title %}Dashboard — Velorix{% endblock %}
+{% block header_title %}Dashboard{% endblock %}
+
+{% block content %}
+<p class="page-meta">{{ today.replace('-', '/') }} &nbsp;·&nbsp; {{ stats.luna }}</p>
+
+<!-- KPI Cards -->
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <div class="kpi-label">Venituri luna</div>
+    <div class="kpi-val">{{ "{:,.0f}".format(stats.venituri) }} RON</div>
+    <div class="kpi-sub">
+      Man: {{ "{:,.0f}".format(stats.man_tva) }}
+      &nbsp;·&nbsp;
+      Piese: {{ "{:,.0f}".format(stats.piese_tva) }}
+    </div>
+  </div>
+  <div class="kpi-card orange">
+    <div class="kpi-label">Lucrări în curs</div>
+    <div class="kpi-val">{{ stats.in_lucru }}</div>
+    <div class="kpi-sub">active</div>
+  </div>
+  <div class="kpi-card green">
+    <div class="kpi-label">Clienți totali</div>
+    <div class="kpi-val">{{ stats.clienti }}</div>
+    <div class="kpi-sub">înregistrați</div>
+  </div>
+  <div class="kpi-card purple">
+    <div class="kpi-label">Programări azi</div>
+    <div class="kpi-val">{{ stats.prog_azi }}</div>
+    <div class="kpi-sub">astăzi</div>
+  </div>
+</div>
+
+<!-- Upcoming appointments -->
+<p class="section-title">📅 Programări următoare</p>
+
+{% if programari %}
+  {% set ns = namespace(last_date='') %}
+  {% for p in programari %}
+    {% if p.data != ns.last_date %}
+      {% set ns.last_date = p.data %}
+      <p class="date-chip">{{ p.data }}</p>
+    {% endif %}
+    <div class="list-item">
+      <div class="time-badge">
+        {{ p.ora_start }}
+        <small>{{ p.ora_sfarsit }}</small>
+      </div>
+      <div class="list-item-body">
+        <div class="list-item-title">{{ p.client }}</div>
+        <div class="list-item-sub">{{ p.vehicul or '—' }}</div>
+        {% if p.descriere %}
+        <div class="list-item-sub" style="margin-top:3px;">{{ p.descriere }}</div>
+        {% endif %}
+      </div>
+      <span class="badge badge-{{ p.status }}">{{ p.status }}</span>
+    </div>
+  {% endfor %}
+{% else %}
+  <div class="empty-state">
+    <div class="empty-icon">📭</div>
+    <div class="empty-text">Nicio programare în următoarele 7 zile</div>
+  </div>
+{% endif %}
+{% endblock %}

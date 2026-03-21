@@ -1,0 +1,27 @@
+<svg width="400" height="100" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="lgFulger" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196F3"/>
+      <stop offset="100%" style="stop-color:#1a4fa0"/>
+    </linearGradient>
+    <linearGradient id="lgLinie" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2196F3"/>
+      <stop offset="100%" style="stop-color:#1565C0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fulger geometric -->
+  <polygon points="34,8 16,46 30,46 20,88 52,40 37,40 50,8" fill="url(#lgFulger)"/>
+
+  <!-- Linie separator verticală -->
+  <line x1="70" y1="14" x2="70" y2="86" stroke="#c5d5ea" stroke-width="1.5"/>
+
+  <!-- Text VELORIX -->
+  <text x="84" y="63" font-family="'Arial Black', Arial" font-weight="900" font-size="38" letter-spacing="6" fill="#0f2137">VELORIX</text>
+
+  <!-- Linie accent sub text -->
+  <rect x="84" y="72" width="298" height="2.5" rx="1.2" fill="url(#lgLinie)"/>
+
+  <!-- Tagline -->
+  <text x="86" y="90" font-family="Arial" font-size="10" letter-spacing="4" fill="#64748b">WHERE SPEED MEETS CARE</text>
+</svg>

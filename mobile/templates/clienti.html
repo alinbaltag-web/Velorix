@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% set active_nav = 'clienti' %}
+{% block title %}Clienți — Velorix{% endblock %}
+{% block header_title %}Clienți{% endblock %}
+
+{% block content %}
+<form class="search-bar" method="GET" action="{{ url_for('clienti') }}">
+  <input type="search" name="q" class="search-input"
+         placeholder="Caută după nume, telefon..."
+         value="{{ q }}" autocomplete="off" autocorrect="off">
+  <button type="submit" class="btn btn-primary btn-sm">Caută</button>
+</form>
+
+{% if clienti %}
+  {% for c in clienti %}
+  <div class="list-item">
+    <div class="avatar {% if c.tip == 'Persoana Juridica' %}avatar-pj{% else %}avatar-pf{% endif %}">
+      {% if c.tip == 'Persoana Juridica' %}🏢{% else %}👤{% endif %}
+    </div>
+    <div class="list-item-body">
+      <div class="list-item-title">{{ c.nume }}</div>
+      <div class="list-item-sub">
+        {{ c.telefon }}{% if c.telefon and c.email %} &nbsp;·&nbsp; {% endif %}{{ c.email }}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+{% else %}
+  <div class="empty-state">
+    <div class="empty-icon">👥</div>
+    <div class="empty-text">
+      {% if q %}
+        Niciun client găsit pentru „{{ q }}"
+      {% else %}
+        Niciun client înregistrat
+      {% endif %}
+    </div>
+  </div>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<a href="{{ url_for('client_nou') }}" class="fab" title="Adaugă client">+</a>
+{% endblock %}

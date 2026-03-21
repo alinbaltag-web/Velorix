@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% set active_nav = 'programari' %}
+{% block title %}Programări — Velorix{% endblock %}
+{% block header_title %}Programări{% endblock %}
+
+{% block content %}
+<!-- Day navigation -->
+<div class="day-nav">
+  <a href="{{ url_for('programari', data=prev_day) }}" class="day-nav-btn">‹</a>
+  <div class="day-nav-date">
+    <input type="date" id="date-picker" value="{{ data_filter }}"
+           onchange="window.location='{{ url_for('programari') }}?data='+this.value">
+  </div>
+  <a href="{{ url_for('programari', data=next_day) }}" class="day-nav-btn">›</a>
+</div>
+
+{% if data_filter == today %}
+<p class="today-pill">Astăzi</p>
+{% endif %}
+
+{% if programari %}
+  {% for p in programari %}
+  <div class="list-item">
+    <div class="time-badge">
+      {{ p.ora_start }}
+      <small>{{ p.ora_sfarsit }}</small>
+    </div>
+    <div class="list-item-body">
+      <div class="list-item-title">{{ p.client }}</div>
+      <div class="list-item-sub">{{ p.vehicul or '—' }}</div>
+      {% if p.descriere %}
+      <div class="list-item-sub" style="margin-top:3px;">{{ p.descriere }}</div>
+      {% endif %}
+      {% if p.observatii %}
+      <div class="list-item-sub" style="font-style:italic;margin-top:2px;">{{ p.observatii }}</div>
+      {% endif %}
+    </div>
+    <span class="badge badge-{{ p.status }}">{{ p.status }}</span>
+  </div>
+  {% endfor %}
+{% else %}
+  <div class="empty-state">
+    <div class="empty-icon">📅</div>
+    <div class="empty-text">Nicio programare pentru această zi</div>
+  </div>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<a href="{{ url_for('programare_nou', data=data_filter) }}" class="fab" title="Programare nouă">+</a>
+{% endblock %}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="theme-color" content="#1e3a5f">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Login — Velorix</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+</head>
+<body>
+<div class="login-page">
+  <div class="login-card">
+    <div class="login-logo">
+      <h1>⚡ VELORIX</h1>
+      <p>Management Service Moto</p>
+    </div>
+
+    {% if error %}
+    <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+
+    <form method="POST" autocomplete="on">
+      <div class="form-group">
+        <label class="form-label">Username</label>
+        <input type="text" name="username" class="form-control"
+               autocomplete="username" autocapitalize="none"
+               autofocus required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Parolă</label>
+        <input type="password" name="password" class="form-control"
+               autocomplete="current-password" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Intră în cont</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>

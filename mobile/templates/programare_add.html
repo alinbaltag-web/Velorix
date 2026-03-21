@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% set active_nav = 'programari' %}
+{% set back_url = url_for('programari', data=prefill_date) %}
+{% block title %}Programare nouă — Velorix{% endblock %}
+{% block header_title %}Programare nouă{% endblock %}
+
+{% block content %}
+{% if error %}
+<div class="alert alert-danger">{{ error }}</div>
+{% endif %}
+
+<div class="card">
+  <form method="POST" id="prog-form">
+
+    <!-- Tip client -->
+    <div class="form-group">
+      <label class="form-label">Client</label>
+      <div class="tip-selector">
+        <button type="button" class="tip-btn active" id="btn-ocaz"
+                onclick="setTipClient('ocazional')">Ocazional</button>
+        <button type="button" class="tip-btn" id="btn-exist"
+                onclick="setTipClient('existent')">Din baza de date</button>
+      </div>
+      <input type="hidden" name="tip_client" id="tip-client-input" value="ocazional">
+    </div>
+
+    <!-- Ocazional -->
+    <div id="ocazional-fields">
+      <div class="form-group">
+        <label class="form-label">Nume client</label>
+        <input type="text" name="nume_ocazional" class="form-control"
+               placeholder="Nume client ocazional">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Telefon</label>
+        <input type="tel" name="tel_ocazional" class="form-control"
+               placeholder="07xx xxx xxx">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Vehicul</label>
+        <input type="text" name="vehicul_ocazional" class="form-control"
+               placeholder="ex: Honda CBR 600 – B-01-VLX">
+      </div>
+    </div>
+
+    <!-- Client existent -->
+    <div id="existent-fields" style="display:none;">
+      <div class="form-group">
+        <label class="form-label">Selectează client</label>
+        <select name="id_client" id="sel-client" class="form-control"
+                onchange="loadVehicule(this.value)">
+          <option value="">— Selectează client —</option>
+          {% for c in clienti %}
+          <option value="{{ c.id }}">
+            {{ c.nume }}{% if c.telefon %} · {{ c.telefon }}{% endif %}
+          </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group" id="vehicul-group" style="display:none;">
+        <label class="form-label">Vehicul</label>
+        <select name="id_vehicul" id="sel-vehicul" class="form-control">
+          <option value="">— Selectează vehicul —</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Data si ore -->
+    <div class="form-group">
+      <label class="form-label">Data *</label>
+      <input type="date" name="data_programare" class="form-control"
+             value="{{ prefill_date }}" required>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Ora start *</label>
+        <input type="time" name="ora_start" class="form-control"
+               value="09:00" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Ora sfârșit *</label>
+        <input type="time" name="ora_sfarsit" class="form-control"
+               value="10:00" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Descriere lucrare</label>
+      <input type="text" name="descriere" class="form-control"
+             placeholder="ex: Schimb ulei + filtre">
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Observații</label>
+      <textarea name="observatii" class="form-control" rows="2"
+                placeholder="Observații opționale..."></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">💾 Salvează programarea</button>
+  </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function setTipClient(tip) {
+  document.getElementById('tip-client-input').value = tip;
+  const isOcaz = tip === 'ocazional';
+  document.getElementById('btn-ocaz').classList.toggle('active', isOcaz);
+  document.getElementById('btn-exist').classList.toggle('active', !isOcaz);
+  document.getElementById('ocazional-fields').style.display = isOcaz ? '' : 'none';
+  document.getElementById('existent-fields').style.display = isOcaz ? 'none' : '';
+}
+
+function loadVehicule(idClient) {
+  const vg  = document.getElementById('vehicul-group');
+  const sel = document.getElementById('sel-vehicul');
+  if (!idClient) { vg.style.display = 'none'; return; }
+  fetch('/api/vehicule/' + idClient)
+    .then(r => r.json())
+    .then(data => {
+      sel.innerHTML = '<option value="">— Selectează vehicul —</option>';
+      data.forEach(v => {
+        const opt = document.createElement('option');
+        opt.value = v.id;
+        opt.textContent = v.text;
+        sel.appendChild(opt);
+      });
+      vg.style.display = data.length ? '' : 'none';
+    });
+}
+</script>
+{% endblock %}

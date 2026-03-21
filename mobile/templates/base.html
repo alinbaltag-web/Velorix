@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="theme-color" content="#1e3a5f">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>{% block title %}Velorix{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+</head>
+<body>
+
+<header class="app-header">
+  {% if back_url is defined and back_url %}
+  <a href="{{ back_url }}" class="back-btn">‹</a>
+  {% endif %}
+  <span class="header-title">{% block header_title %}Velorix{% endblock %}</span>
+  <span style="color:rgba(255,255,255,.6);font-size:12px;flex-shrink:0;">{{ session.user }}</span>
+  <a href="{{ url_for('logout') }}" class="logout-btn" style="margin-left:8px;">Ieșire</a>
+</header>
+
+<main class="app-main">
+  {% block content %}{% endblock %}
+</main>
+
+<nav class="bottom-nav">
+  <a href="{{ url_for('dashboard') }}"
+     class="nav-item {% if active_nav == 'dashboard' %}active{% endif %}">
+    <span class="nav-icon">🏠</span>
+    <span class="nav-label">Dashboard</span>
+  </a>
+  <a href="{{ url_for('clienti') }}"
+     class="nav-item {% if active_nav == 'clienti' %}active{% endif %}">
+    <span class="nav-icon">👥</span>
+    <span class="nav-label">Clienți</span>
+  </a>
+  <a href="{{ url_for('programari') }}"
+     class="nav-item {% if active_nav == 'programari' %}active{% endif %}">
+    <span class="nav-icon">📅</span>
+    <span class="nav-label">Programări</span>
+  </a>
+</nav>
+
+{% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,6 @@
+.env
+*.env
+service_moto.db
+backup/
+__pycache__/
+*.pyc

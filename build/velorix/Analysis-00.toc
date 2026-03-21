@@ -1,0 +1,4277 @@
+(['C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\main.py'],
+ ['C:\\Users\\Alin Baltag\\Desktop\\Service Moto',
+  'C:\\Users\\Alin Baltag\\Desktop\\Service Moto'],
+ ['PyQt5',
+  'PyQt5.QtCore',
+  'PyQt5.QtGui',
+  'PyQt5.QtWidgets',
+  'PyQt5.QtOpenGL',
+  'PyQt5.QtPrintSupport',
+  'PyQt5.sip',
+  'psycopg2',
+  'psycopg2.extensions',
+  'psycopg2._psycopg',
+  'bcrypt',
+  'fpdf',
+  'fpdf.fpdf',
+  'reportlab',
+  'reportlab.pdfgen',
+  'reportlab.pdfgen.canvas',
+  'reportlab.lib',
+  'reportlab.lib.pagesizes',
+  'reportlab.lib.styles',
+  'reportlab.lib.units',
+  'reportlab.lib.colors',
+  'reportlab.platypus',
+  'reportlab.platypus.tables',
+  'reportlab.platypus.flowables',
+  'openpyxl',
+  'openpyxl.styles',
+  'openpyxl.utils',
+  'lxml',
+  'lxml.etree',
+  'PIL',
+  'PIL.Image',
+  'PIL.ImageDraw',
+  'PIL.ImageFont',
+  'dotenv',
+  'ssl',
+  'webbrowser',
+  'sqlite3',
+  'email',
+  'smtplib',
+  'json',
+  'csv',
+  'decimal',
+  'database',
+  'migrations',
+  'migrations_cloud',
+  'migrations_facturare',
+  'sync_manager',
+  'backup_manager',
+  'notification_manager',
+  'efactura_service',
+  'ui',
+  'ui.login_window',
+  'ui.main_window',
+  'ui.session_manager',
+  'ui.utils_toast',
+  'ui.vin_decoder',
+  'ui.export_contabil',
+  'ui.data_marci_modele',
+  'ui.data_specificatii',
+  'ui.pages.page_dashboard',
+  'ui.pages.page_clienti',
+  'ui.pages.page_vehicule',
+  'ui.pages.page_devize',
+  'ui.pages.page_lucrari',
+  'ui.pages.page_facturare',
+  'ui.pages.page_stocuri',
+  'ui.pages.page_rapoarte',
+  'ui.pages.page_setari',
+  'ui.pages.page_fisa_service',
+  'ui.pages.page_biblioteca',
+  'ui.pages.page_istoric_lucrari',
+  'ui.dialogs.dialog_client',
+  'ui.dialogs.dialog_vehicul',
+  'ui.dialogs.dialog_lucrare',
+  'ui.dialogs.dialog_factura',
+  'ui.dialogs.dialog_incasare',
+  'ui.dialogs.dialog_piesa',
+  'ui.dialogs.dialog_programare',
+  'ui.dialogs.dialog_verificari',
+  'ui.dialogs.dialog_miscare_stoc',
+  'ui.dialogs.dialog_selectare_deviz',
+  'ui.pdf.pdf_factura',
+  'ui.pdf.deviz_pdf',
+  'ui.pdf.fisa_service_pdf',
+  'ui.pdf.rar_pdf',
+  'ui.pdf.chitanta_pdf',
+  'ui.widgets.chart_widgets',
+  'ui.widgets.sync_indicator',
+  'ui.widgets.notification_bell',
+  'ui.widgets.checkbox_header',
+  'ui.widgets.selectable_table_controller',
+  'ui.widgets.raport_mecanic_widget',
+  'ui.widgets.tab_export_contabil',
+  'ui.services.notification_service',
+  'update_checker',
+  'codecs'],
+ ['C:\\Users\\Alin '
+  'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\__pyinstaller',
+  'C:\\Users\\Alin '
+  'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\numpy\\_pyinstaller',
+  'C:\\Users\\Alin '
+  'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks',
+  'C:\\Users\\Alin '
+  'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\_pyinstaller_hooks_contrib'],
+ {},
+ ['pyqtgraph',
+  'numpy',
+  'scipy',
+  'matplotlib',
+  'pandas',
+  'tkinter',
+  'unittest',
+  'test',
+  'distutils',
+  'setuptools',
+  'pkg_resources',
+  'pydoc',
+  'doctest',
+  'IPython',
+  'jupyter',
+  'notebook',
+  'colorama'],
+ [],
+ False,
+ False,
+ False,
+ {},
+ [],
+ [('assets\\fonts\\DejaVuSans-Bold.ttf',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\assets\\fonts\\DejaVuSans-Bold.ttf',
+   'DATA'),
+  ('assets\\fonts\\DejaVuSans.ttf',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\assets\\fonts\\DejaVuSans.ttf',
+   'DATA'),
+  ('assets\\icons\\bike.svg',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\icons\\bike.svg',
+   'DATA'),
+  ('assets\\icons\\book.svg',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\icons\\book.svg',
+   'DATA'),
+  ('assets\\icons\\check.svg',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\icons\\check.svg',
+   'DATA'),
+  ('assets\\icons\\document.svg',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\icons\\document.svg',
+   'DATA'),
+  ('assets\\icons\\history.svg',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\icons\\history.svg',
+   'DATA'),
+  ('assets\\icons\\home.svg',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\icons\\home.svg',
+   'DATA'),
+  ('assets\\icons\\progress.svg',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\icons\\progress.svg',
+   'DATA'),
+  ('assets\\icons\\settings.svg',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\icons\\settings.svg',
+   'DATA'),
+  ('assets\\icons\\tools.svg',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\icons\\tools.svg',
+   'DATA'),
+  ('assets\\icons\\users.svg',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\icons\\users.svg',
+   'DATA'),
+  ('assets\\logo_velorix.png',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\logo_velorix.png',
+   'DATA'),
+  ('assets\\logo_velorix.svg',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\logo_velorix.svg',
+   'DATA'),
+  ('assets\\logo_velorix_dark.svg',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\assets\\logo_velorix_dark.svg',
+   'DATA'),
+  ('assets\\translations.py',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\translations.py',
+   'DATA'),
+  ('assets\\velorix.ico',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\velorix.ico',
+   'DATA'),
+  ('reportlab\\fonts\\00readme.txt',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\00readme.txt',
+   'DATA'),
+  ('reportlab\\fonts\\DarkGarden-changelog.txt',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\DarkGarden-changelog.txt',
+   'DATA'),
+  ('reportlab\\fonts\\DarkGarden-copying-gpl.txt',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\DarkGarden-copying-gpl.txt',
+   'DATA'),
+  ('reportlab\\fonts\\DarkGarden-copying.txt',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\DarkGarden-copying.txt',
+   'DATA'),
+  ('reportlab\\fonts\\DarkGarden-readme.txt',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\DarkGarden-readme.txt',
+   'DATA'),
+  ('reportlab\\fonts\\DarkGarden.sfd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\DarkGarden.sfd',
+   'DATA'),
+  ('reportlab\\fonts\\DarkGardenMK.afm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\DarkGardenMK.afm',
+   'DATA'),
+  ('reportlab\\fonts\\DarkGardenMK.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\DarkGardenMK.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\Vera.ttf',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\Vera.ttf',
+   'DATA'),
+  ('reportlab\\fonts\\VeraBI.ttf',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\VeraBI.ttf',
+   'DATA'),
+  ('reportlab\\fonts\\VeraBd.ttf',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\VeraBd.ttf',
+   'DATA'),
+  ('reportlab\\fonts\\VeraIt.ttf',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\VeraIt.ttf',
+   'DATA'),
+  ('reportlab\\fonts\\_a______.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\_a______.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\_ab_____.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\_ab_____.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\_abi____.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\_abi____.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\_ai_____.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\_ai_____.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\_eb_____.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\_eb_____.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\_ebi____.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\_ebi____.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\_ei_____.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\_ei_____.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\_er_____.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\_er_____.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\bitstream-vera-license.txt',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\bitstream-vera-license.txt',
+   'DATA'),
+  ('reportlab\\fonts\\callig15.afm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\callig15.afm',
+   'DATA'),
+  ('reportlab\\fonts\\callig15.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\callig15.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\cob_____.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\cob_____.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\cobo____.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\cobo____.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\com_____.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\com_____.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\coo_____.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\coo_____.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\hb-test.ttf',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\hb-test.ttf',
+   'DATA'),
+  ('reportlab\\fonts\\sy______.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\sy______.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\zd______.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\zd______.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\zx______.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\zx______.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\zy______.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\zy______.pfb',
+   'DATA'),
+  ('styles\\style.qss',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\styles\\style.qss',
+   'DATA')],
+ '3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit '
+ '(AMD64)]',
+ [('pyi_rth_inspect',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_inspect.py',
+   'PYSOURCE'),
+  ('pyi_rth_cryptography_openssl',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\rthooks\\pyi_rth_cryptography_openssl.py',
+   'PYSOURCE'),
+  ('pyi_rth_pyqt5',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_pyqt5.py',
+   'PYSOURCE'),
+  ('pyi_rth_pkgutil',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_pkgutil.py',
+   'PYSOURCE'),
+  ('main',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\main.py',
+   'PYSOURCE')],
+ [('pkgutil',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pkgutil.py',
+   'PYMODULE'),
+  ('zipimport',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\zipimport.py',
+   'PYMODULE'),
+  ('importlib.readers',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\readers.py',
+   'PYMODULE'),
+  ('importlib.resources.readers',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\resources\\readers.py',
+   'PYMODULE'),
+  ('importlib.resources._itertools',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\resources\\_itertools.py',
+   'PYMODULE'),
+  ('importlib.resources.abc',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\resources\\abc.py',
+   'PYMODULE'),
+  ('typing',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\typing.py',
+   'PYMODULE'),
+  ('contextlib',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\contextlib.py',
+   'PYMODULE'),
+  ('importlib.resources',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\resources\\__init__.py',
+   'PYMODULE'),
+  ('importlib.resources._legacy',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\resources\\_legacy.py',
+   'PYMODULE'),
+  ('importlib.resources._common',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\resources\\_common.py',
+   'PYMODULE'),
+  ('importlib.resources._adapters',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\resources\\_adapters.py',
+   'PYMODULE'),
+  ('tempfile',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\tempfile.py',
+   'PYMODULE'),
+  ('random',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\random.py',
+   'PYMODULE'),
+  ('statistics',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\statistics.py',
+   'PYMODULE'),
+  ('fractions',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\fractions.py',
+   'PYMODULE'),
+  ('numbers',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\numbers.py',
+   'PYMODULE'),
+  ('hashlib',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\hashlib.py',
+   'PYMODULE'),
+  ('logging',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\logging\\__init__.py',
+   'PYMODULE'),
+  ('pickle',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pickle.py',
+   'PYMODULE'),
+  ('pprint',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pprint.py',
+   'PYMODULE'),
+  ('dataclasses',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\dataclasses.py',
+   'PYMODULE'),
+  ('copy',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\copy.py',
+   'PYMODULE'),
+  ('_compat_pickle',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\_compat_pickle.py',
+   'PYMODULE'),
+  ('struct',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\struct.py',
+   'PYMODULE'),
+  ('threading',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\threading.py',
+   'PYMODULE'),
+  ('_threading_local',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\_threading_local.py',
+   'PYMODULE'),
+  ('string',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\string.py',
+   'PYMODULE'),
+  ('bisect',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\bisect.py',
+   'PYMODULE'),
+  ('shutil',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\shutil.py',
+   'PYMODULE'),
+  ('tarfile',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\tarfile.py',
+   'PYMODULE'),
+  ('argparse',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\argparse.py',
+   'PYMODULE'),
+  ('textwrap',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\textwrap.py',
+   'PYMODULE'),
+  ('gettext',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\gettext.py',
+   'PYMODULE'),
+  ('gzip',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\gzip.py',
+   'PYMODULE'),
+  ('_compression',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\_compression.py',
+   'PYMODULE'),
+  ('lzma',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\lzma.py',
+   'PYMODULE'),
+  ('bz2',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\bz2.py',
+   'PYMODULE'),
+  ('zipfile',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\zipfile\\__init__.py',
+   'PYMODULE'),
+  ('zipfile._path',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\zipfile\\_path\\__init__.py',
+   'PYMODULE'),
+  ('zipfile._path.glob',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\zipfile\\_path\\glob.py',
+   'PYMODULE'),
+  ('py_compile',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\py_compile.py',
+   'PYMODULE'),
+  ('importlib._bootstrap_external',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\_bootstrap_external.py',
+   'PYMODULE'),
+  ('importlib.metadata',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\metadata\\__init__.py',
+   'PYMODULE'),
+  ('importlib.abc',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\abc.py',
+   'PYMODULE'),
+  ('importlib._abc',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\_abc.py',
+   'PYMODULE'),
+  ('importlib._bootstrap',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\_bootstrap.py',
+   'PYMODULE'),
+  ('importlib.metadata._itertools',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\metadata\\_itertools.py',
+   'PYMODULE'),
+  ('importlib.metadata._functools',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\metadata\\_functools.py',
+   'PYMODULE'),
+  ('importlib.metadata._collections',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\metadata\\_collections.py',
+   'PYMODULE'),
+  ('importlib.metadata._meta',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\metadata\\_meta.py',
+   'PYMODULE'),
+  ('importlib.metadata._adapters',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\metadata\\_adapters.py',
+   'PYMODULE'),
+  ('importlib.metadata._text',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\metadata\\_text.py',
+   'PYMODULE'),
+  ('email.message',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\email\\message.py',
+   'PYMODULE'),
+  ('email.policy',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\email\\policy.py',
+   'PYMODULE'),
+  ('email.contentmanager',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\email\\contentmanager.py',
+   'PYMODULE'),
+  ('email.quoprimime',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\email\\quoprimime.py',
+   'PYMODULE'),
+  ('email.headerregistry',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\email\\headerregistry.py',
+   'PYMODULE'),
+  ('email._header_value_parser',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\email\\_header_value_parser.py',
+   'PYMODULE'),
+  ('email.iterators',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\email\\iterators.py',
+   'PYMODULE'),
+  ('email.generator',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\email\\generator.py',
+   'PYMODULE'),
+  ('email._encoded_words',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\email\\_encoded_words.py',
+   'PYMODULE'),
+  ('base64',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\base64.py',
+   'PYMODULE'),
+  ('getopt',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\getopt.py',
+   'PYMODULE'),
+  ('email.charset',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\email\\charset.py',
+   'PYMODULE'),
+  ('email.encoders',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\email\\encoders.py',
+   'PYMODULE'),
+  ('email.base64mime',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\email\\base64mime.py',
+   'PYMODULE'),
+  ('email._policybase',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\email\\_policybase.py',
+   'PYMODULE'),
+  ('email.header',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\email\\header.py',
+   'PYMODULE'),
+  ('email.errors',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\email\\errors.py',
+   'PYMODULE'),
+  ('email.utils',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\email\\utils.py',
+   'PYMODULE'),
+  ('email._parseaddr',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\email\\_parseaddr.py',
+   'PYMODULE'),
+  ('calendar',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\calendar.py',
+   'PYMODULE'),
+  ('datetime',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\datetime.py',
+   'PYMODULE'),
+  ('_pydatetime',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\_pydatetime.py',
+   'PYMODULE'),
+  ('_strptime',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\_strptime.py',
+   'PYMODULE'),
+  ('socket',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\socket.py',
+   'PYMODULE'),
+  ('selectors',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\selectors.py',
+   'PYMODULE'),
+  ('quopri',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\quopri.py',
+   'PYMODULE'),
+  ('inspect',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\inspect.py',
+   'PYMODULE'),
+  ('dis',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\dis.py',
+   'PYMODULE'),
+  ('opcode',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\opcode.py',
+   'PYMODULE'),
+  ('ast',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\ast.py',
+   'PYMODULE'),
+  ('importlib.machinery',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\machinery.py',
+   'PYMODULE'),
+  ('importlib.util',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\util.py',
+   'PYMODULE'),
+  ('importlib',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\__init__.py',
+   'PYMODULE'),
+  ('ui.widgets.tab_export_contabil',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\ui\\widgets\\tab_export_contabil.py',
+   'PYMODULE'),
+  ('ui.widgets',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\ui\\widgets\\__init__.py',
+   'PYMODULE'),
+  ('platform',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\platform.py',
+   'PYMODULE'),
+  ('subprocess',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\subprocess.py',
+   'PYMODULE'),
+  ('signal',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\signal.py',
+   'PYMODULE'),
+  ('ui.widgets.raport_mecanic_widget',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\ui\\widgets\\raport_mecanic_widget.py',
+   'PYMODULE'),
+  ('ui.widgets.selectable_table_controller',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\ui\\widgets\\selectable_table_controller.py',
+   'PYMODULE'),
+  ('ui.widgets.checkbox_header',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\ui\\widgets\\checkbox_header.py',
+   'PYMODULE'),
+  ('ui.widgets.notification_bell',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\ui\\widgets\\notification_bell.py',
+   'PYMODULE'),
+  ('ui.widgets.sync_indicator',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\ui\\widgets\\sync_indicator.py',
+   'PYMODULE'),
+  ('ui.widgets.chart_widgets',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\ui\\widgets\\chart_widgets.py',
+   'PYMODULE'),
+  ('ui.pdf.chitanta_pdf',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\ui\\pdf\\chitanta_pdf.py',
+   'PYMODULE'),
+  ('ui.pdf', '-', 'PYMODULE'),
+  ('ui.pdf.pdf_base',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\ui\\pdf\\pdf_base.py',
+   'PYMODULE'),
+  ('ui.pdf.rar_pdf',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\ui\\pdf\\rar_pdf.py',
+   'PYMODULE'),
+  ('ui.crypto_utils',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\ui\\crypto_utils.py',
+   'PYMODULE'),
+  ('cryptography.fernet',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\fernet.py',
+   'PYMODULE'),
+  ('cryptography.hazmat.primitives.hmac',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\primitives\\hmac.py',
+   'PYMODULE'),
+  ('cryptography.hazmat.bindings',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\bindings\\__init__.py',
+   'PYMODULE'),
+  ('cryptography.hazmat',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\__init__.py',
+   'PYMODULE'),
+  ('cryptography.hazmat.primitives.ciphers.modes',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\primitives\\ciphers\\modes.py',
+   'PYMODULE'),
+  ('cryptography.hazmat.primitives._cipheralgorithm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\primitives\\_cipheralgorithm.py',
+   'PYMODULE'),
+  ('cryptography.hazmat.primitives.ciphers.algorithms',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\primitives\\ciphers\\algorithms.py',
+   'PYMODULE'),
+  ('cryptography.hazmat.decrepit.ciphers.algorithms',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\decrepit\\ciphers\\algorithms.py',
+   'PYMODULE'),
+  ('cryptography.hazmat.decrepit.ciphers',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\decrepit\\ciphers\\__init__.py',
+   'PYMODULE'),
+  ('cryptography.hazmat.decrepit',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\decrepit\\__init__.py',
+   'PYMODULE'),
+  ('cryptography.hazmat.primitives.ciphers',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\primitives\\ciphers\\__init__.py',
+   'PYMODULE'),
+  ('cryptography.hazmat.primitives.ciphers.base',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\primitives\\ciphers\\base.py',
+   'PYMODULE'),
+  ('cryptography.hazmat.primitives.padding',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\primitives\\padding.py',
+   'PYMODULE'),
+  ('cryptography.hazmat.primitives.hashes',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\primitives\\hashes.py',
+   'PYMODULE'),
+  ('cryptography.hazmat.primitives',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\primitives\\__init__.py',
+   'PYMODULE'),
+  ('cryptography.hazmat.primitives._serialization',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\primitives\\_serialization.py',
+   'PYMODULE'),
+  ('cryptography.exceptions',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\exceptions.py',
+   'PYMODULE'),
+  ('cryptography.utils',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\utils.py',
+   'PYMODULE'),
+  ('cryptography',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\__init__.py',
+   'PYMODULE'),
+  ('cryptography.hazmat.bindings.openssl.binding',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\bindings\\openssl\\binding.py',
+   'PYMODULE'),
+  ('cryptography.hazmat.bindings.openssl._conditional',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\bindings\\openssl\\_conditional.py',
+   'PYMODULE'),
+  ('cryptography.hazmat.bindings.openssl',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\bindings\\openssl\\__init__.py',
+   'PYMODULE'),
+  ('cryptography.hazmat.backends.openssl.backend',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\backends\\openssl\\backend.py',
+   'PYMODULE'),
+  ('cryptography.hazmat.primitives.asymmetric.padding',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\primitives\\asymmetric\\padding.py',
+   'PYMODULE'),
+  ('cryptography.hazmat.primitives.asymmetric.rsa',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\primitives\\asymmetric\\rsa.py',
+   'PYMODULE'),
+  ('cryptography.hazmat.primitives.asymmetric.utils',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\primitives\\asymmetric\\utils.py',
+   'PYMODULE'),
+  ('cryptography.hazmat.primitives.asymmetric.ec',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\primitives\\asymmetric\\ec.py',
+   'PYMODULE'),
+  ('cryptography.hazmat._oid',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\_oid.py',
+   'PYMODULE'),
+  ('cryptography.hazmat.primitives.asymmetric',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\primitives\\asymmetric\\__init__.py',
+   'PYMODULE'),
+  ('cryptography.hazmat.primitives._asymmetric',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\primitives\\_asymmetric.py',
+   'PYMODULE'),
+  ('cryptography.hazmat.backends.openssl',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\backends\\openssl\\__init__.py',
+   'PYMODULE'),
+  ('cryptography.hazmat.backends',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\backends\\__init__.py',
+   'PYMODULE'),
+  ('cryptography.__about__',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\__about__.py',
+   'PYMODULE'),
+  ('__future__',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__future__.py',
+   'PYMODULE'),
+  ('ui.pdf.fisa_service_pdf',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\ui\\pdf\\fisa_service_pdf.py',
+   'PYMODULE'),
+  ('ui.pdf.deviz_pdf',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\ui\\pdf\\deviz_pdf.py',
+   'PYMODULE'),
+  ('ui.pdf.pdf_factura',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\ui\\pdf\\pdf_factura.py',
+   'PYMODULE'),
+  ('ui.dialogs.dialog_selectare_deviz',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\ui\\dialogs\\dialog_selectare_deviz.py',
+   'PYMODULE'),
+  ('ui.dialogs',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\ui\\dialogs\\__init__.py',
+   'PYMODULE'),
+  ('ui.dialogs.dialog_miscare_stoc',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\ui\\dialogs\\dialog_miscare_stoc.py',
+   'PYMODULE'),
+  ('ui.dialogs.dialog_verificari',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\ui\\dialogs\\dialog_verificari.py',
+   'PYMODULE'),
+  ('ui.dialogs.dialog_programare',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\ui\\dialogs\\dialog_programare.py',
+   'PYMODULE'),
+  ('ui.dialogs.dialog_piesa',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\ui\\dialogs\\dialog_piesa.py',
+   'PYMODULE'),
+  ('ui.dialogs.dialog_incasare',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\ui\\dialogs\\dialog_incasare.py',
+   'PYMODULE'),
+  ('ui.dialogs.dialog_factura',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\ui\\dialogs\\dialog_factura.py',
+   'PYMODULE'),
+  ('ui.dialogs.dialog_lucrare',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\ui\\dialogs\\dialog_lucrare.py',
+   'PYMODULE'),
+  ('ui.dialogs.dialog_vehicul',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\ui\\dialogs\\dialog_vehicul.py',
+   'PYMODULE'),
+  ('ui.dialogs.dialog_client',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\ui\\dialogs\\dialog_client.py',
+   'PYMODULE'),
+  ('ui.pages.page_istoric_lucrari',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\ui\\pages\\page_istoric_lucrari.py',
+   'PYMODULE'),
+  ('ui.pages',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\ui\\pages\\__init__.py',
+   'PYMODULE'),
+  ('ui.pages.page_biblioteca',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\ui\\pages\\page_biblioteca.py',
+   'PYMODULE'),
+  ('ui.pages.page_fisa_service',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\ui\\pages\\page_fisa_service.py',
+   'PYMODULE'),
+  ('ui.pages.page_setari',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\ui\\pages\\page_setari.py',
+   'PYMODULE'),
+  ('ui.widgets.nav_button',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\ui\\widgets\\nav_button.py',
+   'PYMODULE'),
+  ('ui.pages.page_rapoarte',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\ui\\pages\\page_rapoarte.py',
+   'PYMODULE'),
+  ('ui.pages.page_stocuri',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\ui\\pages\\page_stocuri.py',
+   'PYMODULE'),
+  ('ui.widgets.search_bar',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\ui\\widgets\\search_bar.py',
+   'PYMODULE'),
+  ('constants',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\constants.py',
+   'PYMODULE'),
+  ('ui.widgets.empty_table_overlay',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\ui\\widgets\\empty_table_overlay.py',
+   'PYMODULE'),
+  ('ui.pages.page_facturare',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\ui\\pages\\page_facturare.py',
+   'PYMODULE'),
+  ('ui.pages.page_lucrari',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\ui\\pages\\page_lucrari.py',
+   'PYMODULE'),
+  ('ui.pages.page_devize',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\ui\\pages\\page_devize.py',
+   'PYMODULE'),
+  ('ui.pages.page_vehicule',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\ui\\pages\\page_vehicule.py',
+   'PYMODULE'),
+  ('ui.pages.page_clienti',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\ui\\pages\\page_clienti.py',
+   'PYMODULE'),
+  ('ui.pages.page_dashboard',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\ui\\pages\\page_dashboard.py',
+   'PYMODULE'),
+  ('ui.data_specificatii',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\ui\\data_specificatii.py',
+   'PYMODULE'),
+  ('ui.data_marci_modele',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\ui\\data_marci_modele.py',
+   'PYMODULE'),
+  ('ui.export_contabil',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\ui\\export_contabil.py',
+   'PYMODULE'),
+  ('reportlab.lib.enums',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\lib\\enums.py',
+   'PYMODULE'),
+  ('openpyxl.styles.numbers',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\styles\\numbers.py',
+   'PYMODULE'),
+  ('openpyxl.descriptors.serialisable',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\descriptors\\serialisable.py',
+   'PYMODULE'),
+  ('openpyxl.xml.functions',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\xml\\functions.py',
+   'PYMODULE'),
+  ('openpyxl.xml',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\xml\\__init__.py',
+   'PYMODULE'),
+  ('defusedxml',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\defusedxml\\__init__.py',
+   'PYMODULE'),
+  ('defusedxml.xmlrpc',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\defusedxml\\xmlrpc.py',
+   'PYMODULE'),
+  ('xmlrpc.server',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\xmlrpc\\server.py',
+   'PYMODULE'),
+  ('socketserver',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\socketserver.py',
+   'PYMODULE'),
+  ('html',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\html\\__init__.py',
+   'PYMODULE'),
+  ('html.entities',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\html\\entities.py',
+   'PYMODULE'),
+  ('http.server',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\http\\server.py',
+   'PYMODULE'),
+  ('http',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\http\\__init__.py',
+   'PYMODULE'),
+  ('mimetypes',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\mimetypes.py',
+   'PYMODULE'),
+  ('http.client',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\http\\client.py',
+   'PYMODULE'),
+  ('email.parser',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\email\\parser.py',
+   'PYMODULE'),
+  ('email.feedparser',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\email\\feedparser.py',
+   'PYMODULE'),
+  ('xmlrpc',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\xmlrpc\\__init__.py',
+   'PYMODULE'),
+  ('xmlrpc.client',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\xmlrpc\\client.py',
+   'PYMODULE'),
+  ('xml.parsers.expat',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\xml\\parsers\\expat.py',
+   'PYMODULE'),
+  ('xml.parsers',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\xml\\parsers\\__init__.py',
+   'PYMODULE'),
+  ('xml',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\xml\\__init__.py',
+   'PYMODULE'),
+  ('xml.sax.expatreader',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\xml\\sax\\expatreader.py',
+   'PYMODULE'),
+  ('xml.sax.saxutils',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\xml\\sax\\saxutils.py',
+   'PYMODULE'),
+  ('xml.sax',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\xml\\sax\\__init__.py',
+   'PYMODULE'),
+  ('xml.sax.handler',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\xml\\sax\\handler.py',
+   'PYMODULE'),
+  ('xml.sax._exceptions',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\xml\\sax\\_exceptions.py',
+   'PYMODULE'),
+  ('xml.sax.xmlreader',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\xml\\sax\\xmlreader.py',
+   'PYMODULE'),
+  ('defusedxml.sax',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\defusedxml\\sax.py',
+   'PYMODULE'),
+  ('defusedxml.minidom',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\defusedxml\\minidom.py',
+   'PYMODULE'),
+  ('xml.dom.minidom',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\xml\\dom\\minidom.py',
+   'PYMODULE'),
+  ('xml.dom.pulldom',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\xml\\dom\\pulldom.py',
+   'PYMODULE'),
+  ('xml.dom.expatbuilder',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\xml\\dom\\expatbuilder.py',
+   'PYMODULE'),
+  ('xml.dom.NodeFilter',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\xml\\dom\\NodeFilter.py',
+   'PYMODULE'),
+  ('xml.dom.xmlbuilder',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\xml\\dom\\xmlbuilder.py',
+   'PYMODULE'),
+  ('xml.dom.minicompat',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\xml\\dom\\minicompat.py',
+   'PYMODULE'),
+  ('xml.dom.domreg',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\xml\\dom\\domreg.py',
+   'PYMODULE'),
+  ('xml.dom',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\xml\\dom\\__init__.py',
+   'PYMODULE'),
+  ('defusedxml.pulldom',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\defusedxml\\pulldom.py',
+   'PYMODULE'),
+  ('defusedxml.expatreader',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\defusedxml\\expatreader.py',
+   'PYMODULE'),
+  ('defusedxml.expatbuilder',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\defusedxml\\expatbuilder.py',
+   'PYMODULE'),
+  ('defusedxml.cElementTree',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\defusedxml\\cElementTree.py',
+   'PYMODULE'),
+  ('xml.etree.cElementTree',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\xml\\etree\\cElementTree.py',
+   'PYMODULE'),
+  ('xml.etree',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\xml\\etree\\__init__.py',
+   'PYMODULE'),
+  ('xml.etree.ElementPath',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\xml\\etree\\ElementPath.py',
+   'PYMODULE'),
+  ('defusedxml.common',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\defusedxml\\common.py',
+   'PYMODULE'),
+  ('openpyxl.xml.constants',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\xml\\constants.py',
+   'PYMODULE'),
+  ('defusedxml.ElementTree',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\defusedxml\\ElementTree.py',
+   'PYMODULE'),
+  ('et_xmlfile.xmlfile',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\et_xmlfile\\xmlfile.py',
+   'PYMODULE'),
+  ('et_xmlfile.incremental_tree',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\et_xmlfile\\incremental_tree.py',
+   'PYMODULE'),
+  ('et_xmlfile',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\et_xmlfile\\__init__.py',
+   'PYMODULE'),
+  ('xml.etree.ElementTree',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\xml\\etree\\ElementTree.py',
+   'PYMODULE'),
+  ('xml.etree.ElementInclude',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\xml\\etree\\ElementInclude.py',
+   'PYMODULE'),
+  ('openpyxl.compat',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\compat\\__init__.py',
+   'PYMODULE'),
+  ('openpyxl.compat.strings',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\compat\\strings.py',
+   'PYMODULE'),
+  ('openpyxl.compat.numbers',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\compat\\numbers.py',
+   'PYMODULE'),
+  ('openpyxl.descriptors.namespace',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\descriptors\\namespace.py',
+   'PYMODULE'),
+  ('openpyxl.descriptors.sequence',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\descriptors\\sequence.py',
+   'PYMODULE'),
+  ('openpyxl.descriptors.base',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\descriptors\\base.py',
+   'PYMODULE'),
+  ('openpyxl.utils.datetime',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\utils\\datetime.py',
+   'PYMODULE'),
+  ('openpyxl.utils.indexed_list',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\utils\\indexed_list.py',
+   'PYMODULE'),
+  ('openpyxl.descriptors',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\descriptors\\__init__.py',
+   'PYMODULE'),
+  ('ui.vin_decoder',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\ui\\vin_decoder.py',
+   'PYMODULE'),
+  ('ui.utils_toast',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\ui\\utils_toast.py',
+   'PYMODULE'),
+  ('ui.session_manager',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\ui\\session_manager.py',
+   'PYMODULE'),
+  ('ui.main_window',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\ui\\main_window.py',
+   'PYMODULE'),
+  ('ctypes',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\ctypes\\__init__.py',
+   'PYMODULE'),
+  ('ctypes._endian',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\ctypes\\_endian.py',
+   'PYMODULE'),
+  ('assets.translations',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\translations.py',
+   'PYMODULE'),
+  ('assets', '-', 'PYMODULE'),
+  ('ui',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\ui\\__init__.py',
+   'PYMODULE'),
+  ('efactura_service',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\efactura_service.py',
+   'PYMODULE'),
+  ('notification_manager',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\notification_manager.py',
+   'PYMODULE'),
+  ('logger',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\logger.py',
+   'PYMODULE'),
+  ('logging.handlers',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\logging\\handlers.py',
+   'PYMODULE'),
+  ('queue',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\queue.py',
+   'PYMODULE'),
+  ('decimal',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\decimal.py',
+   'PYMODULE'),
+  ('_pydecimal',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\_pydecimal.py',
+   'PYMODULE'),
+  ('contextvars',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\contextvars.py',
+   'PYMODULE'),
+  ('csv',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\csv.py',
+   'PYMODULE'),
+  ('json',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\json\\__init__.py',
+   'PYMODULE'),
+  ('json.encoder',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\json\\encoder.py',
+   'PYMODULE'),
+  ('json.decoder',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\json\\decoder.py',
+   'PYMODULE'),
+  ('json.scanner',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\json\\scanner.py',
+   'PYMODULE'),
+  ('smtplib',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\smtplib.py',
+   'PYMODULE'),
+  ('hmac',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\hmac.py',
+   'PYMODULE'),
+  ('email',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\email\\__init__.py',
+   'PYMODULE'),
+  ('sqlite3',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\sqlite3\\__init__.py',
+   'PYMODULE'),
+  ('sqlite3.dump',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\sqlite3\\dump.py',
+   'PYMODULE'),
+  ('sqlite3.__main__',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\sqlite3\\__main__.py',
+   'PYMODULE'),
+  ('code',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\code.py',
+   'PYMODULE'),
+  ('codeop',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\codeop.py',
+   'PYMODULE'),
+  ('sqlite3.dbapi2',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\sqlite3\\dbapi2.py',
+   'PYMODULE'),
+  ('webbrowser',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\webbrowser.py',
+   'PYMODULE'),
+  ('shlex',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\shlex.py',
+   'PYMODULE'),
+  ('ssl',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\ssl.py',
+   'PYMODULE'),
+  ('dotenv',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\dotenv\\__init__.py',
+   'PYMODULE'),
+  ('dotenv.ipython',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\dotenv\\ipython.py',
+   'PYMODULE'),
+  ('dotenv.main',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\dotenv\\main.py',
+   'PYMODULE'),
+  ('dotenv.variables',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\dotenv\\variables.py',
+   'PYMODULE'),
+  ('dotenv.parser',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\dotenv\\parser.py',
+   'PYMODULE'),
+  ('PIL.ImageFont',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\ImageFont.py',
+   'PYMODULE'),
+  ('PIL.ImageFile',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\ImageFile.py',
+   'PYMODULE'),
+  ('PIL.TiffImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\TiffImagePlugin.py',
+   'PYMODULE'),
+  ('PIL._binary',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\_binary.py',
+   'PYMODULE'),
+  ('PIL.TiffTags',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\TiffTags.py',
+   'PYMODULE'),
+  ('PIL.ImagePalette',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\ImagePalette.py',
+   'PYMODULE'),
+  ('PIL.PaletteFile',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\PaletteFile.py',
+   'PYMODULE'),
+  ('PIL.ImageColor',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\ImageColor.py',
+   'PYMODULE'),
+  ('colorsys',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\colorsys.py',
+   'PYMODULE'),
+  ('PIL.GimpPaletteFile',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\GimpPaletteFile.py',
+   'PYMODULE'),
+  ('PIL.GimpGradientFile',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\GimpGradientFile.py',
+   'PYMODULE'),
+  ('PIL.ImageOps',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\ImageOps.py',
+   'PYMODULE'),
+  ('PIL.ExifTags',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\ExifTags.py',
+   'PYMODULE'),
+  ('PIL._util',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\_util.py',
+   'PYMODULE'),
+  ('PIL._typing',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\_typing.py',
+   'PYMODULE'),
+  ('PIL.ImageDraw',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\ImageDraw.py',
+   'PYMODULE'),
+  ('PIL.ImageDraw2',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\ImageDraw2.py',
+   'PYMODULE'),
+  ('PIL.ImagePath',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\ImagePath.py',
+   'PYMODULE'),
+  ('PIL.ImageText',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\ImageText.py',
+   'PYMODULE'),
+  ('PIL.Image',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\Image.py',
+   'PYMODULE'),
+  ('PIL.XpmImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\XpmImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.XbmImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\XbmImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.XVThumbImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\XVThumbImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.WmfImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\WmfImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.WebPImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\WebPImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.TgaImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\TgaImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.SunImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\SunImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.SpiderImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\SpiderImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.ImageTk',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\ImageTk.py',
+   'PYMODULE'),
+  ('PIL.SgiImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\SgiImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.QoiImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\QoiImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.PsdImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\PsdImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.PixarImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\PixarImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.PdfImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\PdfImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.features',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\features.py',
+   'PYMODULE'),
+  ('PIL.PdfParser',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\PdfParser.py',
+   'PYMODULE'),
+  ('PIL.ImageSequence',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\ImageSequence.py',
+   'PYMODULE'),
+  ('PIL.PcxImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\PcxImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.PcdImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\PcdImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.PalmImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\PalmImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.MspImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\MspImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.MpoImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\MpoImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.MpegImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\MpegImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.MicImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\MicImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.McIdasImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\McIdasImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.Jpeg2KImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\Jpeg2KImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.IptcImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\IptcImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.ImtImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\ImtImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.ImImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\ImImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.IcoImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\IcoImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.IcnsImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\IcnsImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.Hdf5StubImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\Hdf5StubImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.GribStubImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\GribStubImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.GbrImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\GbrImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.FtexImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\FtexImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.FpxImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\FpxImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.FliImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\FliImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.FitsImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\FitsImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.EpsImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\EpsImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.DdsImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\DdsImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.DcxImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\DcxImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.CurImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\CurImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.BufrStubImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\BufrStubImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.BlpImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\BlpImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.AvifImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\AvifImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.ImageShow',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\ImageShow.py',
+   'PYMODULE'),
+  ('PIL.ImageCms',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\ImageCms.py',
+   'PYMODULE'),
+  ('PIL.ImageWin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\ImageWin.py',
+   'PYMODULE'),
+  ('PIL.PngImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\PngImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.ImageChops',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\ImageChops.py',
+   'PYMODULE'),
+  ('PIL.PpmImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\PpmImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.JpegImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\JpegImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.JpegPresets',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\JpegPresets.py',
+   'PYMODULE'),
+  ('PIL.GifImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\GifImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.ImageMath',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\ImageMath.py',
+   'PYMODULE'),
+  ('PIL.BmpImagePlugin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\BmpImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.ImageQt',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\ImageQt.py',
+   'PYMODULE'),
+  ('PIL.ImageFilter',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\ImageFilter.py',
+   'PYMODULE'),
+  ('PIL._deprecate',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\_deprecate.py',
+   'PYMODULE'),
+  ('PIL.ImageMode',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\ImageMode.py',
+   'PYMODULE'),
+  ('PIL',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\__init__.py',
+   'PYMODULE'),
+  ('PIL._version',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\_version.py',
+   'PYMODULE'),
+  ('lxml',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\__init__.py',
+   'PYMODULE'),
+  ('lxml.usedoctest',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\usedoctest.py',
+   'PYMODULE'),
+  ('lxml.pyclasslookup',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\pyclasslookup.py',
+   'PYMODULE'),
+  ('lxml.isoschematron',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\isoschematron\\__init__.py',
+   'PYMODULE'),
+  ('lxml.includes.libxslt',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\includes\\libxslt\\__init__.py',
+   'PYMODULE'),
+  ('lxml.includes.libxml',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\includes\\libxml\\__init__.py',
+   'PYMODULE'),
+  ('lxml.includes.libexslt',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\includes\\libexslt\\__init__.py',
+   'PYMODULE'),
+  ('lxml.includes.extlibs',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\includes\\extlibs\\__init__.py',
+   'PYMODULE'),
+  ('lxml.includes',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\includes\\__init__.py',
+   'PYMODULE'),
+  ('lxml.html.usedoctest',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\html\\usedoctest.py',
+   'PYMODULE'),
+  ('lxml.html.soupparser',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\html\\soupparser.py',
+   'PYMODULE'),
+  ('lxml.html.html5parser',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\html\\html5parser.py',
+   'PYMODULE'),
+  ('lxml.html.formfill',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\html\\formfill.py',
+   'PYMODULE'),
+  ('lxml.html.defs',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\html\\defs.py',
+   'PYMODULE'),
+  ('lxml.html.clean',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\html\\clean.py',
+   'PYMODULE'),
+  ('lxml.html.builder',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\html\\builder.py',
+   'PYMODULE'),
+  ('lxml.html._setmixin',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\html\\_setmixin.py',
+   'PYMODULE'),
+  ('lxml.html._html5builder',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\html\\_html5builder.py',
+   'PYMODULE'),
+  ('lxml.html._diffcommand',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\html\\_diffcommand.py',
+   'PYMODULE'),
+  ('optparse',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\optparse.py',
+   'PYMODULE'),
+  ('lxml.html.ElementSoup',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\html\\ElementSoup.py',
+   'PYMODULE'),
+  ('lxml.html',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\html\\__init__.py',
+   'PYMODULE'),
+  ('lxml.doctestcompare',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\doctestcompare.py',
+   'PYMODULE'),
+  ('cgi',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\cgi.py',
+   'PYMODULE'),
+  ('lxml.cssselect',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\cssselect.py',
+   'PYMODULE'),
+  ('lxml.ElementInclude',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\ElementInclude.py',
+   'PYMODULE'),
+  ('openpyxl.utils',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\utils\\__init__.py',
+   'PYMODULE'),
+  ('openpyxl.utils.formulas',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\utils\\formulas.py',
+   'PYMODULE'),
+  ('openpyxl.formula',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\formula\\__init__.py',
+   'PYMODULE'),
+  ('openpyxl.formula.tokenizer',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\formula\\tokenizer.py',
+   'PYMODULE'),
+  ('openpyxl.utils.cell',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\utils\\cell.py',
+   'PYMODULE'),
+  ('openpyxl.utils.exceptions',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\utils\\exceptions.py',
+   'PYMODULE'),
+  ('openpyxl.styles',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\styles\\__init__.py',
+   'PYMODULE'),
+  ('openpyxl.styles.named_styles',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\styles\\named_styles.py',
+   'PYMODULE'),
+  ('openpyxl.styles.cell_style',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\styles\\cell_style.py',
+   'PYMODULE'),
+  ('openpyxl.descriptors.excel',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\descriptors\\excel.py',
+   'PYMODULE'),
+  ('openpyxl.styles.protection',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\styles\\protection.py',
+   'PYMODULE'),
+  ('openpyxl.styles.fonts',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\styles\\fonts.py',
+   'PYMODULE'),
+  ('openpyxl.descriptors.nested',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\descriptors\\nested.py',
+   'PYMODULE'),
+  ('openpyxl.styles.fills',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\styles\\fills.py',
+   'PYMODULE'),
+  ('openpyxl.styles.colors',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\styles\\colors.py',
+   'PYMODULE'),
+  ('openpyxl.styles.borders',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\styles\\borders.py',
+   'PYMODULE'),
+  ('openpyxl.styles.alignment',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\styles\\alignment.py',
+   'PYMODULE'),
+  ('openpyxl',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\__init__.py',
+   'PYMODULE'),
+  ('openpyxl._constants',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\_constants.py',
+   'PYMODULE'),
+  ('openpyxl.reader.excel',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\reader\\excel.py',
+   'PYMODULE'),
+  ('openpyxl.reader',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\reader\\__init__.py',
+   'PYMODULE'),
+  ('openpyxl.reader.drawings',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\reader\\drawings.py',
+   'PYMODULE'),
+  ('openpyxl.chart.reader',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\reader.py',
+   'PYMODULE'),
+  ('openpyxl.chart',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\__init__.py',
+   'PYMODULE'),
+  ('openpyxl.chart.reference',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\reference.py',
+   'PYMODULE'),
+  ('openpyxl.worksheet.worksheet',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\worksheet\\worksheet.py',
+   'PYMODULE'),
+  ('openpyxl.worksheet',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\worksheet\\__init__.py',
+   'PYMODULE'),
+  ('openpyxl.worksheet.print_settings',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\worksheet\\print_settings.py',
+   'PYMODULE'),
+  ('openpyxl.worksheet.formula',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\worksheet\\formula.py',
+   'PYMODULE'),
+  ('openpyxl.worksheet.scenario',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\worksheet\\scenario.py',
+   'PYMODULE'),
+  ('openpyxl.worksheet.pagebreak',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\worksheet\\pagebreak.py',
+   'PYMODULE'),
+  ('openpyxl.worksheet.properties',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\worksheet\\properties.py',
+   'PYMODULE'),
+  ('openpyxl.worksheet.merge',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\worksheet\\merge.py',
+   'PYMODULE'),
+  ('openpyxl.cell.cell',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\cell\\cell.py',
+   'PYMODULE'),
+  ('openpyxl.cell.rich_text',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\cell\\rich_text.py',
+   'PYMODULE'),
+  ('openpyxl.cell.text',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\cell\\text.py',
+   'PYMODULE'),
+  ('openpyxl.worksheet.hyperlink',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\worksheet\\hyperlink.py',
+   'PYMODULE'),
+  ('openpyxl.styles.styleable',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\styles\\styleable.py',
+   'PYMODULE'),
+  ('openpyxl.styles.builtins',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\styles\\builtins.py',
+   'PYMODULE'),
+  ('openpyxl.styles.proxy',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\styles\\proxy.py',
+   'PYMODULE'),
+  ('openpyxl.worksheet.cell_range',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\worksheet\\cell_range.py',
+   'PYMODULE'),
+  ('openpyxl.worksheet.views',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\worksheet\\views.py',
+   'PYMODULE'),
+  ('openpyxl.worksheet.filters',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\worksheet\\filters.py',
+   'PYMODULE'),
+  ('openpyxl.worksheet.protection',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\worksheet\\protection.py',
+   'PYMODULE'),
+  ('openpyxl.utils.protection',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\utils\\protection.py',
+   'PYMODULE'),
+  ('openpyxl.worksheet.dimensions',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\worksheet\\dimensions.py',
+   'PYMODULE'),
+  ('openpyxl.utils.bound_dictionary',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\utils\\bound_dictionary.py',
+   'PYMODULE'),
+  ('openpyxl.utils.units',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\utils\\units.py',
+   'PYMODULE'),
+  ('openpyxl.worksheet.page',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\worksheet\\page.py',
+   'PYMODULE'),
+  ('openpyxl.worksheet.datavalidation',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\worksheet\\datavalidation.py',
+   'PYMODULE'),
+  ('openpyxl.formula.translate',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\formula\\translate.py',
+   'PYMODULE'),
+  ('openpyxl.workbook.defined_name',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\workbook\\defined_name.py',
+   'PYMODULE'),
+  ('openpyxl.workbook.child',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\workbook\\child.py',
+   'PYMODULE'),
+  ('openpyxl.worksheet.header_footer',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\worksheet\\header_footer.py',
+   'PYMODULE'),
+  ('openpyxl.utils.escape',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\utils\\escape.py',
+   'PYMODULE'),
+  ('openpyxl.formatting.formatting',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\formatting\\formatting.py',
+   'PYMODULE'),
+  ('openpyxl.formatting',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\formatting\\__init__.py',
+   'PYMODULE'),
+  ('openpyxl.formatting.rule',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\formatting\\rule.py',
+   'PYMODULE'),
+  ('openpyxl.styles.differential',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\styles\\differential.py',
+   'PYMODULE'),
+  ('openpyxl.chart.series_factory',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\series_factory.py',
+   'PYMODULE'),
+  ('openpyxl.chart.series',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\series.py',
+   'PYMODULE'),
+  ('openpyxl.chart.trendline',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\trendline.py',
+   'PYMODULE'),
+  ('openpyxl.chart.layout',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\layout.py',
+   'PYMODULE'),
+  ('openpyxl.chart.text',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\text.py',
+   'PYMODULE'),
+  ('openpyxl.drawing.text',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\drawing\\text.py',
+   'PYMODULE'),
+  ('openpyxl.drawing',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\drawing\\__init__.py',
+   'PYMODULE'),
+  ('openpyxl.drawing.drawing',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\drawing\\drawing.py',
+   'PYMODULE'),
+  ('openpyxl.drawing.geometry',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\drawing\\geometry.py',
+   'PYMODULE'),
+  ('openpyxl.drawing.line',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\drawing\\line.py',
+   'PYMODULE'),
+  ('openpyxl.drawing.fill',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\drawing\\fill.py',
+   'PYMODULE'),
+  ('openpyxl.drawing.effect',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\drawing\\effect.py',
+   'PYMODULE'),
+  ('openpyxl.drawing.colors',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\drawing\\colors.py',
+   'PYMODULE'),
+  ('openpyxl.chart.marker',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\marker.py',
+   'PYMODULE'),
+  ('openpyxl.chart.picture',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\picture.py',
+   'PYMODULE'),
+  ('openpyxl.chart.label',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\label.py',
+   'PYMODULE'),
+  ('openpyxl.chart.error_bar',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\error_bar.py',
+   'PYMODULE'),
+  ('openpyxl.chart.shapes',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\shapes.py',
+   'PYMODULE'),
+  ('openpyxl.chart.data_source',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\data_source.py',
+   'PYMODULE'),
+  ('openpyxl.chart.surface_chart',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\surface_chart.py',
+   'PYMODULE'),
+  ('openpyxl.chart.axis',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\axis.py',
+   'PYMODULE'),
+  ('openpyxl.chart.title',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\title.py',
+   'PYMODULE'),
+  ('openpyxl.chart.descriptors',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\descriptors.py',
+   'PYMODULE'),
+  ('openpyxl.chart._3d',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\_3d.py',
+   'PYMODULE'),
+  ('openpyxl.chart._chart',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\_chart.py',
+   'PYMODULE'),
+  ('openpyxl.chart.legend',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\legend.py',
+   'PYMODULE'),
+  ('openpyxl.chart.stock_chart',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\stock_chart.py',
+   'PYMODULE'),
+  ('openpyxl.chart.updown_bars',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\updown_bars.py',
+   'PYMODULE'),
+  ('openpyxl.chart.scatter_chart',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\scatter_chart.py',
+   'PYMODULE'),
+  ('openpyxl.chart.radar_chart',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\radar_chart.py',
+   'PYMODULE'),
+  ('openpyxl.chart.pie_chart',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\pie_chart.py',
+   'PYMODULE'),
+  ('openpyxl.chart.line_chart',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\line_chart.py',
+   'PYMODULE'),
+  ('openpyxl.chart.bubble_chart',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\bubble_chart.py',
+   'PYMODULE'),
+  ('openpyxl.chart.bar_chart',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\bar_chart.py',
+   'PYMODULE'),
+  ('openpyxl.chart.area_chart',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\area_chart.py',
+   'PYMODULE'),
+  ('openpyxl.chart.chartspace',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\chartspace.py',
+   'PYMODULE'),
+  ('openpyxl.chart.print_settings',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\print_settings.py',
+   'PYMODULE'),
+  ('openpyxl.chart.pivot',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\pivot.py',
+   'PYMODULE'),
+  ('openpyxl.chart.plotarea',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chart\\plotarea.py',
+   'PYMODULE'),
+  ('openpyxl.drawing.image',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\drawing\\image.py',
+   'PYMODULE'),
+  ('openpyxl.drawing.spreadsheet_drawing',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\drawing\\spreadsheet_drawing.py',
+   'PYMODULE'),
+  ('openpyxl.drawing.relation',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\drawing\\relation.py',
+   'PYMODULE'),
+  ('openpyxl.drawing.picture',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\drawing\\picture.py',
+   'PYMODULE'),
+  ('openpyxl.drawing.properties',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\drawing\\properties.py',
+   'PYMODULE'),
+  ('openpyxl.drawing.graphic',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\drawing\\graphic.py',
+   'PYMODULE'),
+  ('openpyxl.drawing.connector',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\drawing\\connector.py',
+   'PYMODULE'),
+  ('openpyxl.drawing.xdr',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\drawing\\xdr.py',
+   'PYMODULE'),
+  ('openpyxl.worksheet.table',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\worksheet\\table.py',
+   'PYMODULE'),
+  ('openpyxl.worksheet.related',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\worksheet\\related.py',
+   'PYMODULE'),
+  ('openpyxl.chartsheet',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chartsheet\\__init__.py',
+   'PYMODULE'),
+  ('openpyxl.chartsheet.chartsheet',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chartsheet\\chartsheet.py',
+   'PYMODULE'),
+  ('openpyxl.chartsheet.publish',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chartsheet\\publish.py',
+   'PYMODULE'),
+  ('openpyxl.chartsheet.custom',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chartsheet\\custom.py',
+   'PYMODULE'),
+  ('openpyxl.chartsheet.views',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chartsheet\\views.py',
+   'PYMODULE'),
+  ('openpyxl.chartsheet.protection',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chartsheet\\protection.py',
+   'PYMODULE'),
+  ('openpyxl.chartsheet.properties',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chartsheet\\properties.py',
+   'PYMODULE'),
+  ('openpyxl.chartsheet.relation',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\chartsheet\\relation.py',
+   'PYMODULE'),
+  ('openpyxl.worksheet.drawing',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\worksheet\\drawing.py',
+   'PYMODULE'),
+  ('openpyxl.worksheet._reader',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\worksheet\\_reader.py',
+   'PYMODULE'),
+  ('openpyxl.worksheet._read_only',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\worksheet\\_read_only.py',
+   'PYMODULE'),
+  ('openpyxl.cell.read_only',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\cell\\read_only.py',
+   'PYMODULE'),
+  ('openpyxl.packaging.relationship',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\packaging\\relationship.py',
+   'PYMODULE'),
+  ('openpyxl.packaging',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\packaging\\__init__.py',
+   'PYMODULE'),
+  ('openpyxl.descriptors.container',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\descriptors\\container.py',
+   'PYMODULE'),
+  ('openpyxl.packaging.manifest',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\packaging\\manifest.py',
+   'PYMODULE'),
+  ('openpyxl.packaging.custom',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\packaging\\custom.py',
+   'PYMODULE'),
+  ('openpyxl.packaging.core',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\packaging\\core.py',
+   'PYMODULE'),
+  ('openpyxl.styles.stylesheet',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\styles\\stylesheet.py',
+   'PYMODULE'),
+  ('openpyxl.styles.table',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\styles\\table.py',
+   'PYMODULE'),
+  ('openpyxl.reader.workbook',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\reader\\workbook.py',
+   'PYMODULE'),
+  ('openpyxl.pivot.record',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\pivot\\record.py',
+   'PYMODULE'),
+  ('openpyxl.pivot',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\pivot\\__init__.py',
+   'PYMODULE'),
+  ('openpyxl.pivot.fields',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\pivot\\fields.py',
+   'PYMODULE'),
+  ('openpyxl.pivot.cache',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\pivot\\cache.py',
+   'PYMODULE'),
+  ('openpyxl.workbook.external_link.external',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\workbook\\external_link\\external.py',
+   'PYMODULE'),
+  ('openpyxl.workbook.external_link',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\workbook\\external_link\\__init__.py',
+   'PYMODULE'),
+  ('openpyxl.packaging.workbook',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\packaging\\workbook.py',
+   'PYMODULE'),
+  ('openpyxl.workbook.web',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\workbook\\web.py',
+   'PYMODULE'),
+  ('openpyxl.workbook.views',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\workbook\\views.py',
+   'PYMODULE'),
+  ('openpyxl.workbook.smart_tags',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\workbook\\smart_tags.py',
+   'PYMODULE'),
+  ('openpyxl.workbook.protection',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\workbook\\protection.py',
+   'PYMODULE'),
+  ('openpyxl.workbook.properties',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\workbook\\properties.py',
+   'PYMODULE'),
+  ('openpyxl.workbook.function_group',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\workbook\\function_group.py',
+   'PYMODULE'),
+  ('openpyxl.workbook.external_reference',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\workbook\\external_reference.py',
+   'PYMODULE'),
+  ('openpyxl.reader.strings',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\reader\\strings.py',
+   'PYMODULE'),
+  ('openpyxl.comments.comment_sheet',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\comments\\comment_sheet.py',
+   'PYMODULE'),
+  ('openpyxl.comments',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\comments\\__init__.py',
+   'PYMODULE'),
+  ('openpyxl.comments.shape_writer',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\comments\\shape_writer.py',
+   'PYMODULE'),
+  ('openpyxl.comments.comments',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\comments\\comments.py',
+   'PYMODULE'),
+  ('openpyxl.comments.author',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\comments\\author.py',
+   'PYMODULE'),
+  ('openpyxl.cell',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\cell\\__init__.py',
+   'PYMODULE'),
+  ('openpyxl.pivot.table',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\pivot\\table.py',
+   'PYMODULE'),
+  ('openpyxl.workbook',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\workbook\\__init__.py',
+   'PYMODULE'),
+  ('openpyxl.workbook.workbook',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\workbook\\workbook.py',
+   'PYMODULE'),
+  ('openpyxl.writer.excel',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\writer\\excel.py',
+   'PYMODULE'),
+  ('openpyxl.writer',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\writer\\__init__.py',
+   'PYMODULE'),
+  ('openpyxl.packaging.extended',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\packaging\\extended.py',
+   'PYMODULE'),
+  ('openpyxl.writer.theme',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\writer\\theme.py',
+   'PYMODULE'),
+  ('openpyxl.workbook._writer',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\workbook\\_writer.py',
+   'PYMODULE'),
+  ('openpyxl.worksheet._writer',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\worksheet\\_writer.py',
+   'PYMODULE'),
+  ('openpyxl.cell._writer',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\cell\\_writer.py',
+   'PYMODULE'),
+  ('openpyxl.worksheet.copier',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\worksheet\\copier.py',
+   'PYMODULE'),
+  ('openpyxl.worksheet._write_only',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\openpyxl\\worksheet\\_write_only.py',
+   'PYMODULE'),
+  ('reportlab.platypus.flowables',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\platypus\\flowables.py',
+   'PYMODULE'),
+  ('reportlab.lib.sequencer',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\lib\\sequencer.py',
+   'PYMODULE'),
+  ('reportlab.platypus.frames',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\platypus\\frames.py',
+   'PYMODULE'),
+  ('reportlab.platypus.paragraph',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\platypus\\paragraph.py',
+   'PYMODULE'),
+  ('reportlab.lib.textsplit',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\lib\\textsplit.py',
+   'PYMODULE'),
+  ('reportlab.lib.geomutils',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\lib\\geomutils.py',
+   'PYMODULE'),
+  ('reportlab.platypus.paraparser',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\platypus\\paraparser.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase.rl_codecs',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\rl_codecs.py',
+   'PYMODULE'),
+  ('html.parser',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\html\\parser.py',
+   'PYMODULE'),
+  ('_markupbase',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\_markupbase.py',
+   'PYMODULE'),
+  ('reportlab.lib.fonts',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\lib\\fonts.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase.ttfonts',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\ttfonts.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase.pdfdoc',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\pdfdoc.py',
+   'PYMODULE'),
+  ('reportlab.lib.rparsexml',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\lib\\rparsexml.py',
+   'PYMODULE'),
+  ('charset_normalizer',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\charset_normalizer\\__init__.py',
+   'PYMODULE'),
+  ('charset_normalizer.version',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\charset_normalizer\\version.py',
+   'PYMODULE'),
+  ('charset_normalizer.utils',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\charset_normalizer\\utils.py',
+   'PYMODULE'),
+  ('charset_normalizer.constant',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\charset_normalizer\\constant.py',
+   'PYMODULE'),
+  ('charset_normalizer.models',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\charset_normalizer\\models.py',
+   'PYMODULE'),
+  ('charset_normalizer.cd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\charset_normalizer\\cd.py',
+   'PYMODULE'),
+  ('charset_normalizer.legacy',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\charset_normalizer\\legacy.py',
+   'PYMODULE'),
+  ('charset_normalizer.api',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\charset_normalizer\\api.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase._fontdata',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\_fontdata.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase._fontdata_widths_zapfdingbats',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\_fontdata_widths_zapfdingbats.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase._fontdata_widths_symbol',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\_fontdata_widths_symbol.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase._fontdata_widths_timesbolditalic',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\_fontdata_widths_timesbolditalic.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase._fontdata_widths_timesitalic',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\_fontdata_widths_timesitalic.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase._fontdata_widths_timesbold',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\_fontdata_widths_timesbold.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase._fontdata_widths_timesroman',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\_fontdata_widths_timesroman.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase._fontdata_widths_helveticaboldoblique',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\_fontdata_widths_helveticaboldoblique.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase._fontdata_widths_helveticaoblique',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\_fontdata_widths_helveticaoblique.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase._fontdata_widths_helveticabold',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\_fontdata_widths_helveticabold.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase._fontdata_widths_helvetica',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\_fontdata_widths_helvetica.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase._fontdata_widths_courierboldoblique',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\_fontdata_widths_courierboldoblique.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase._fontdata_widths_courieroblique',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\_fontdata_widths_courieroblique.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase._fontdata_widths_courierbold',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\_fontdata_widths_courierbold.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase._fontdata_widths_courier',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\_fontdata_widths_courier.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase._fontdata_enc_macexpert',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\_fontdata_enc_macexpert.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase._fontdata_enc_pdfdoc',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\_fontdata_enc_pdfdoc.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase._fontdata_enc_zapfdingbats',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\_fontdata_enc_zapfdingbats.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase._fontdata_enc_symbol',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\_fontdata_enc_symbol.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase._fontdata_enc_standard',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\_fontdata_enc_standard.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase._fontdata_enc_macroman',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\_fontdata_enc_macroman.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase._fontdata_enc_winansi',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\_fontdata_enc_winansi.py',
+   'PYMODULE'),
+  ('reportlab.pdfgen.textobject',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfgen\\textobject.py',
+   'PYMODULE'),
+  ('reportlab.platypus.doctemplate',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\platypus\\doctemplate.py',
+   'PYMODULE'),
+  ('reportlab.lib.randomtext',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\lib\\randomtext.py',
+   'PYMODULE'),
+  ('reportlab.lib.rl_safe_eval',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\lib\\rl_safe_eval.py',
+   'PYMODULE'),
+  ('reportlab.rl_config',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\rl_config.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase.pdfmetrics',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\pdfmetrics.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase._glyphlist',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\_glyphlist.py',
+   'PYMODULE'),
+  ('reportlab.lib.logger',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\lib\\logger.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase.pdfutils',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\pdfutils.py',
+   'PYMODULE'),
+  ('glob',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\glob.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\__init__.py',
+   'PYMODULE'),
+  ('reportlab.lib.abag',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\lib\\abag.py',
+   'PYMODULE'),
+  ('reportlab.lib.utils',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\lib\\utils.py',
+   'PYMODULE'),
+  ('reportlab.rl_settings',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\rl_settings.py',
+   'PYMODULE'),
+  ('reportlab.lib.rltempfile',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\lib\\rltempfile.py',
+   'PYMODULE'),
+  ('reportlab.lib.rl_accel',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\lib\\rl_accel.py',
+   'PYMODULE'),
+  ('reportlab.platypus.tables',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\platypus\\tables.py',
+   'PYMODULE'),
+  ('reportlab.lib.validators',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\lib\\validators.py',
+   'PYMODULE'),
+  ('reportlab.lib.normalDate',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\lib\\normalDate.py',
+   'PYMODULE'),
+  ('reportlab.graphics.shapes',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\graphics\\shapes.py',
+   'PYMODULE'),
+  ('reportlab.graphics.renderSVG',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\graphics\\renderSVG.py',
+   'PYMODULE'),
+  ('reportlab.lib.corp',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\lib\\corp.py',
+   'PYMODULE'),
+  ('reportlab.graphics.widgetbase',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\graphics\\widgetbase.py',
+   'PYMODULE'),
+  ('reportlab.graphics.charts.piecharts',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\graphics\\charts\\piecharts.py',
+   'PYMODULE'),
+  ('reportlab.graphics.charts',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\graphics\\charts\\__init__.py',
+   'PYMODULE'),
+  ('reportlab.graphics.charts.utils3d',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\graphics\\charts\\utils3d.py',
+   'PYMODULE'),
+  ('reportlab.graphics.charts.textlabels',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\graphics\\charts\\textlabels.py',
+   'PYMODULE'),
+  ('reportlab.graphics.charts.utils',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\graphics\\charts\\utils.py',
+   'PYMODULE'),
+  ('reportlab.graphics.utils',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\graphics\\utils.py',
+   'PYMODULE'),
+  ('freetype',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\__init__.py',
+   'PYMODULE'),
+  ('freetype.raw',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\raw.py',
+   'PYMODULE'),
+  ('freetype.ft_structs',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_structs.py',
+   'PYMODULE'),
+  ('freetype.ft_errors',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_errors.py',
+   'PYMODULE'),
+  ('freetype.ft_enums',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\__init__.py',
+   'PYMODULE'),
+  ('freetype.ft_enums.tt_platforms',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\tt_platforms.py',
+   'PYMODULE'),
+  ('freetype.ft_enums.tt_name_ids',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\tt_name_ids.py',
+   'PYMODULE'),
+  ('freetype.ft_enums.tt_mac_langids',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\tt_mac_langids.py',
+   'PYMODULE'),
+  ('freetype.ft_enums.tt_ms_langids',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\tt_ms_langids.py',
+   'PYMODULE'),
+  ('freetype.ft_enums.tt_ms_ids',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\tt_ms_ids.py',
+   'PYMODULE'),
+  ('freetype.ft_enums.tt_mac_ids',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\tt_mac_ids.py',
+   'PYMODULE'),
+  ('freetype.ft_enums.tt_apple_ids',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\tt_apple_ids.py',
+   'PYMODULE'),
+  ('freetype.ft_enums.tt_adobe_ids',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\tt_adobe_ids.py',
+   'PYMODULE'),
+  ('freetype.ft_enums.ft_style_flags',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\ft_style_flags.py',
+   'PYMODULE'),
+  ('freetype.ft_enums.ft_stroker_linejoins',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\ft_stroker_linejoins.py',
+   'PYMODULE'),
+  ('freetype.ft_enums.ft_stroker_linecaps',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\ft_stroker_linecaps.py',
+   'PYMODULE'),
+  ('freetype.ft_enums.ft_stroker_borders',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\ft_stroker_borders.py',
+   'PYMODULE'),
+  ('freetype.ft_enums.ft_render_modes',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\ft_render_modes.py',
+   'PYMODULE'),
+  ('freetype.ft_enums.ft_pixel_modes',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\ft_pixel_modes.py',
+   'PYMODULE'),
+  ('freetype.ft_enums.ft_outline_flags',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\ft_outline_flags.py',
+   'PYMODULE'),
+  ('freetype.ft_enums.ft_open_modes',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\ft_open_modes.py',
+   'PYMODULE'),
+  ('freetype.ft_enums.ft_load_targets',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\ft_load_targets.py',
+   'PYMODULE'),
+  ('freetype.ft_enums.ft_load_flags',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\ft_load_flags.py',
+   'PYMODULE'),
+  ('freetype.ft_enums.ft_lcd_filters',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\ft_lcd_filters.py',
+   'PYMODULE'),
+  ('freetype.ft_enums.ft_kerning_modes',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\ft_kerning_modes.py',
+   'PYMODULE'),
+  ('freetype.ft_enums.ft_glyph_formats',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\ft_glyph_formats.py',
+   'PYMODULE'),
+  ('freetype.ft_enums.ft_glyph_bbox_modes',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\ft_glyph_bbox_modes.py',
+   'PYMODULE'),
+  ('freetype.ft_enums.ft_encodings',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\ft_encodings.py',
+   'PYMODULE'),
+  ('freetype.ft_enums.ft_face_flags',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\ft_face_flags.py',
+   'PYMODULE'),
+  ('freetype.ft_enums.ft_fstypes',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\ft_fstypes.py',
+   'PYMODULE'),
+  ('freetype.ft_enums.ft_curve_tags',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\ft_curve_tags.py',
+   'PYMODULE'),
+  ('freetype.ft_enums.ft_color_root_transform',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_enums\\ft_color_root_transform.py',
+   'PYMODULE'),
+  ('freetype.ft_types',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\ft_types.py',
+   'PYMODULE'),
+  ('ctypes.util',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\ctypes\\util.py',
+   'PYMODULE'),
+  ('ctypes._aix',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\ctypes\\_aix.py',
+   'PYMODULE'),
+  ('ctypes.macholib.dyld',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\ctypes\\macholib\\dyld.py',
+   'PYMODULE'),
+  ('ctypes.macholib',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\ctypes\\macholib\\__init__.py',
+   'PYMODULE'),
+  ('ctypes.macholib.dylib',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\ctypes\\macholib\\dylib.py',
+   'PYMODULE'),
+  ('ctypes.macholib.framework',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\ctypes\\macholib\\framework.py',
+   'PYMODULE'),
+  ('reportlab.graphics.charts.legends',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\graphics\\charts\\legends.py',
+   'PYMODULE'),
+  ('reportlab.graphics.charts.areas',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\graphics\\charts\\areas.py',
+   'PYMODULE'),
+  ('reportlab.graphics.widgets.markers',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\graphics\\widgets\\markers.py',
+   'PYMODULE'),
+  ('reportlab.graphics.widgets',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\graphics\\widgets\\__init__.py',
+   'PYMODULE'),
+  ('reportlab.graphics.widgets.flags',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\graphics\\widgets\\flags.py',
+   'PYMODULE'),
+  ('reportlab.graphics.widgets.signsandsymbols',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\graphics\\widgets\\signsandsymbols.py',
+   'PYMODULE'),
+  ('reportlab.lib.formatters',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\lib\\formatters.py',
+   'PYMODULE'),
+  ('reportlab.graphics.testshapes',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\graphics\\testshapes.py',
+   'PYMODULE'),
+  ('reportlab.graphics.renderbase',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\graphics\\renderbase.py',
+   'PYMODULE'),
+  ('reportlab.graphics.renderPS',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\graphics\\renderPS.py',
+   'PYMODULE'),
+  ('reportlab.graphics.renderPM',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\graphics\\renderPM.py',
+   'PYMODULE'),
+  ('rlPyCairo',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\rlPyCairo\\__init__.py',
+   'PYMODULE'),
+  ('rlPyCairo.pil2pict',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\rlPyCairo\\pil2pict.py',
+   'PYMODULE'),
+  ('rlPyCairo.gstate',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\rlPyCairo\\gstate.py',
+   'PYMODULE'),
+  ('cairo',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cairo\\__init__.py',
+   'PYMODULE'),
+  ('cairocffi',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cairocffi\\__init__.py',
+   'PYMODULE'),
+  ('cairocffi.matrix',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cairocffi\\matrix.py',
+   'PYMODULE'),
+  ('cairocffi.context',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cairocffi\\context.py',
+   'PYMODULE'),
+  ('cairocffi.fonts',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cairocffi\\fonts.py',
+   'PYMODULE'),
+  ('cairocffi.patterns',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cairocffi\\patterns.py',
+   'PYMODULE'),
+  ('cairocffi.xcb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cairocffi\\xcb.py',
+   'PYMODULE'),
+  ('cairocffi.surfaces',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cairocffi\\surfaces.py',
+   'PYMODULE'),
+  ('cairocffi.ffi',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cairocffi\\ffi.py',
+   'PYMODULE'),
+  ('cffi',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cffi\\__init__.py',
+   'PYMODULE'),
+  ('cffi.error',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cffi\\error.py',
+   'PYMODULE'),
+  ('cffi.api',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cffi\\api.py',
+   'PYMODULE'),
+  ('cffi.recompiler',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cffi\\recompiler.py',
+   'PYMODULE'),
+  ('cffi.cffi_opcode',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cffi\\cffi_opcode.py',
+   'PYMODULE'),
+  ('cffi._shimmed_dist_utils',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cffi\\_shimmed_dist_utils.py',
+   'PYMODULE'),
+  ('sysconfig',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\sysconfig.py',
+   'PYMODULE'),
+  ('_aix_support',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\_aix_support.py',
+   'PYMODULE'),
+  ('cffi.verifier',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cffi\\verifier.py',
+   'PYMODULE'),
+  ('cffi.lock',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cffi\\lock.py',
+   'PYMODULE'),
+  ('cffi.pkgconfig',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cffi\\pkgconfig.py',
+   'PYMODULE'),
+  ('cffi.vengine_cpy',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cffi\\vengine_cpy.py',
+   'PYMODULE'),
+  ('cffi._imp_emulation',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cffi\\_imp_emulation.py',
+   'PYMODULE'),
+  ('cffi.vengine_gen',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cffi\\vengine_gen.py',
+   'PYMODULE'),
+  ('cffi.ffiplatform',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cffi\\ffiplatform.py',
+   'PYMODULE'),
+  ('cffi.cparser',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cffi\\cparser.py',
+   'PYMODULE'),
+  ('pycparser',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pycparser\\__init__.py',
+   'PYMODULE'),
+  ('pycparser.c_parser',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pycparser\\c_parser.py',
+   'PYMODULE'),
+  ('pycparser.ast_transforms',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pycparser\\ast_transforms.py',
+   'PYMODULE'),
+  ('pycparser.c_lexer',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pycparser\\c_lexer.py',
+   'PYMODULE'),
+  ('pycparser.c_ast',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pycparser\\c_ast.py',
+   'PYMODULE'),
+  ('cffi.commontypes',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cffi\\commontypes.py',
+   'PYMODULE'),
+  ('cffi.model',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cffi\\model.py',
+   'PYMODULE'),
+  ('cairocffi.constants',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cairocffi\\constants.py',
+   'PYMODULE'),
+  ('reportlab.graphics.renderPDF',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\graphics\\renderPDF.py',
+   'PYMODULE'),
+  ('reportlab.graphics',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\graphics\\__init__.py',
+   'PYMODULE'),
+  ('reportlab.graphics.transform',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\graphics\\transform.py',
+   'PYMODULE'),
+  ('reportlab.lib.attrmap',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\lib\\attrmap.py',
+   'PYMODULE'),
+  ('reportlab.platypus',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\platypus\\__init__.py',
+   'PYMODULE'),
+  ('reportlab.platypus.xpreformatted',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\platypus\\xpreformatted.py',
+   'PYMODULE'),
+  ('reportlab.lib.PyFontify',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\lib\\PyFontify.py',
+   'PYMODULE'),
+  ('reportlab.platypus.multicol',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\platypus\\multicol.py',
+   'PYMODULE'),
+  ('reportlab.lib.colors',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\lib\\colors.py',
+   'PYMODULE'),
+  ('reportlab.lib.units',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\lib\\units.py',
+   'PYMODULE'),
+  ('reportlab.lib.styles',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\lib\\styles.py',
+   'PYMODULE'),
+  ('reportlab.lib.pagesizes',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\lib\\pagesizes.py',
+   'PYMODULE'),
+  ('reportlab.lib',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\lib\\__init__.py',
+   'PYMODULE'),
+  ('reportlab.lib.pdfencrypt',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\lib\\pdfencrypt.py',
+   'PYMODULE'),
+  ('reportlab.lib.arciv',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\lib\\arciv.py',
+   'PYMODULE'),
+  ('reportlab.pdfgen.canvas',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfgen\\canvas.py',
+   'PYMODULE'),
+  ('reportlab.pdfbase.acroform',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfbase\\acroform.py',
+   'PYMODULE'),
+  ('reportlab.pdfgen.pdfimages',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfgen\\pdfimages.py',
+   'PYMODULE'),
+  ('reportlab.lib.boxstuff',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\lib\\boxstuff.py',
+   'PYMODULE'),
+  ('reportlab.pdfgen.pathobject',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfgen\\pathobject.py',
+   'PYMODULE'),
+  ('reportlab.pdfgen.pdfgeom',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfgen\\pdfgeom.py',
+   'PYMODULE'),
+  ('reportlab.pdfgen',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\pdfgen\\__init__.py',
+   'PYMODULE'),
+  ('reportlab',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\__init__.py',
+   'PYMODULE'),
+  ('fpdf.fpdf',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\fpdf\\fpdf.py',
+   'PYMODULE'),
+  ('fpdf.py3k',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\fpdf\\py3k.py',
+   'PYMODULE'),
+  ('fpdf.php',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\fpdf\\php.py',
+   'PYMODULE'),
+  ('fpdf.fonts',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\fpdf\\fonts.py',
+   'PYMODULE'),
+  ('fpdf.ttfonts',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\fpdf\\ttfonts.py',
+   'PYMODULE'),
+  ('fpdf',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\fpdf\\__init__.py',
+   'PYMODULE'),
+  ('fpdf.template',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\fpdf\\template.py',
+   'PYMODULE'),
+  ('fpdf.html',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\fpdf\\html.py',
+   'PYMODULE'),
+  ('bcrypt',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\bcrypt\\__init__.py',
+   'PYMODULE'),
+  ('psycopg2.extensions',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\psycopg2\\extensions.py',
+   'PYMODULE'),
+  ('psycopg2._range',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\psycopg2\\_range.py',
+   'PYMODULE'),
+  ('psycopg2.extras',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\psycopg2\\extras.py',
+   'PYMODULE'),
+  ('psycopg2.sql',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\psycopg2\\sql.py',
+   'PYMODULE'),
+  ('uuid',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\uuid.py',
+   'PYMODULE'),
+  ('psycopg2._ipaddress',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\psycopg2\\_ipaddress.py',
+   'PYMODULE'),
+  ('psycopg2._json',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\psycopg2\\_json.py',
+   'PYMODULE'),
+  ('psycopg2',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\psycopg2\\__init__.py',
+   'PYMODULE'),
+  ('PyQt5',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\__init__.py',
+   'PYMODULE'),
+  ('stringprep',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\stringprep.py',
+   'PYMODULE'),
+  ('getpass',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\getpass.py',
+   'PYMODULE'),
+  ('nturl2path',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\nturl2path.py',
+   'PYMODULE'),
+  ('ftplib',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\ftplib.py',
+   'PYMODULE'),
+  ('netrc',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\netrc.py',
+   'PYMODULE'),
+  ('http.cookiejar',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\http\\cookiejar.py',
+   'PYMODULE'),
+  ('tracemalloc',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\tracemalloc.py',
+   'PYMODULE'),
+  ('_py_abc',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\_py_abc.py',
+   'PYMODULE'),
+  ('ui.services.notification_service',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\ui\\services\\notification_service.py',
+   'PYMODULE'),
+  ('ui.services', '-', 'PYMODULE'),
+  ('email.mime.multipart',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\email\\mime\\multipart.py',
+   'PYMODULE'),
+  ('email.mime',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\email\\mime\\__init__.py',
+   'PYMODULE'),
+  ('email.mime.base',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\email\\mime\\base.py',
+   'PYMODULE'),
+  ('email.mime.text',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\email\\mime\\text.py',
+   'PYMODULE'),
+  ('email.mime.nonmultipart',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\email\\mime\\nonmultipart.py',
+   'PYMODULE'),
+  ('sync_manager',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\sync_manager.py',
+   'PYMODULE'),
+  ('migrations_cloud',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\migrations_cloud.py',
+   'PYMODULE'),
+  ('migrations',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\migrations.py',
+   'PYMODULE'),
+  ('migrations_facturare',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\migrations_facturare.py',
+   'PYMODULE'),
+  ('update_checker',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\update_checker.py',
+   'PYMODULE'),
+  ('backup_manager',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\backup_manager.py',
+   'PYMODULE'),
+  ('database',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\database.py',
+   'PYMODULE'),
+  ('ui.login_window',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\ui\\login_window.py',
+   'PYMODULE')],
+ [('VCRUNTIME140.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\VCRUNTIME140.dll',
+   'BINARY'),
+  ('python312.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\python312.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\bin\\opengl32sw.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\bin\\opengl32sw.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\platforms\\qminimal.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\plugins\\platforms\\qminimal.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\bin\\libGLESv2.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\bin\\libGLESv2.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\imageformats\\qsvg.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\plugins\\imageformats\\qsvg.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\iconengines\\qsvgicon.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\plugins\\iconengines\\qsvgicon.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\platforms\\qoffscreen.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\plugins\\platforms\\qoffscreen.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\imageformats\\qico.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\plugins\\imageformats\\qico.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\printsupport\\windowsprintersupport.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\plugins\\printsupport\\windowsprintersupport.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\platforms\\qwindows.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\plugins\\platforms\\qwindows.dll',
+   'BINARY'),
+  ('freetype\\libfreetype.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\freetype\\libfreetype.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\imageformats\\qwebp.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\plugins\\imageformats\\qwebp.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\imageformats\\qicns.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\plugins\\imageformats\\qicns.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\imageformats\\qwbmp.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\plugins\\imageformats\\qwbmp.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\platforms\\qwebgl.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\plugins\\platforms\\qwebgl.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\styles\\qwindowsvistastyle.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\plugins\\styles\\qwindowsvistastyle.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\imageformats\\qjpeg.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\plugins\\imageformats\\qjpeg.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\generic\\qtuiotouchplugin.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\plugins\\generic\\qtuiotouchplugin.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\imageformats\\qtga.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\plugins\\imageformats\\qtga.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\imageformats\\qgif.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\plugins\\imageformats\\qgif.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\platformthemes\\qxdgdesktopportal.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\plugins\\platformthemes\\qxdgdesktopportal.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\imageformats\\qtiff.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\plugins\\imageformats\\qtiff.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\bin\\libEGL.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\bin\\libEGL.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\bin\\d3dcompiler_47.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\bin\\d3dcompiler_47.dll',
+   'BINARY'),
+  ('_hashlib.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_hashlib.pyd',
+   'EXTENSION'),
+  ('_lzma.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_lzma.pyd',
+   'EXTENSION'),
+  ('_bz2.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_bz2.pyd',
+   'EXTENSION'),
+  ('select.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\select.pyd',
+   'EXTENSION'),
+  ('_socket.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_socket.pyd',
+   'EXTENSION'),
+  ('_wmi.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_wmi.pyd',
+   'EXTENSION'),
+  ('cryptography\\hazmat\\bindings\\_rust.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cryptography\\hazmat\\bindings\\_rust.pyd',
+   'EXTENSION'),
+  ('_cffi_backend.cp312-win_amd64.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\_cffi_backend.cp312-win_amd64.pyd',
+   'EXTENSION'),
+  ('pyexpat.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\pyexpat.pyd',
+   'EXTENSION'),
+  ('_elementtree.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_elementtree.pyd',
+   'EXTENSION'),
+  ('_ctypes.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_ctypes.pyd',
+   'EXTENSION'),
+  ('_queue.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_queue.pyd',
+   'EXTENSION'),
+  ('_decimal.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_decimal.pyd',
+   'EXTENSION'),
+  ('_sqlite3.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_sqlite3.pyd',
+   'EXTENSION'),
+  ('_ssl.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_ssl.pyd',
+   'EXTENSION'),
+  ('PIL\\_imagingft.cp312-win_amd64.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\_imagingft.cp312-win_amd64.pyd',
+   'EXTENSION'),
+  ('PIL\\_imaging.cp312-win_amd64.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\_imaging.cp312-win_amd64.pyd',
+   'EXTENSION'),
+  ('PIL\\_webp.cp312-win_amd64.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\_webp.cp312-win_amd64.pyd',
+   'EXTENSION'),
+  ('PIL\\_imagingtk.cp312-win_amd64.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\_imagingtk.cp312-win_amd64.pyd',
+   'EXTENSION'),
+  ('PIL\\_avif.cp312-win_amd64.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\_avif.cp312-win_amd64.pyd',
+   'EXTENSION'),
+  ('PIL\\_imagingcms.cp312-win_amd64.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\_imagingcms.cp312-win_amd64.pyd',
+   'EXTENSION'),
+  ('PIL\\_imagingmath.cp312-win_amd64.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\_imagingmath.cp312-win_amd64.pyd',
+   'EXTENSION'),
+  ('lxml\\etree.cp312-win_amd64.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\etree.cp312-win_amd64.pyd',
+   'EXTENSION'),
+  ('lxml\\_elementpath.cp312-win_amd64.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\_elementpath.cp312-win_amd64.pyd',
+   'EXTENSION'),
+  ('lxml\\sax.cp312-win_amd64.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\sax.cp312-win_amd64.pyd',
+   'EXTENSION'),
+  ('lxml\\objectify.cp312-win_amd64.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\objectify.cp312-win_amd64.pyd',
+   'EXTENSION'),
+  ('lxml\\html\\diff.cp312-win_amd64.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\html\\diff.cp312-win_amd64.pyd',
+   'EXTENSION'),
+  ('lxml\\html\\_difflib.cp312-win_amd64.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\html\\_difflib.cp312-win_amd64.pyd',
+   'EXTENSION'),
+  ('lxml\\builder.cp312-win_amd64.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\builder.cp312-win_amd64.pyd',
+   'EXTENSION'),
+  ('charset_normalizer\\md__mypyc.cp312-win_amd64.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\charset_normalizer\\md__mypyc.cp312-win_amd64.pyd',
+   'EXTENSION'),
+  ('charset_normalizer\\md.cp312-win_amd64.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\charset_normalizer\\md.cp312-win_amd64.pyd',
+   'EXTENSION'),
+  ('unicodedata.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\unicodedata.pyd',
+   'EXTENSION'),
+  ('cairo\\_cairo.cp312-win_amd64.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cairo\\_cairo.cp312-win_amd64.pyd',
+   'EXTENSION'),
+  ('bcrypt\\_bcrypt.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\bcrypt\\_bcrypt.pyd',
+   'EXTENSION'),
+  ('psycopg2\\_psycopg.cp312-win_amd64.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\psycopg2\\_psycopg.cp312-win_amd64.pyd',
+   'EXTENSION'),
+  ('_uuid.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_uuid.pyd',
+   'EXTENSION'),
+  ('PyQt5\\sip.cp312-win_amd64.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\sip.cp312-win_amd64.pyd',
+   'EXTENSION'),
+  ('PyQt5\\QtPrintSupport.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\QtPrintSupport.pyd',
+   'EXTENSION'),
+  ('PyQt5\\QtOpenGL.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\QtOpenGL.pyd',
+   'EXTENSION'),
+  ('PyQt5\\QtGui.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\QtGui.pyd',
+   'EXTENSION'),
+  ('PyQt5\\QtSvg.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\QtSvg.pyd',
+   'EXTENSION'),
+  ('PyQt5\\QtCore.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\QtCore.pyd',
+   'EXTENSION'),
+  ('PyQt5\\QtWidgets.pyd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\QtWidgets.pyd',
+   'EXTENSION'),
+  ('PyQt5\\Qt5\\bin\\Qt5Core.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\bin\\Qt5Core.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\bin\\Qt5Gui.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\bin\\Qt5Gui.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\bin\\VCRUNTIME140_1.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\bin\\VCRUNTIME140_1.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\bin\\MSVCP140.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\bin\\MSVCP140.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\bin\\Qt5Svg.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\bin\\Qt5Svg.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\bin\\Qt5PrintSupport.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\bin\\Qt5PrintSupport.dll',
+   'BINARY'),
+  ('VCRUNTIME140_1.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\VCRUNTIME140_1.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\bin\\Qt5Quick.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\bin\\Qt5Quick.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\bin\\Qt5WebSockets.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\bin\\Qt5WebSockets.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\bin\\Qt5Network.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\bin\\Qt5Network.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\bin\\Qt5Widgets.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\bin\\Qt5Widgets.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\bin\\Qt5DBus.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\bin\\Qt5DBus.dll',
+   'BINARY'),
+  ('libcrypto-3.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\libcrypto-3.dll',
+   'BINARY'),
+  ('python3.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\python3.dll',
+   'BINARY'),
+  ('libffi-8.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\libffi-8.dll',
+   'BINARY'),
+  ('sqlite3.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\sqlite3.dll',
+   'BINARY'),
+  ('libssl-3.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\libssl-3.dll',
+   'BINARY'),
+  ('psycopg2_binary.libs\\libpq-39ced5d7c01d21795d0b9597d2cf5921.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\psycopg2_binary.libs\\libpq-39ced5d7c01d21795d0b9597d2cf5921.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\bin\\Qt5OpenGL.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\bin\\Qt5OpenGL.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\bin\\MSVCP140_1.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\bin\\MSVCP140_1.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\bin\\Qt5Qml.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\bin\\Qt5Qml.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\bin\\Qt5QmlModels.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\bin\\Qt5QmlModels.dll',
+   'BINARY'),
+  ('psycopg2_binary.libs\\libssl-3-x64-d3fc11f8b66f745a6288de6a00662144.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\psycopg2_binary.libs\\libssl-3-x64-d3fc11f8b66f745a6288de6a00662144.dll',
+   'BINARY'),
+  ('psycopg2_binary.libs\\libcrypto-3-x64-51c45f697a173917ac2ce2ccbe4291ee.dll',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\psycopg2_binary.libs\\libcrypto-3-x64-51c45f697a173917ac2ce2ccbe4291ee.dll',
+   'BINARY')],
+ [],
+ [],
+ [('assets\\fonts\\DejaVuSans-Bold.ttf',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\assets\\fonts\\DejaVuSans-Bold.ttf',
+   'DATA'),
+  ('assets\\fonts\\DejaVuSans.ttf',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\assets\\fonts\\DejaVuSans.ttf',
+   'DATA'),
+  ('assets\\icons\\bike.svg',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\icons\\bike.svg',
+   'DATA'),
+  ('assets\\icons\\book.svg',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\icons\\book.svg',
+   'DATA'),
+  ('assets\\icons\\check.svg',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\icons\\check.svg',
+   'DATA'),
+  ('assets\\icons\\document.svg',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\icons\\document.svg',
+   'DATA'),
+  ('assets\\icons\\history.svg',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\icons\\history.svg',
+   'DATA'),
+  ('assets\\icons\\home.svg',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\icons\\home.svg',
+   'DATA'),
+  ('assets\\icons\\progress.svg',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\icons\\progress.svg',
+   'DATA'),
+  ('assets\\icons\\settings.svg',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\icons\\settings.svg',
+   'DATA'),
+  ('assets\\icons\\tools.svg',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\icons\\tools.svg',
+   'DATA'),
+  ('assets\\icons\\users.svg',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\icons\\users.svg',
+   'DATA'),
+  ('assets\\logo_velorix.png',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\logo_velorix.png',
+   'DATA'),
+  ('assets\\logo_velorix.svg',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\logo_velorix.svg',
+   'DATA'),
+  ('assets\\logo_velorix_dark.svg',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\assets\\logo_velorix_dark.svg',
+   'DATA'),
+  ('assets\\translations.py',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\translations.py',
+   'DATA'),
+  ('assets\\velorix.ico',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\assets\\velorix.ico',
+   'DATA'),
+  ('reportlab\\fonts\\00readme.txt',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\00readme.txt',
+   'DATA'),
+  ('reportlab\\fonts\\DarkGarden-changelog.txt',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\DarkGarden-changelog.txt',
+   'DATA'),
+  ('reportlab\\fonts\\DarkGarden-copying-gpl.txt',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\DarkGarden-copying-gpl.txt',
+   'DATA'),
+  ('reportlab\\fonts\\DarkGarden-copying.txt',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\DarkGarden-copying.txt',
+   'DATA'),
+  ('reportlab\\fonts\\DarkGarden-readme.txt',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\DarkGarden-readme.txt',
+   'DATA'),
+  ('reportlab\\fonts\\DarkGarden.sfd',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\DarkGarden.sfd',
+   'DATA'),
+  ('reportlab\\fonts\\DarkGardenMK.afm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\DarkGardenMK.afm',
+   'DATA'),
+  ('reportlab\\fonts\\DarkGardenMK.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\DarkGardenMK.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\Vera.ttf',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\Vera.ttf',
+   'DATA'),
+  ('reportlab\\fonts\\VeraBI.ttf',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\VeraBI.ttf',
+   'DATA'),
+  ('reportlab\\fonts\\VeraBd.ttf',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\VeraBd.ttf',
+   'DATA'),
+  ('reportlab\\fonts\\VeraIt.ttf',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\VeraIt.ttf',
+   'DATA'),
+  ('reportlab\\fonts\\_a______.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\_a______.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\_ab_____.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\_ab_____.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\_abi____.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\_abi____.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\_ai_____.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\_ai_____.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\_eb_____.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\_eb_____.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\_ebi____.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\_ebi____.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\_ei_____.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\_ei_____.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\_er_____.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\_er_____.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\bitstream-vera-license.txt',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\bitstream-vera-license.txt',
+   'DATA'),
+  ('reportlab\\fonts\\callig15.afm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\callig15.afm',
+   'DATA'),
+  ('reportlab\\fonts\\callig15.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\callig15.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\cob_____.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\cob_____.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\cobo____.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\cobo____.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\com_____.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\com_____.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\coo_____.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\coo_____.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\hb-test.ttf',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\hb-test.ttf',
+   'DATA'),
+  ('reportlab\\fonts\\sy______.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\sy______.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\zd______.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\zd______.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\zx______.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\zx______.pfb',
+   'DATA'),
+  ('reportlab\\fonts\\zy______.pfb',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\reportlab\\fonts\\zy______.pfb',
+   'DATA'),
+  ('styles\\style.qss',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service Moto\\styles\\style.qss',
+   'DATA'),
+  ('base_library.zip',
+   'C:\\Users\\Alin Baltag\\Desktop\\Service '
+   'Moto\\build\\velorix\\base_library.zip',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_help_zh_CN.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_help_zh_CN.qm',
+   'DATA'),
+  ('cryptography-46.0.5.dist-info\\licenses\\LICENSE',
+   'c:\\users\\alin '
+   'baltag\\appdata\\local\\programs\\python\\python312\\lib\\site-packages\\cryptography-46.0.5.dist-info\\licenses\\LICENSE',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_help_de.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_help_de.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_uk.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_uk.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_gd.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_gd.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_help_uk.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_help_uk.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_lv.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_lv.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_help_hu.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_help_hu.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_help_pl.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_help_pl.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_lv.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_lv.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_gd.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_gd.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_es.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_es.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_it.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_it.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_zh_TW.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_zh_TW.qm',
+   'DATA'),
+  ('lxml\\isoschematron\\resources\\xsl\\iso-schematron-xslt1\\iso_dsdl_include.xsl',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\isoschematron\\resources\\xsl\\iso-schematron-xslt1\\iso_dsdl_include.xsl',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_tr.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_tr.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_it.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_it.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_sv.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_sv.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_fi.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_fi.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_help_sk.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_help_sk.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_ko.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_ko.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_da.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_da.qm',
+   'DATA'),
+  ('cryptography-46.0.5.dist-info\\licenses\\LICENSE.BSD',
+   'c:\\users\\alin '
+   'baltag\\appdata\\local\\programs\\python\\python312\\lib\\site-packages\\cryptography-46.0.5.dist-info\\licenses\\LICENSE.BSD',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_en.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_en.qm',
+   'DATA'),
+  ('cryptography-46.0.5.dist-info\\licenses\\LICENSE.APACHE',
+   'c:\\users\\alin '
+   'baltag\\appdata\\local\\programs\\python\\python312\\lib\\site-packages\\cryptography-46.0.5.dist-info\\licenses\\LICENSE.APACHE',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_help_it.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_help_it.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_hu.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_hu.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_help_tr.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_help_tr.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_sk.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_sk.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_ca.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_ca.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_bg.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_bg.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_help_ar.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_help_ar.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_de.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_de.qm',
+   'DATA'),
+  ('lxml\\isoschematron\\resources\\xsl\\iso-schematron-xslt1\\iso_schematron_message.xsl',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\isoschematron\\resources\\xsl\\iso-schematron-xslt1\\iso_schematron_message.xsl',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_hu.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_hu.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_da.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_da.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_fa.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_fa.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_he.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_he.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_tr.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_tr.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_ar.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_ar.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_es.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_es.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_help_zh_TW.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_help_zh_TW.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_ja.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_ja.qm',
+   'DATA'),
+  ('lxml\\isoschematron\\resources\\xsl\\iso-schematron-xslt1\\iso_schematron_skeleton_for_xslt1.xsl',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\isoschematron\\resources\\xsl\\iso-schematron-xslt1\\iso_schematron_skeleton_for_xslt1.xsl',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_ru.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_ru.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_lt.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_lt.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_help_en.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_help_en.qm',
+   'DATA'),
+  ('lxml\\isoschematron\\resources\\xsl\\iso-schematron-xslt1\\readme.txt',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\isoschematron\\resources\\xsl\\iso-schematron-xslt1\\readme.txt',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_help_es.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_help_es.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_pl.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_pl.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_gl.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_gl.qm',
+   'DATA'),
+  ('lxml\\isoschematron\\resources\\rng\\iso-schematron.rng',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\isoschematron\\resources\\rng\\iso-schematron.rng',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_help_ja.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_help_ja.qm',
+   'DATA'),
+  ('cryptography-46.0.5.dist-info\\WHEEL',
+   'c:\\users\\alin '
+   'baltag\\appdata\\local\\programs\\python\\python312\\lib\\site-packages\\cryptography-46.0.5.dist-info\\WHEEL',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_pt.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_pt.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_help_cs.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_help_cs.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_fr.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_fr.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_uk.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_uk.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_fi.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_fi.qm',
+   'DATA'),
+  ('cryptography-46.0.5.dist-info\\RECORD',
+   'c:\\users\\alin '
+   'baltag\\appdata\\local\\programs\\python\\python312\\lib\\site-packages\\cryptography-46.0.5.dist-info\\RECORD',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_help_fr.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_help_fr.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_sk.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_sk.qm',
+   'DATA'),
+  ('lxml\\isoschematron\\resources\\xsl\\XSD2Schtrn.xsl',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\isoschematron\\resources\\xsl\\XSD2Schtrn.xsl',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_pl.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_pl.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_ar.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_ar.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_bg.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_bg.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_ru.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_ru.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_ca.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_ca.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_help_gl.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_help_gl.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_zh_TW.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_zh_TW.qm',
+   'DATA'),
+  ('lxml\\isoschematron\\resources\\xsl\\iso-schematron-xslt1\\iso_abstract_expand.xsl',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\isoschematron\\resources\\xsl\\iso-schematron-xslt1\\iso_abstract_expand.xsl',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_help_sl.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_help_sl.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_help_ko.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_help_ko.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_ja.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_ja.qm',
+   'DATA'),
+  ('cryptography-46.0.5.dist-info\\METADATA',
+   'c:\\users\\alin '
+   'baltag\\appdata\\local\\programs\\python\\python312\\lib\\site-packages\\cryptography-46.0.5.dist-info\\METADATA',
+   'DATA'),
+  ('cryptography-46.0.5.dist-info\\INSTALLER',
+   'c:\\users\\alin '
+   'baltag\\appdata\\local\\programs\\python\\python312\\lib\\site-packages\\cryptography-46.0.5.dist-info\\INSTALLER',
+   'DATA'),
+  ('lxml\\isoschematron\\resources\\xsl\\iso-schematron-xslt1\\iso_svrl_for_xslt1.xsl',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\isoschematron\\resources\\xsl\\iso-schematron-xslt1\\iso_svrl_for_xslt1.xsl',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_help_ca.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_help_ca.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_zh_CN.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_zh_CN.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_en.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_en.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_he.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_he.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_help_ru.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_help_ru.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_cs.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_cs.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_help_da.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_help_da.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_sl.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_sl.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_ko.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_ko.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_fr.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_fr.qm',
+   'DATA'),
+  ('cryptography-46.0.5.dist-info\\REQUESTED',
+   'c:\\users\\alin '
+   'baltag\\appdata\\local\\programs\\python\\python312\\lib\\site-packages\\cryptography-46.0.5.dist-info\\REQUESTED',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_help_bg.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_help_bg.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qt_de.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qt_de.qm',
+   'DATA'),
+  ('lxml\\isoschematron\\resources\\xsl\\RNG2Schtrn.xsl',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\lxml\\isoschematron\\resources\\xsl\\RNG2Schtrn.xsl',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_cs.qm',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_cs.qm',
+   'DATA'),
+  ('cairocffi\\constants.py',
+   'C:\\Users\\Alin '
+   'Baltag\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\cairocffi\\constants.py',
+   'DATA')],
+ [])

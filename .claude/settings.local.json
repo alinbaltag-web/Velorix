@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install:*)",
+      "Bash(\"C:/Users/Alin Baltag/AppData/Local/Programs/Python/Python312/python.exe\" -c \"import fpdf; print\\(fpdf.__version__\\)\")"
+    ]
+  }
+}

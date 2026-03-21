@@ -1,0 +1,11 @@
+{
+    "python.defaultInterpreterPath": "C:/Users/Alin Baltag/AppData/Local/Programs/Python/Python312/python.exe",
+    "python.pythonPath": "C:/Users/Alin Baltag/AppData/Local/Programs/Python/Python312/python.exe",
+    "python.analysis.extraPaths": [
+        "C:/Users/Alin Baltag/AppData/Local/Programs/Python/Python312/Lib/site-packages"
+    ],
+    "python.analysis.useLibraryCodeForTypes": true,
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.indexing": true,
+    "python.languageServer": "Pylance"
+}
