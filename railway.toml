@@ -1,6 +1,6 @@
 [build]
   builder = "nixpacks"
-  buildCommand = "pip install -r mobile/requirements.txt"
+  buildCommand = "pip3 install -r mobile/requirements.txt"
 
 [deploy]
   startCommand = "gunicorn --chdir mobile api_server:app --bind 0.0.0.0:$PORT --workers 2 --timeout 60"
