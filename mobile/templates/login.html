@@ -7,59 +7,62 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            background: #0f1923;
+            background: linear-gradient(160deg, #0d1f3c 0%, #112244 60%, #0a1728 100%);
             display: flex; align-items: center; justify-content: center;
             min-height: 100vh;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
         .card {
-            background: #1a2535;
-            border-radius: 16px;
+            background: #ffffff;
+            border-radius: 18px;
             padding: 40px 32px;
             width: 100%; max-width: 380px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            box-shadow: 0 12px 48px rgba(0,0,0,0.4);
         }
         .logo {
             text-align: center;
-            margin-bottom: 32px;
+            margin-bottom: 28px;
         }
-        .logo h1 {
-            color: #e8a020;
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: 2px;
+        .logo img {
+            height: 60px;
+            max-width: 240px;
+            object-fit: contain;
         }
         .logo p {
-            color: #6b7a8d;
-            font-size: 13px;
-            margin-top: 4px;
+            color: #7a8ba0;
+            font-size: 12px;
+            margin-top: 6px;
+            letter-spacing: 0.5px;
         }
         label {
             display: block;
-            color: #8a9bb0;
-            font-size: 12px;
-            font-weight: 600;
+            color: #7a8ba0;
+            font-size: 10px;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             margin-bottom: 6px;
         }
         input {
             width: 100%;
-            background: #0f1923;
-            border: 1px solid #2a3a50;
+            background: #f0f4f8;
+            border: 1.5px solid #dce4ef;
             border-radius: 8px;
-            color: #e0e8f0;
+            color: #1a2535;
             font-size: 15px;
             padding: 12px 14px;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             outline: none;
-            transition: border-color 0.2s;
+            transition: border-color 0.2s, background 0.2s;
         }
-        input:focus { border-color: #e8a020; }
+        input:focus {
+            border-color: #1a73e8;
+            background: #ffffff;
+        }
         .btn {
             width: 100%;
-            background: #e8a020;
-            color: #0f1923;
+            background: linear-gradient(90deg, #1a73e8, #0d5abf);
+            color: #ffffff;
             font-size: 15px;
             font-weight: 700;
             border: none;
@@ -67,23 +70,25 @@
             padding: 14px;
             cursor: pointer;
             transition: background 0.2s;
+            letter-spacing: 0.5px;
         }
-        .btn:hover { background: #f0b030; }
+        .btn:hover { background: linear-gradient(90deg, #2b82f5, #1a6ad4); }
+        .btn:active { background: #0d5abf; }
         .eroare {
-            background: #2a1515;
-            border: 1px solid #c0392b;
-            color: #e74c3c;
+            background: #fef2f2;
+            border: 1px solid #fca5a5;
+            color: #b91c1c;
             border-radius: 8px;
             padding: 10px 14px;
             font-size: 13px;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
     </style>
 </head>
 <body>
     <div class="card">
         <div class="logo">
-            <h1>VELORIX</h1>
+            <img src="/static/logo_velorix.svg" alt="Velorix">
             <p>Service Management</p>
         </div>
 

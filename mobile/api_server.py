@@ -6,6 +6,7 @@ Suporta SQLite (local) si PostgreSQL (Supabase/Railway)
 
 import os
 import secrets
+from datetime import datetime
 from functools import wraps
 from flask import Flask, request, jsonify, render_template, redirect, url_for, session
 
@@ -157,6 +158,13 @@ def dashboard():
     cur.execute("SELECT COUNT(*) as total FROM stoc_piese WHERE stoc_curent <= stoc_minim")
     stoc_critic = one(cur)['total']
 
+    luna = datetime.now().strftime("%Y-%m")
+    if _USE_PG:
+        cur.execute("SELECT COALESCE(SUM(total_general), 0) as total FROM devize WHERE TO_CHAR(data::date, 'YYYY-MM') = %s", (luna,))
+    else:
+        cur.execute("SELECT COALESCE(SUM(total_general), 0) as total FROM devize WHERE strftime('%Y-%m', data) = ?", (luna,))
+    venituri_luna = float(one(cur)['total'] or 0)
+
     cur.execute(q("""
         SELECT p.id, c.nume as client, v.marca || ' ' || v.model as vehicul,
                p.data_programare, p.ora_start, p.ora_sfarsit, p.descriere, p.status
@@ -177,6 +185,7 @@ def dashboard():
         total_vehicule=total_vehicule,
         programari_azi=programari_azi,
         stoc_critic=stoc_critic,
+        venituri_luna=venituri_luna,
         programari_urm=programari_urm,
     )
 
@@ -211,19 +220,31 @@ def programare_adauga():
     con, cur = get_db()
 
     if request.method == 'POST':
-        id_client  = request.form.get('id_client')
-        id_vehicul = request.form.get('id_vehicul')
+        tip        = request.form.get('tip_client', 'existent')
         data       = request.form.get('data_programare')
         ora_start  = request.form.get('ora_start')
         ora_sf     = request.form.get('ora_sfarsit')
         descriere  = request.form.get('descriere', '')
         observatii = request.form.get('observatii', '')
 
-        cur.execute(q("""
-            INSERT INTO programari (id_client, id_vehicul, data_programare,
-                ora_start, ora_sfarsit, descriere, status, observatii, created_by)
-            VALUES (?, ?, ?, ?, ?, ?, 'programat', ?, ?)
-        """), (id_client, id_vehicul, data, ora_start, ora_sf, descriere, observatii, session['user']))
+        if tip == 'ocazional':
+            cur.execute(q("""
+                INSERT INTO programari (id_client, id_vehicul, data_programare,
+                    ora_start, ora_sfarsit, descriere, status, observatii, created_by,
+                    nume_ocazional, tel_ocazional, vehicul_ocazional)
+                VALUES (NULL, NULL, ?, ?, ?, ?, 'programat', ?, ?, ?, ?, ?)
+            """), (data, ora_start, ora_sf, descriere, observatii, session['user'],
+                   request.form.get('nume_ocazional', ''),
+                   request.form.get('tel_ocazional', ''),
+                   request.form.get('vehicul_ocazional', '')))
+        else:
+            id_client  = request.form.get('id_client')
+            id_vehicul = request.form.get('id_vehicul')
+            cur.execute(q("""
+                INSERT INTO programari (id_client, id_vehicul, data_programare,
+                    ora_start, ora_sfarsit, descriere, status, observatii, created_by)
+                VALUES (?, ?, ?, ?, ?, ?, 'programat', ?, ?)
+            """), (id_client, id_vehicul, data, ora_start, ora_sf, descriere, observatii, session['user']))
         con.commit()
         con.close()
         return redirect(url_for('programari'))

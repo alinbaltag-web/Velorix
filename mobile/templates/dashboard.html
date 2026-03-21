@@ -60,6 +60,7 @@
             margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px;
         }
         .stat-card.critic .numar { color: #e74c3c; }
+        .stat-card.venituri .numar { color: #1a73e8; }
         /* SECTIUNE */
         .sectiune { margin-bottom: 24px; }
         .sectiune h3 {
@@ -109,17 +110,17 @@
         <h2>Buna ziua, {{ user }}!</h2>
 
         <div class="stats-grid">
-            <div class="stat-card">
-                <div class="numar">{{ total_clienti }}</div>
-                <div class="eticheta">Clienti</div>
-            </div>
-            <div class="stat-card">
-                <div class="numar">{{ total_vehicule }}</div>
-                <div class="eticheta">Vehicule</div>
+            <div class="stat-card venituri">
+                <div class="numar">{{ "{:,.0f}".format(venituri_luna) }}</div>
+                <div class="eticheta">Venituri luna (RON)</div>
             </div>
             <div class="stat-card">
                 <div class="numar">{{ programari_azi }}</div>
                 <div class="eticheta">Programari azi</div>
+            </div>
+            <div class="stat-card">
+                <div class="numar">{{ total_clienti }}</div>
+                <div class="eticheta">Clienti</div>
             </div>
             <div class="stat-card {% if stoc_critic > 0 %}critic{% endif %}">
                 <div class="numar">{{ stoc_critic }}</div>
