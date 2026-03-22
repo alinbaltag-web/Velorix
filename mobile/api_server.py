@@ -85,22 +85,37 @@ def one(cursor):
 
 
 def _run_migrations():
-    """Asigura ca schema Supabase suporta clienti ocazionali."""
+    """Asigura compatibilitate schema Supabase si creeaza tabele noi."""
     if not _USE_PG:
         return
+    con, cur = get_db()
     try:
-        con, cur = get_db()
+        try:
+            cur.execute("""
+                ALTER TABLE programari
+                    ALTER COLUMN id_client DROP NOT NULL,
+                    ALTER COLUMN id_vehicul DROP NOT NULL
+            """)
+        except Exception:
+            pass
         cur.execute("""
-            ALTER TABLE programari
-                ALTER COLUMN id_client DROP NOT NULL,
-                ALTER COLUMN id_vehicul DROP NOT NULL
+            CREATE TABLE IF NOT EXISTS comenzi_furnizori (
+                id SERIAL PRIMARY KEY,
+                furnizor TEXT NOT NULL,
+                data_comanda TEXT,
+                data_livrare_estimata TEXT,
+                status TEXT DEFAULT 'in_asteptare',
+                total REAL DEFAULT 0,
+                note TEXT,
+                created_by TEXT
+            )
         """)
         con.commit()
+        print("[Velorix Mobile] Migrari Supabase aplicate.")
+    except Exception as e:
+        print(f"[Velorix Mobile] Migrare eroare: {e}")
+    finally:
         con.close()
-        print("[Velorix Mobile] Migrare Supabase aplicata.")
-    except Exception:
-        try: con.close()
-        except: pass
 
 
 _run_migrations()
@@ -749,6 +764,454 @@ def lucrare_sterge(lid):
 
 
 # ─────────────────────────────────────────────────────────────
+#  Stocuri — CRUD
+# ─────────────────────────────────────────────────────────────
+
+@app.route('/stocuri/adauga', methods=['GET', 'POST'])
+@login_required
+def stoc_adauga():
+    con, cur = get_db()
+    if request.method == 'POST':
+        cur.execute(q("""
+            INSERT INTO stoc_piese (cod, nume, stoc_curent, stoc_minim, unitate, pret_vanzare, furnizor)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """), (request.form.get('cod','').strip(),
+               request.form.get('nume','').strip(),
+               float(request.form.get('stoc_curent') or 0),
+               float(request.form.get('stoc_minim') or 0),
+               request.form.get('unitate','buc'),
+               float(request.form.get('pret_vanzare') or 0),
+               request.form.get('furnizor','').strip()))
+        con.commit()
+        con.close()
+        return redirect(url_for('stocuri'))
+    con.close()
+    return render_template('stoc_form.html', s=None, user=session['user'], activ='stocuri')
+
+
+@app.route('/stocuri/editeaza/<int:sid>', methods=['GET', 'POST'])
+@login_required
+def stoc_editeaza(sid):
+    con, cur = get_db()
+    if request.method == 'POST':
+        cur.execute(q("""
+            UPDATE stoc_piese SET cod=?, nume=?, stoc_curent=?, stoc_minim=?,
+                unitate=?, pret_vanzare=?, furnizor=? WHERE id=?
+        """), (request.form.get('cod','').strip(),
+               request.form.get('nume','').strip(),
+               float(request.form.get('stoc_curent') or 0),
+               float(request.form.get('stoc_minim') or 0),
+               request.form.get('unitate','buc'),
+               float(request.form.get('pret_vanzare') or 0),
+               request.form.get('furnizor','').strip(), sid))
+        con.commit()
+        con.close()
+        return redirect(url_for('stocuri'))
+    cur.execute(q("SELECT * FROM stoc_piese WHERE id=?"), (sid,))
+    s = one(cur)
+    con.close()
+    return render_template('stoc_form.html', s=s, user=session['user'], activ='stocuri')
+
+
+@app.route('/stocuri/sterge/<int:sid>', methods=['POST'])
+@login_required
+def stoc_sterge(sid):
+    con, cur = get_db()
+    cur.execute(q("DELETE FROM stoc_piese WHERE id=?"), (sid,))
+    con.commit()
+    con.close()
+    return redirect(url_for('stocuri'))
+
+
+# ─────────────────────────────────────────────────────────────
+#  Devize — Creare / Editare
+# ─────────────────────────────────────────────────────────────
+
+def _deviz_save_linii(cur, deviz_id, form):
+    """Salveaza liniile de manopera si piese dintr-un formular de deviz."""
+    cur.execute(q("DELETE FROM deviz_lucrari WHERE id_deviz=?"), (deviz_id,))
+    cur.execute(q("DELETE FROM deviz_piese WHERE id_deviz=?"), (deviz_id,))
+
+    man_count = int(form.get('man_count', 0))
+    total_man = 0.0
+    for i in range(man_count):
+        descriere = form.get(f'man_d_{i}', '').strip()
+        if not descriere:
+            continue
+        ore   = float(form.get(f'man_ore_{i}') or 0)
+        cost  = float(form.get(f'man_cost_{i}') or 0)
+        total_man += cost
+        cur.execute(q("INSERT INTO deviz_lucrari (id_deviz, descriere, ore_rar, cost) VALUES (?,?,?,?)"),
+                    (deviz_id, descriere, ore, cost))
+
+    pie_count = int(form.get('pie_count', 0))
+    total_pie = 0.0
+    for i in range(pie_count):
+        piesa = form.get(f'pie_d_{i}', '').strip()
+        if not piesa:
+            continue
+        cant  = float(form.get(f'pie_cant_{i}') or 0)
+        pret  = float(form.get(f'pie_pret_{i}') or 0)
+        total = round(cant * pret, 2)
+        total_pie += total
+        cur.execute(q("INSERT INTO deviz_piese (id_deviz, piesa, cantitate, pret_fara_tva, total) VALUES (?,?,?,?,?)"),
+                    (deviz_id, piesa, cant, pret, total))
+
+    tva_pct = float(form.get('tva_pct') or 19)
+    total_tva = round((total_man + total_pie) * tva_pct / 100, 2)
+    total_gen = round(total_man + total_pie + total_tva, 2)
+    cur.execute(q("""
+        UPDATE devize SET total_manopera=?, total_piese=?, total_tva=?, total_general=? WHERE id=?
+    """), (round(total_man, 2), round(total_pie, 2), total_tva, total_gen, deviz_id))
+
+
+@app.route('/devize/adauga', methods=['GET', 'POST'])
+@login_required
+def deviz_adauga():
+    con, cur = get_db()
+    if request.method == 'POST':
+        id_client  = request.form.get('id_client')
+        id_vehicul = request.form.get('id_vehicul')
+        data       = request.form.get('data') or datetime.now().strftime('%Y-%m-%d')
+        cur.execute("SELECT COALESCE(MAX(id), 0) + 1 as nxt FROM devize")
+        nxt = one(cur)['nxt']
+        numar = f"DVZ-{datetime.now().year}-{nxt:04d}"
+        cur.execute(q("""
+            INSERT INTO devize (numar, data, id_client, id_vehicul,
+                total_manopera, total_piese, total_tva, total_general)
+            VALUES (?, ?, ?, ?, 0, 0, 0, 0)
+        """), (numar, data, id_client, id_vehicul))
+        if _USE_PG:
+            cur.execute("SELECT lastval() as id")
+        else:
+            cur.execute("SELECT last_insert_rowid() as id")
+        deviz_id = one(cur)['id']
+        _deviz_save_linii(cur, deviz_id, request.form)
+        con.commit()
+        con.close()
+        return redirect(url_for('deviz_detalii', did=deviz_id))
+
+    cur.execute("SELECT id, nume FROM clienti ORDER BY nume")
+    clienti = rows(cur)
+    cur.execute("SELECT * FROM firma WHERE id=1")
+    firma = one(cur) or {}
+    con.close()
+    return render_template('deviz_form.html', d=None, lucrari=[], piese=[],
+                           clienti=clienti, tva=firma.get('tva', 19),
+                           user=session['user'], activ='devize')
+
+
+@app.route('/devize/editeaza/<int:did>', methods=['GET', 'POST'])
+@login_required
+def deviz_editeaza(did):
+    con, cur = get_db()
+    if request.method == 'POST':
+        data = request.form.get('data') or datetime.now().strftime('%Y-%m-%d')
+        cur.execute(q("UPDATE devize SET data=? WHERE id=?"), (data, did))
+        _deviz_save_linii(cur, did, request.form)
+        con.commit()
+        con.close()
+        return redirect(url_for('deviz_detalii', did=did))
+
+    cur.execute(q("""
+        SELECT d.id, d.numar, d.data, d.id_client, d.id_vehicul,
+               COALESCE(d.total_manopera,0) as total_manopera,
+               COALESCE(d.total_piese,0) as total_piese,
+               COALESCE(d.total_tva,0) as total_tva,
+               COALESCE(d.total_general,0) as total_general,
+               c.nume as client, v.marca || ' ' || v.model as vehicul,
+               COALESCE(v.nr,'') as nr
+        FROM devize d
+        LEFT JOIN clienti c ON c.id=d.id_client
+        LEFT JOIN vehicule v ON v.id=d.id_vehicul
+        WHERE d.id=?
+    """), (did,))
+    d = one(cur)
+    if not d:
+        con.close()
+        return redirect(url_for('devize'))
+    cur.execute(q("SELECT descriere, cost, ore_rar FROM deviz_lucrari WHERE id_deviz=? ORDER BY id"), (did,))
+    lucrari_d = rows(cur)
+    cur.execute(q("SELECT piesa, cantitate, pret_fara_tva, total FROM deviz_piese WHERE id_deviz=? ORDER BY id"), (did,))
+    piese_d = rows(cur)
+    cur.execute("SELECT * FROM firma WHERE id=1")
+    firma = one(cur) or {}
+    cur.execute("SELECT id, nume FROM clienti ORDER BY nume")
+    clienti = rows(cur)
+    con.close()
+    return render_template('deviz_form.html', d=d, lucrari=lucrari_d, piese=piese_d,
+                           clienti=clienti, tva=firma.get('tva', 19),
+                           user=session['user'], activ='devize')
+
+
+# ─────────────────────────────────────────────────────────────
+#  Fise Service
+# ─────────────────────────────────────────────────────────────
+
+@app.route('/fise')
+@login_required
+def fise():
+    q_search = request.args.get('q', '').strip()
+    con, cur = get_db()
+    if q_search:
+        if _USE_PG:
+            cur.execute("""
+                SELECT f.id, f.data, f.solicitari, f.stare_generala, f.nivel_combustibil,
+                       c.nume as client, v.marca || ' ' || v.model as vehicul, COALESCE(v.nr,'') as nr
+                FROM fise_service f
+                JOIN clienti c ON c.id=f.id_client
+                JOIN vehicule v ON v.id=f.id_vehicul
+                WHERE c.nume ILIKE %s OR v.marca ILIKE %s OR v.nr ILIKE %s
+                ORDER BY f.data DESC, f.id DESC LIMIT 100
+            """, (f'%{q_search}%',)*3)
+        else:
+            cur.execute("""
+                SELECT f.id, f.data, f.solicitari, f.stare_generala, f.nivel_combustibil,
+                       c.nume as client, v.marca || ' ' || v.model as vehicul, COALESCE(v.nr,'') as nr
+                FROM fise_service f
+                JOIN clienti c ON c.id=f.id_client
+                JOIN vehicule v ON v.id=f.id_vehicul
+                WHERE c.nume LIKE ? OR v.marca LIKE ? OR v.nr LIKE ?
+                ORDER BY f.data DESC, f.id DESC LIMIT 100
+            """, (f'%{q_search}%',)*3)
+    else:
+        cur.execute("""
+            SELECT f.id, f.data, f.solicitari, f.stare_generala, f.nivel_combustibil,
+                   c.nume as client, v.marca || ' ' || v.model as vehicul, COALESCE(v.nr,'') as nr
+            FROM fise_service f
+            JOIN clienti c ON c.id=f.id_client
+            JOIN vehicule v ON v.id=f.id_vehicul
+            ORDER BY f.data DESC, f.id DESC LIMIT 100
+        """)
+    lista = rows(cur)
+    con.close()
+    return render_template('fise.html', fise=lista, q=q_search,
+                           user=session['user'], activ='fise')
+
+
+@app.route('/fise/adauga', methods=['GET', 'POST'])
+@login_required
+def fisa_adauga():
+    con, cur = get_db()
+    if request.method == 'POST':
+        cur.execute(q("""
+            INSERT INTO fise_service (id_client, id_vehicul, data, solicitari,
+                defecte, observatii, nivel_combustibil, stare_generala)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        """), (request.form.get('id_client'),
+               request.form.get('id_vehicul'),
+               request.form.get('data') or datetime.now().strftime('%Y-%m-%d'),
+               request.form.get('solicitari',''),
+               request.form.get('defecte',''),
+               request.form.get('observatii',''),
+               request.form.get('nivel_combustibil','1/2'),
+               request.form.get('stare_generala','Buna')))
+        con.commit()
+        con.close()
+        return redirect(url_for('fise'))
+    cur.execute("SELECT id, nume FROM clienti ORDER BY nume")
+    clienti = rows(cur)
+    con.close()
+    return render_template('fisa_form.html', f=None, clienti=clienti,
+                           user=session['user'], activ='fise')
+
+
+@app.route('/fise/editeaza/<int:fid>', methods=['GET', 'POST'])
+@login_required
+def fisa_editeaza(fid):
+    con, cur = get_db()
+    if request.method == 'POST':
+        cur.execute(q("""
+            UPDATE fise_service SET data=?, solicitari=?, defecte=?,
+                observatii=?, nivel_combustibil=?, stare_generala=? WHERE id=?
+        """), (request.form.get('data') or datetime.now().strftime('%Y-%m-%d'),
+               request.form.get('solicitari',''),
+               request.form.get('defecte',''),
+               request.form.get('observatii',''),
+               request.form.get('nivel_combustibil','1/2'),
+               request.form.get('stare_generala','Buna'), fid))
+        con.commit()
+        con.close()
+        return redirect(url_for('fise'))
+    cur.execute(q("""
+        SELECT f.*, c.nume as client, v.marca || ' ' || v.model as vehicul, COALESCE(v.nr,'') as nr
+        FROM fise_service f
+        JOIN clienti c ON c.id=f.id_client
+        JOIN vehicule v ON v.id=f.id_vehicul
+        WHERE f.id=?
+    """), (fid,))
+    f = one(cur)
+    cur.execute("SELECT id, nume FROM clienti ORDER BY nume")
+    clienti = rows(cur)
+    con.close()
+    if not f:
+        return redirect(url_for('fise'))
+    return render_template('fisa_form.html', f=f, clienti=clienti,
+                           user=session['user'], activ='fise')
+
+
+@app.route('/fise/sterge/<int:fid>', methods=['POST'])
+@login_required
+def fisa_sterge(fid):
+    con, cur = get_db()
+    cur.execute(q("DELETE FROM fise_service WHERE id=?"), (fid,))
+    con.commit()
+    con.close()
+    return redirect(url_for('fise'))
+
+
+# ─────────────────────────────────────────────────────────────
+#  Notificari
+# ─────────────────────────────────────────────────────────────
+
+@app.route('/notificari')
+@login_required
+def notificari():
+    con, cur = get_db()
+    cur.execute("""
+        SELECT n.id, n.tip, n.mesaj, n.data_creare, n.citita,
+               COALESCE(v.marca || ' ' || v.model, '—') as vehicul,
+               COALESCE(v.nr,'') as nr
+        FROM notificari n
+        LEFT JOIN vehicule v ON v.id=n.id_vehicul
+        ORDER BY n.citita ASC, n.id DESC LIMIT 200
+    """)
+    lista = rows(cur)
+    con.close()
+    return render_template('notificari.html', notificari=lista,
+                           user=session['user'], activ='notificari')
+
+
+@app.route('/notificari/citeste/<int:nid>', methods=['POST'])
+@login_required
+def notificare_citeste(nid):
+    con, cur = get_db()
+    cur.execute(q("UPDATE notificari SET citita=1 WHERE id=?"), (nid,))
+    con.commit()
+    con.close()
+    return redirect(url_for('notificari'))
+
+
+@app.route('/notificari/citeste-tot', methods=['POST'])
+@login_required
+def notificari_citeste_tot():
+    con, cur = get_db()
+    cur.execute("UPDATE notificari SET citita=1")
+    con.commit()
+    con.close()
+    return redirect(url_for('notificari'))
+
+
+@app.route('/notificari/sterge/<int:nid>', methods=['POST'])
+@login_required
+def notificare_sterge(nid):
+    con, cur = get_db()
+    cur.execute(q("DELETE FROM notificari WHERE id=?"), (nid,))
+    con.commit()
+    con.close()
+    return redirect(url_for('notificari'))
+
+
+# ─────────────────────────────────────────────────────────────
+#  Comenzi Furnizori
+# ─────────────────────────────────────────────────────────────
+
+@app.route('/comenzi')
+@login_required
+def comenzi():
+    filtru   = request.args.get('filtru', 'toate')
+    q_search = request.args.get('q', '').strip()
+    con, cur = get_db()
+    where, params = [], []
+    if filtru == 'in_asteptare':
+        where.append("status = 'in_asteptare'")
+    elif filtru == 'livrata':
+        where.append("status = 'livrata'")
+    if q_search:
+        if _USE_PG:
+            where.append("furnizor ILIKE %s")
+        else:
+            where.append("furnizor LIKE ?")
+        params.append(f'%{q_search}%')
+    sql = "SELECT * FROM comenzi_furnizori"
+    if where:
+        sql += " WHERE " + " AND ".join(where)
+    sql += " ORDER BY CASE status WHEN 'in_asteptare' THEN 0 ELSE 1 END, id DESC LIMIT 100"
+    cur.execute(sql, params)
+    lista = rows(cur)
+    con.close()
+    return render_template('comenzi.html', comenzi=lista, filtru=filtru, q=q_search,
+                           user=session['user'], activ='comenzi')
+
+
+@app.route('/comenzi/adauga', methods=['GET', 'POST'])
+@login_required
+def comanda_adauga():
+    if request.method == 'POST':
+        con, cur = get_db()
+        cur.execute(q("""
+            INSERT INTO comenzi_furnizori
+                (furnizor, data_comanda, data_livrare_estimata, status, total, note, created_by)
+            VALUES (?, ?, ?, 'in_asteptare', ?, ?, ?)
+        """), (request.form.get('furnizor','').strip(),
+               request.form.get('data_comanda') or datetime.now().strftime('%Y-%m-%d'),
+               request.form.get('data_livrare',''),
+               float(request.form.get('total') or 0),
+               request.form.get('note','').strip(),
+               session['user']))
+        con.commit()
+        con.close()
+        return redirect(url_for('comenzi'))
+    return render_template('comanda_form.html', c=None, user=session['user'], activ='comenzi')
+
+
+@app.route('/comenzi/editeaza/<int:cid>', methods=['GET', 'POST'])
+@login_required
+def comanda_editeaza(cid):
+    con, cur = get_db()
+    if request.method == 'POST':
+        cur.execute(q("""
+            UPDATE comenzi_furnizori SET furnizor=?, data_comanda=?,
+                data_livrare_estimata=?, status=?, total=?, note=? WHERE id=?
+        """), (request.form.get('furnizor','').strip(),
+               request.form.get('data_comanda',''),
+               request.form.get('data_livrare',''),
+               request.form.get('status','in_asteptare'),
+               float(request.form.get('total') or 0),
+               request.form.get('note','').strip(), cid))
+        con.commit()
+        con.close()
+        return redirect(url_for('comenzi'))
+    cur.execute(q("SELECT * FROM comenzi_furnizori WHERE id=?"), (cid,))
+    c = one(cur)
+    con.close()
+    if not c:
+        return redirect(url_for('comenzi'))
+    return render_template('comanda_form.html', c=c, user=session['user'], activ='comenzi')
+
+
+@app.route('/comenzi/status/<int:cid>', methods=['POST'])
+@login_required
+def comanda_status(cid):
+    nou_status = request.form.get('status', 'livrata')
+    con, cur = get_db()
+    cur.execute(q("UPDATE comenzi_furnizori SET status=? WHERE id=?"), (nou_status, cid))
+    con.commit()
+    con.close()
+    return redirect(url_for('comenzi'))
+
+
+@app.route('/comenzi/sterge/<int:cid>', methods=['POST'])
+@login_required
+def comanda_sterge(cid):
+    con, cur = get_db()
+    cur.execute(q("DELETE FROM comenzi_furnizori WHERE id=?"), (cid,))
+    con.commit()
+    con.close()
+    return redirect(url_for('comenzi'))
+
+
+# ─────────────────────────────────────────────────────────────
 #  Vehicule (standalone)
 # ─────────────────────────────────────────────────────────────
 
@@ -1154,6 +1617,45 @@ def setari_permisiuni():
             permisiuni[rol][sectiune] = db_perms.get((rol, sectiune), 1 if rol == 'administrator' else 0)
 
     return render_template('setari_permisiuni.html', permisiuni=permisiuni, msg=msg, user=session['user'], activ='setari')
+
+
+@app.route('/setari/email', methods=['GET', 'POST'])
+@login_required
+def setari_email():
+    con, cur = get_db()
+    msg = None
+    if request.method == 'POST':
+        if _USE_PG:
+            cur.execute("""
+                INSERT INTO email_settings
+                    (id, smtp_host, smtp_port, smtp_user, smtp_password, smtp_ssl, notificari_active, reminder_ore)
+                VALUES (1, %s, %s, %s, %s, %s, %s, %s)
+                ON CONFLICT(id) DO UPDATE SET
+                    smtp_host=EXCLUDED.smtp_host, smtp_port=EXCLUDED.smtp_port,
+                    smtp_user=EXCLUDED.smtp_user, smtp_password=EXCLUDED.smtp_password,
+                    smtp_ssl=EXCLUDED.smtp_ssl, notificari_active=EXCLUDED.notificari_active,
+                    reminder_ore=EXCLUDED.reminder_ore
+            """, (request.form.get('smtp_host',''), int(request.form.get('smtp_port',587) or 587),
+                  request.form.get('smtp_user',''), request.form.get('smtp_password',''),
+                  1 if request.form.get('smtp_ssl') else 0,
+                  1 if request.form.get('notificari_active') else 0,
+                  int(request.form.get('reminder_ore',24) or 24)))
+        else:
+            cur.execute("""
+                INSERT OR REPLACE INTO email_settings
+                    (id, smtp_host, smtp_port, smtp_user, smtp_password, smtp_ssl, notificari_active, reminder_ore)
+                VALUES (1, ?, ?, ?, ?, ?, ?, ?)
+            """, (request.form.get('smtp_host',''), int(request.form.get('smtp_port',587) or 587),
+                  request.form.get('smtp_user',''), request.form.get('smtp_password',''),
+                  1 if request.form.get('smtp_ssl') else 0,
+                  1 if request.form.get('notificari_active') else 0,
+                  int(request.form.get('reminder_ore',24) or 24)))
+        con.commit()
+        msg = "Setarile email au fost salvate."
+    cur.execute("SELECT * FROM email_settings WHERE id=1")
+    es = one(cur) or {}
+    con.close()
+    return render_template('setari_email.html', es=es, msg=msg, user=session['user'], activ='setari')
 
 
 @app.route('/setari/jurnal')

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Velorix — {% if s %}Editeaza piesa{% else %}Piesa noua{% endif %}{% endblock %}
+{% block content %}
+<a href="/stocuri" class="back">← Inapoi la stocuri</a>
+<h2 style="margin-bottom:24px">{% if s %}Editeaza piesa{% else %}Piesa noua{% endif %}</h2>
+
+<div class="card">
+<form method="POST">
+    <label>Denumire piesa *</label>
+    <input type="text" name="nume" value="{{ s.nume if s else '' }}" placeholder="ex: Filtru ulei, Placute frana..." required>
+
+    <div class="row2">
+        <div>
+            <label>Cod piesa</label>
+            <input type="text" name="cod" value="{{ s.cod if s else '' }}" placeholder="ex: OIL-001">
+        </div>
+        <div>
+            <label>Unitate masura</label>
+            <select name="unitate">
+                {% for u in ['buc', 'litru', 'ml', 'kg', 'g', 'set', 'm'] %}
+                <option value="{{ u }}" {% if s and s.unitate == u %}selected{% endif %}>{{ u }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="row2">
+        <div>
+            <label>Stoc curent</label>
+            <input type="number" name="stoc_curent" step="0.5" min="0"
+                   value="{{ s.stoc_curent if s else '0' }}" placeholder="0">
+        </div>
+        <div>
+            <label>Stoc minim (alerta)</label>
+            <input type="number" name="stoc_minim" step="0.5" min="0"
+                   value="{{ s.stoc_minim if s else '1' }}" placeholder="1">
+        </div>
+    </div>
+
+    <div class="row2">
+        <div>
+            <label>Pret vanzare (RON)</label>
+            <input type="number" name="pret_vanzare" step="0.01" min="0"
+                   value="{{ s.pret_vanzare if s else '0' }}" placeholder="0.00">
+        </div>
+        <div>
+            <label>Furnizor</label>
+            <input type="text" name="furnizor" value="{{ s.furnizor if s else '' }}" placeholder="Numele furnizorului">
+        </div>
+    </div>
+
+    <button type="submit" class="btn-primary btn-full">
+        {% if s %}Salveaza modificarile{% else %}Adauga piesa{% endif %}
+    </button>
+</form>
+</div>
+{% endblock %}

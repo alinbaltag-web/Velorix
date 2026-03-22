@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Velorix — Fise Service{% endblock %}
+{% block extra_css %}
+.fisa-card { background: var(--card); border-radius: 10px; border: 1px solid var(--border); border-left: 4px solid var(--blue); padding: 14px 16px; margin-bottom: 10px; }
+.fisa-client { font-weight: 700; font-size: 15px; }
+.fisa-vehicul { font-size: 13px; color: var(--text2); margin-top: 2px; }
+.fisa-desc { font-size: 13px; margin-top: 6px; color: var(--text); }
+.fisa-meta { display: flex; gap: 14px; margin-top: 8px; font-size: 12px; color: var(--text2); flex-wrap: wrap; }
+.fisa-actiuni { display: flex; gap: 8px; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+{% endblock %}
+{% block content %}
+<div class="top-bar">
+    <h2>Fise Service</h2>
+    <a href="/fise/adauga" class="btn-primary">+ Adauga</a>
+</div>
+
+<form method="GET" action="/fise" class="search-bar">
+    <input type="text" name="q" value="{{ q }}" placeholder="Cauta client, vehicul, nr...">
+    <button type="submit" class="btn-primary">Cauta</button>
+</form>
+
+{% if fise %}
+    {% for f in fise %}
+    <div class="fisa-card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div>
+                <div class="fisa-client">{{ f.client }}</div>
+                <div class="fisa-vehicul">{{ f.vehicul }}{% if f.nr %} · {{ f.nr }}{% endif %}</div>
+            </div>
+            <span style="font-size:12px;color:var(--text2)">{{ f.data }}</span>
+        </div>
+        {% if f.solicitari %}<div class="fisa-desc">📝 {{ f.solicitari[:100] }}{% if f.solicitari|length > 100 %}...{% endif %}</div>{% endif %}
+        <div class="fisa-meta">
+            {% if f.nivel_combustibil %}<span>⛽ {{ f.nivel_combustibil }}</span>{% endif %}
+            {% if f.stare_generala %}<span>🔍 {{ f.stare_generala }}</span>{% endif %}
+        </div>
+        <div class="fisa-actiuni">
+            <a href="/fise/editeaza/{{ f.id }}" class="btn-secondary" style="font-size:12px;padding:7px 14px">✏ Editeaza</a>
+            <form method="POST" action="/fise/sterge/{{ f.id }}" style="margin:0"
+                  onsubmit="return confirm('Stergi fisa de service?')">
+                <button type="submit" class="btn-danger" style="font-size:12px;padding:7px 14px">🗑 Sterge</button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+{% else %}
+    <div class="empty"><div class="empty-icon">📋</div>Nicio fisa de service gasita.</div>
+{% endif %}
+{% endblock %}

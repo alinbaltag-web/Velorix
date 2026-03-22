@@ -526,8 +526,48 @@ def migration_009_piese_lucrari_id_stoc(cur):
             pass  # coloana exista deja
 
 
+def migration_011_email_settings(cur):
+    """Creeaza tabela email_settings la initializare, nu la accesarea Setarilor."""
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS email_settings (
+            id                  INTEGER PRIMARY KEY,
+            smtp_host           TEXT DEFAULT '',
+            smtp_port           INTEGER DEFAULT 587,
+            smtp_user           TEXT DEFAULT '',
+            smtp_password       TEXT DEFAULT '',
+            smtp_ssl            INTEGER DEFAULT 0,
+            notificari_active   INTEGER DEFAULT 0,
+            reminder_ore        INTEGER DEFAULT 24
+        )
+    """)
+    for sql in [
+        "ALTER TABLE programari ADD COLUMN reminder_trimis INTEGER DEFAULT 0",
+        "ALTER TABLE lucrari ADD COLUMN notificare_trimisa INTEGER DEFAULT 0",
+    ]:
+        try:
+            cur.execute(sql)
+        except Exception:
+            pass
+
+
 # ─────────────────────────────────────────────────────────────
 #  LISTA OFICIALA DE MIGRARI
+def migration_012_comenzi_furnizori(cur):
+    """Creeaza tabela comenzi_furnizori pentru gestionarea comenzilor la furnizori."""
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS comenzi_furnizori (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            furnizor TEXT NOT NULL,
+            data_comanda TEXT,
+            data_livrare_estimata TEXT,
+            status TEXT DEFAULT 'in_asteptare',
+            total REAL DEFAULT 0,
+            note TEXT,
+            created_by TEXT
+        )
+    """)
+
+
 #  !! Adauga mereu la SFARSIT, niciodata nu modifica ordinea !!
 # ─────────────────────────────────────────────────────────────
 MIGRATIONS = [
@@ -541,6 +581,8 @@ MIGRATIONS = [
     (8, "firma_campuri_noi",           migration_008_firma_campuri_noi),
     (9,  "piese_lucrari_id_stoc",        migration_009_piese_lucrari_id_stoc),
     (10, "programari_nullable_client",  migration_010_programari_nullable_client),
+    (11, "email_settings",              migration_011_email_settings),
+    (12, "comenzi_furnizori",           migration_012_comenzi_furnizori),
 ]
 
 

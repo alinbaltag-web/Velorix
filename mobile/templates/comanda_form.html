@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Velorix — {% if c %}Editeaza comanda{% else %}Comanda noua{% endif %}{% endblock %}
+{% block content %}
+<a href="/comenzi" class="back">← Inapoi la comenzi</a>
+<h2 style="margin-bottom:24px">{% if c %}Editeaza comanda{% else %}Comanda noua{% endif %}</h2>
+
+<div class="card">
+<form method="POST">
+    <label>Furnizor *</label>
+    <input type="text" name="furnizor" value="{{ c.furnizor if c else '' }}"
+           placeholder="Numele furnizorului" required>
+
+    <div class="row2">
+        <div>
+            <label>Data comanda</label>
+            <input type="date" name="data_comanda" value="{{ c.data_comanda if c else '' }}">
+        </div>
+        <div>
+            <label>Livrare estimata</label>
+            <input type="date" name="data_livrare" value="{{ c.data_livrare_estimata if c else '' }}">
+        </div>
+    </div>
+
+    <div class="row2">
+        <div>
+            <label>Total estimat (RON)</label>
+            <input type="number" name="total" step="0.01" min="0"
+                   value="{{ c.total if c else '0' }}" placeholder="0.00">
+        </div>
+        {% if c %}
+        <div>
+            <label>Status</label>
+            <select name="status">
+                <option value="in_asteptare" {% if c.status == 'in_asteptare' %}selected{% endif %}>In asteptare</option>
+                <option value="livrata"      {% if c.status == 'livrata'      %}selected{% endif %}>Livrata</option>
+                <option value="anulata"      {% if c.status == 'anulata'      %}selected{% endif %}>Anulata</option>
+            </select>
+        </div>
+        {% endif %}
+    </div>
+
+    <label>Continut comanda / Note</label>
+    <textarea name="note" rows="5"
+              placeholder="Lista pieselor comandate, referinte, observatii...">{{ c.note if c else '' }}</textarea>
+
+    <button type="submit" class="btn-primary btn-full">
+        {% if c %}Salveaza modificarile{% else %}Creeaza comanda{% endif %}
+    </button>
+</form>
+</div>
+{% endblock %}

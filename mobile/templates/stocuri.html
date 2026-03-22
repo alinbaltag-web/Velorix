@@ -19,6 +19,7 @@
 {% block content %}
 <div class="top-bar">
     <h2>Stocuri</h2>
+    <a href="/stocuri/adauga" class="btn-primary">+ Adauga</a>
 </div>
 
 <form method="GET" class="search-bar">
@@ -48,6 +49,13 @@
             </div>
         </div>
         {% if s.categorie %}<div style="font-size:11px;color:var(--text2);margin-top:4px">📁 {{ s.categorie }}</div>{% endif %}
+        <div style="display:flex;gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)">
+            <a href="/stocuri/editeaza/{{ s.id }}" class="btn-secondary" style="font-size:12px;padding:7px 14px">✏ Editeaza</a>
+            <form method="POST" action="/stocuri/sterge/{{ s.id }}" style="margin:0"
+                  onsubmit="return confirm('Stergi piesa {{ s.nume }}?')">
+                <button type="submit" class="btn-danger" style="font-size:12px;padding:7px 14px">🗑</button>
+            </form>
+        </div>
     </div>
     {% endfor %}
 {% else %}

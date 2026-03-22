@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block title %}Velorix — {% if f %}Editeaza fisa{% else %}Fisa noua{% endif %}{% endblock %}
+{% block content %}
+<a href="/fise" class="back">← Inapoi la fise</a>
+<h2 style="margin-bottom:24px">{% if f %}Editeaza fisa service{% else %}Fisa service noua{% endif %}</h2>
+
+<div class="card">
+<form method="POST">
+    {% if f %}
+    <label>Client / Vehicul</label>
+    <input type="text" value="{{ f.client }} — {{ f.vehicul }}{% if f.nr %} ({{ f.nr }}){% endif %}" disabled>
+    {% else %}
+    <label>Client *</label>
+    <select name="id_client" id="sel-client" required onchange="incarcaVehicule(this.value)">
+        <option value="">— Selecteaza client —</option>
+        {% for c in clienti %}
+        <option value="{{ c.id }}">{{ c.nume }}</option>
+        {% endfor %}
+    </select>
+    <label>Vehicul *</label>
+    <select name="id_vehicul" id="sel-vehicul" required>
+        <option value="">— Selecteaza mai intai clientul —</option>
+    </select>
+    {% endif %}
+
+    <label>Data</label>
+    <input type="date" name="data" value="{{ f.data if f else '' }}" required>
+
+    <label>Solicitari client</label>
+    <textarea name="solicitari" placeholder="Ce doreste clientul sa fie reparat/verificat...">{{ f.solicitari if f else '' }}</textarea>
+
+    <label>Defecte constatate</label>
+    <textarea name="defecte" placeholder="Defecte observate la receptie...">{{ f.defecte if f else '' }}</textarea>
+
+    <div class="row2">
+        <div>
+            <label>Nivel combustibil</label>
+            <select name="nivel_combustibil">
+                {% for n in ['E', '1/4', '1/2', '3/4', 'F'] %}
+                <option value="{{ n }}" {% if f and f.nivel_combustibil == n %}selected{% endif %}>{{ n }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label>Stare generala</label>
+            <select name="stare_generala">
+                {% for s in ['Excelenta', 'Buna', 'Satisfacatoare', 'Necesita reparatii'] %}
+                <option value="{{ s }}" {% if f and f.stare_generala == s %}selected{% endif %}>{{ s }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <label>Observatii suplimentare</label>
+    <textarea name="observatii" placeholder="Alte observatii...">{{ f.observatii if f else '' }}</textarea>
+
+    <button type="submit" class="btn-primary btn-full">
+        {% if f %}Salveaza modificarile{% else %}Creeaza fisa{% endif %}
+    </button>
+</form>
+</div>
+
+{% if not f %}
+<script>
+function incarcaVehicule(id_client) {
+    const sel = document.getElementById('sel-vehicul');
+    sel.innerHTML = '<option value="">Se incarca...</option>';
+    if (!id_client) { sel.innerHTML = '<option value="">— Selecteaza mai intai clientul —</option>'; return; }
+    fetch('/api/vehicule/' + id_client)
+        .then(r => r.json())
+        .then(data => {
+            sel.innerHTML = '<option value="">— Selecteaza vehicul —</option>';
+            data.forEach(v => {
+                const opt = document.createElement('option');
+                opt.value = v.id;
+                opt.textContent = v.marca + ' ' + v.model + (v.nr ? ' (' + v.nr + ')' : '');
+                sel.appendChild(opt);
+            });
+        });
+}
+</script>
+{% endif %}
+{% endblock %}

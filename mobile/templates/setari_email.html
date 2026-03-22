@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Velorix — Setari Email{% endblock %}
+{% block content %}
+<a href="/setari" class="back">← Inapoi la setari</a>
+<h2 style="margin-bottom:24px">Setari Email / Notificari</h2>
+
+{% if msg %}<div class="alert-success">{{ msg }}</div>{% endif %}
+
+<div class="card">
+<form method="POST">
+    <label>Server SMTP</label>
+    <input type="text" name="smtp_host" value="{{ es.smtp_host or '' }}"
+           placeholder="ex: smtp.gmail.com">
+
+    <div class="row2">
+        <div>
+            <label>Port SMTP</label>
+            <input type="number" name="smtp_port" value="{{ es.smtp_port or 587 }}"
+                   placeholder="587">
+        </div>
+        <div>
+            <label>SSL/TLS</label>
+            <select name="smtp_ssl">
+                <option value="0" {% if not es.smtp_ssl %}selected{% endif %}>STARTTLS (587)</option>
+                <option value="1" {% if es.smtp_ssl %}selected{% endif %}>SSL (465)</option>
+            </select>
+        </div>
+    </div>
+
+    <label>Email expeditor</label>
+    <input type="email" name="smtp_user" value="{{ es.smtp_user or '' }}"
+           placeholder="noreply@service.ro">
+
+    <label>Parola SMTP</label>
+    <input type="password" name="smtp_password" value="{{ es.smtp_password or '' }}"
+           placeholder="Parola sau App Password">
+
+    <hr class="divider">
+
+    <label>Notificari remindere</label>
+    <select name="notificari_active">
+        <option value="0" {% if not es.notificari_active %}selected{% endif %}>Dezactivate</option>
+        <option value="1" {% if es.notificari_active %}selected{% endif %}>Active</option>
+    </select>
+
+    <label>Trimitere reminder cu (ore inainte)</label>
+    <input type="number" name="reminder_ore" value="{{ es.reminder_ore or 24 }}"
+           min="1" max="72" placeholder="24">
+
+    <button type="submit" class="btn-primary btn-full">Salveaza setarile email</button>
+</form>
+</div>
+
+<div class="card" style="margin-top:16px">
+    <div style="font-size:13px;color:var(--text2);line-height:1.6">
+        <strong>Configurare Gmail:</strong><br>
+        Server: smtp.gmail.com · Port: 587 · SSL: STARTTLS<br>
+        Parola: folositi <a href="https://myaccount.google.com/apppasswords" style="color:var(--blue)">App Password</a> din contul Google.
+    </div>
+</div>
+{% endblock %}

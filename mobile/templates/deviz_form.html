@@ -1,0 +1,238 @@
+{% extends "base.html" %}
+{% block title %}Velorix — {% if d %}Editeaza deviz{% else %}Deviz nou{% endif %}{% endblock %}
+{% block extra_css %}
+.linii-section { background: #f8fafc; border-radius: 10px; border: 1px solid var(--border); padding: 14px; margin-bottom: 16px; }
+.linie-row { display: grid; gap: 8px; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--border); position: relative; }
+.linie-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.linie-label { font-size: 11px; color: var(--text2); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+.btn-remove { background: #fef2f2; color: var(--red); border: 1px solid #fecaca; border-radius: 6px; padding: 4px 10px; font-size: 12px; cursor: pointer; }
+.total-preview { background: var(--blue-light); border-radius: 8px; padding: 12px 14px; margin-bottom: 16px; }
+.total-preview div { display: flex; justify-content: space-between; font-size: 13px; padding: 2px 0; }
+.total-preview .total-final { font-weight: 800; font-size: 16px; color: var(--blue); margin-top: 6px; padding-top: 6px; border-top: 1.5px solid var(--blue); }
+{% endblock %}
+{% block content %}
+<a href="/devize" class="back">← Inapoi la devize</a>
+<h2 style="margin-bottom:24px">{% if d %}Editeaza {{ d.numar }}{% else %}Deviz nou{% endif %}</h2>
+
+<div class="card">
+<form method="POST" id="deviz-form">
+
+    {% if d %}
+    <label>Deviz</label>
+    <input type="text" value="{{ d.numar }}" disabled>
+    <label>Client / Vehicul</label>
+    <input type="text" value="{{ d.client }} — {{ d.vehicul }}{% if d.nr %} ({{ d.nr }}){% endif %}" disabled>
+    {% else %}
+    <label>Client *</label>
+    <select name="id_client" id="sel-client" required onchange="incarcaVehicule(this.value)">
+        <option value="">— Selecteaza client —</option>
+        {% for c in clienti %}
+        <option value="{{ c.id }}">{{ c.nume }}</option>
+        {% endfor %}
+    </select>
+    <label>Vehicul *</label>
+    <select name="id_vehicul" id="sel-vehicul" required>
+        <option value="">— Selecteaza mai intai clientul —</option>
+    </select>
+    {% endif %}
+
+    <label>Data</label>
+    <input type="date" name="data" value="{{ d.data if d else '' }}" required>
+
+    <div class="row2">
+        <div>
+            <label>TVA (%)</label>
+            <input type="number" name="tva_pct" id="tva_pct" value="{{ tva|default(19) }}"
+                   step="1" min="0" max="100" oninput="calcTotal()">
+        </div>
+        <div style="display:flex;align-items:flex-end;padding-bottom:16px">
+            <span style="font-size:12px;color:var(--text2)">Totalurile se calculeaza automat</span>
+        </div>
+    </div>
+
+    <!-- MANOPERA -->
+    <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text2);margin-bottom:8px">Manopera</div>
+    <div class="linii-section" id="man-container">
+        {% for i, l in enumerate(lucrari) if lucrari %}
+        <div class="linie-row" id="man-row-{{ i }}">
+            <span class="linie-label">Lucrare {{ i+1 }}</span>
+            <input type="text" name="man_d_{{ i }}" value="{{ l.descriere }}" placeholder="Descriere lucrare" style="margin-bottom:6px">
+            <div class="row2">
+                <div>
+                    <input type="number" name="man_ore_{{ i }}" value="{{ l.ore_rar or 0 }}"
+                           placeholder="Ore RAR" step="0.5" min="0" oninput="calcTotal()" style="margin-bottom:0">
+                    <div style="font-size:10px;color:var(--text2);margin-top:2px">Ore RAR</div>
+                </div>
+                <div>
+                    <input type="number" name="man_cost_{{ i }}" value="{{ l.cost or 0 }}"
+                           placeholder="Cost RON" step="0.01" min="0" oninput="calcTotal()" style="margin-bottom:0">
+                    <div style="font-size:10px;color:var(--text2);margin-top:2px">Cost (RON)</div>
+                </div>
+            </div>
+            <button type="button" class="btn-remove" onclick="removeRow('man-row-{{ i }}')">✕ Sterge</button>
+        </div>
+        {% else %}
+        <div class="linie-row" id="man-row-0">
+            <span class="linie-label">Lucrare 1</span>
+            <input type="text" name="man_d_0" placeholder="Descriere lucrare" style="margin-bottom:6px">
+            <div class="row2">
+                <div>
+                    <input type="number" name="man_ore_0" value="0" placeholder="Ore RAR" step="0.5" min="0" oninput="calcTotal()" style="margin-bottom:0">
+                    <div style="font-size:10px;color:var(--text2);margin-top:2px">Ore RAR</div>
+                </div>
+                <div>
+                    <input type="number" name="man_cost_0" value="0" placeholder="Cost RON" step="0.01" min="0" oninput="calcTotal()" style="margin-bottom:0">
+                    <div style="font-size:10px;color:var(--text2);margin-top:2px">Cost (RON)</div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <button type="button" class="btn-secondary" style="width:100%;margin-bottom:20px" onclick="adaugaMan()">+ Adauga lucrare</button>
+
+    <!-- PIESE -->
+    <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text2);margin-bottom:8px">Piese / Materiale</div>
+    <div class="linii-section" id="pie-container">
+        {% for i, p in enumerate(piese) if piese %}
+        <div class="linie-row" id="pie-row-{{ i }}">
+            <span class="linie-label">Piesa {{ i+1 }}</span>
+            <input type="text" name="pie_d_{{ i }}" value="{{ p.piesa }}" placeholder="Denumire piesa" style="margin-bottom:6px">
+            <div class="row2">
+                <div>
+                    <input type="number" name="pie_cant_{{ i }}" value="{{ p.cantitate or 1 }}"
+                           placeholder="Cant." step="1" min="0" oninput="calcPiesa({{ i }})" style="margin-bottom:0">
+                    <div style="font-size:10px;color:var(--text2);margin-top:2px">Cantitate</div>
+                </div>
+                <div>
+                    <input type="number" name="pie_pret_{{ i }}" value="{{ p.pret_fara_tva or 0 }}"
+                           placeholder="Pret/buc" step="0.01" min="0" oninput="calcPiesa({{ i }})" style="margin-bottom:0">
+                    <div style="font-size:10px;color:var(--text2);margin-top:2px">Pret/buc (RON)</div>
+                </div>
+            </div>
+            <button type="button" class="btn-remove" onclick="removeRow('pie-row-{{ i }}')">✕ Sterge</button>
+        </div>
+        {% else %}
+        <div style="color:var(--text2);font-size:13px;text-align:center;padding:8px">Fara piese. Apasa + pentru a adauga.</div>
+        {% endfor %}
+    </div>
+    <button type="button" class="btn-secondary" style="width:100%;margin-bottom:20px" onclick="adaugaPie()">+ Adauga piesa</button>
+
+    <!-- TOTAL -->
+    <div class="total-preview">
+        <div><span>Manopera</span><span id="t-man">0.00 RON</span></div>
+        <div><span>Piese</span><span id="t-pie">0.00 RON</span></div>
+        <div><span>TVA</span><span id="t-tva">0.00 RON</span></div>
+        <div class="total-final"><span>TOTAL GENERAL</span><span id="t-gen">0.00 RON</span></div>
+    </div>
+
+    <input type="hidden" name="man_count" id="man_count" value="{{ lucrari|length if lucrari else 1 }}">
+    <input type="hidden" name="pie_count" id="pie_count" value="{{ piese|length if piese else 0 }}">
+
+    <button type="submit" class="btn-primary btn-full">
+        {% if d %}Salveaza modificarile{% else %}Creeaza devizul{% endif %}
+    </button>
+</form>
+</div>
+
+<script>
+let manIdx = {{ lucrari|length if lucrari else 1 }};
+let pieIdx = {{ piese|length if piese else 0 }};
+
+function adaugaMan() {
+    const c = document.getElementById('man-container');
+    const div = document.createElement('div');
+    div.className = 'linie-row';
+    div.id = 'man-row-' + manIdx;
+    div.innerHTML = `
+        <span class="linie-label">Lucrare ${manIdx+1}</span>
+        <input type="text" name="man_d_${manIdx}" placeholder="Descriere lucrare" style="margin-bottom:6px">
+        <div class="row2">
+            <div>
+                <input type="number" name="man_ore_${manIdx}" value="0" placeholder="Ore RAR" step="0.5" min="0" oninput="calcTotal()" style="margin-bottom:0">
+                <div style="font-size:10px;color:var(--text2);margin-top:2px">Ore RAR</div>
+            </div>
+            <div>
+                <input type="number" name="man_cost_${manIdx}" value="0" placeholder="Cost RON" step="0.01" min="0" oninput="calcTotal()" style="margin-bottom:0">
+                <div style="font-size:10px;color:var(--text2);margin-top:2px">Cost (RON)</div>
+            </div>
+        </div>
+        <button type="button" class="btn-remove" onclick="removeRow('man-row-${manIdx}')">✕ Sterge</button>`;
+    c.appendChild(div);
+    manIdx++;
+    document.getElementById('man_count').value = manIdx;
+}
+
+function adaugaPie() {
+    const c = document.getElementById('pie-container');
+    // Remove empty state message if exists
+    if (c.querySelector('div[style*="text-align:center"]')) c.innerHTML = '';
+    const div = document.createElement('div');
+    div.className = 'linie-row';
+    div.id = 'pie-row-' + pieIdx;
+    div.innerHTML = `
+        <span class="linie-label">Piesa ${pieIdx+1}</span>
+        <input type="text" name="pie_d_${pieIdx}" placeholder="Denumire piesa" style="margin-bottom:6px">
+        <div class="row2">
+            <div>
+                <input type="number" name="pie_cant_${pieIdx}" value="1" placeholder="Cant." step="1" min="0" oninput="calcPiesa(${pieIdx})" style="margin-bottom:0">
+                <div style="font-size:10px;color:var(--text2);margin-top:2px">Cantitate</div>
+            </div>
+            <div>
+                <input type="number" name="pie_pret_${pieIdx}" value="0" placeholder="Pret/buc" step="0.01" min="0" oninput="calcPiesa(${pieIdx})" style="margin-bottom:0">
+                <div style="font-size:10px;color:var(--text2);margin-top:2px">Pret/buc (RON)</div>
+            </div>
+        </div>
+        <button type="button" class="btn-remove" onclick="removeRow('pie-row-${pieIdx}')">✕ Sterge</button>`;
+    c.appendChild(div);
+    pieIdx++;
+    document.getElementById('pie_count').value = pieIdx;
+}
+
+function removeRow(id) {
+    const el = document.getElementById(id);
+    if (el) el.remove();
+    calcTotal();
+}
+
+function calcPiesa(i) { calcTotal(); }
+
+function calcTotal() {
+    let man = 0, pie = 0;
+    for (let i = 0; i < manIdx; i++) {
+        const c = document.querySelector(`[name="man_cost_${i}"]`);
+        if (c) man += parseFloat(c.value) || 0;
+    }
+    for (let i = 0; i < pieIdx; i++) {
+        const cant = document.querySelector(`[name="pie_cant_${i}"]`);
+        const pret = document.querySelector(`[name="pie_pret_${i}"]`);
+        if (cant && pret) pie += (parseFloat(cant.value)||0) * (parseFloat(pret.value)||0);
+    }
+    const tva_pct = parseFloat(document.getElementById('tva_pct').value) || 0;
+    const tva = (man + pie) * tva_pct / 100;
+    const gen = man + pie + tva;
+    document.getElementById('t-man').textContent = man.toFixed(2) + ' RON';
+    document.getElementById('t-pie').textContent = pie.toFixed(2) + ' RON';
+    document.getElementById('t-tva').textContent = tva.toFixed(2) + ' RON';
+    document.getElementById('t-gen').textContent = gen.toFixed(2) + ' RON';
+}
+
+function incarcaVehicule(id_client) {
+    const sel = document.getElementById('sel-vehicul');
+    sel.innerHTML = '<option value="">Se incarca...</option>';
+    if (!id_client) { sel.innerHTML = '<option value="">— Selecteaza mai intai clientul —</option>'; return; }
+    fetch('/api/vehicule/' + id_client)
+        .then(r => r.json())
+        .then(data => {
+            sel.innerHTML = '<option value="">— Selecteaza vehicul —</option>';
+            data.forEach(v => {
+                const opt = document.createElement('option');
+                opt.value = v.id;
+                opt.textContent = v.marca + ' ' + v.model + (v.nr ? ' (' + v.nr + ')' : '');
+                sel.appendChild(opt);
+            });
+        });
+}
+
+calcTotal();
+</script>
+{% endblock %}

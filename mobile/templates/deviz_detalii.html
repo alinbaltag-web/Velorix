@@ -72,7 +72,8 @@
 <div class="alert-error" style="margin-top:16px">⚠ Neraportat RAR</div>
 {% endif %}
 
-<div style="margin-top:20px;display:flex;gap:8px">
+<div style="margin-top:20px;display:flex;gap:8px;flex-wrap:wrap">
+    <a href="/devize/editeaza/{{ d.id }}" class="btn-secondary">✏ Editeaza deviz</a>
     <form method="POST" action="/devize/sterge/{{ d.id }}"
           onsubmit="return confirm('Stergi devizul {{ d.numar or d.id }}?')">
         <button type="submit" class="btn-danger">🗑 Sterge deviz</button>
