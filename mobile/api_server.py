@@ -69,8 +69,7 @@ def q(sql):
     if _USE_PG:
         return (sql
             .replace('?', '%s')
-            .replace("date('now')", 'CURRENT_DATE::text')
-            .replace('CURRENT_DATE', 'CURRENT_DATE::text'))
+            .replace("date('now')", 'CURRENT_DATE::text'))
     return sql
 
 
