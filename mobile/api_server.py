@@ -314,6 +314,73 @@ def programare_adauga():
     return render_template('programare_adauga.html', clienti=clienti, user=session['user'])
 
 
+@app.route('/programari/sterge/<int:pid>', methods=['POST'])
+@login_required
+def programare_sterge(pid):
+    con, cur = get_db()
+    cur.execute(q("DELETE FROM programari WHERE id = ?"), (pid,))
+    con.commit()
+    con.close()
+    return redirect(url_for('programari'))
+
+
+@app.route('/programari/editeaza/<int:pid>', methods=['GET', 'POST'])
+@login_required
+def programare_editeaza(pid):
+    con, cur = get_db()
+
+    if request.method == 'POST':
+        tip        = request.form.get('tip_client', 'existent')
+        data       = request.form.get('data_programare')
+        ora_start  = request.form.get('ora_start')
+        ora_sf     = request.form.get('ora_sfarsit')
+        descriere  = request.form.get('descriere', '')
+        observatii = request.form.get('observatii', '')
+        status     = request.form.get('status', 'programat')
+
+        if tip == 'ocazional':
+            cur.execute(q("""
+                UPDATE programari SET
+                    id_client=NULL, id_vehicul=NULL, data_programare=?,
+                    ora_start=?, ora_sfarsit=?, descriere=?, status=?,
+                    observatii=?, nume_ocazional=?, tel_ocazional=?, vehicul_ocazional=?
+                WHERE id=?
+            """), (data, ora_start, ora_sf, descriere, status, observatii,
+                   request.form.get('nume_ocazional', ''),
+                   request.form.get('tel_ocazional', ''),
+                   request.form.get('vehicul_ocazional', ''), pid))
+        else:
+            cur.execute(q("""
+                UPDATE programari SET
+                    id_client=?, id_vehicul=?, data_programare=?,
+                    ora_start=?, ora_sfarsit=?, descriere=?, status=?,
+                    observatii=?, nume_ocazional='', tel_ocazional='', vehicul_ocazional=''
+                WHERE id=?
+            """), (request.form.get('id_client'), request.form.get('id_vehicul'),
+                   data, ora_start, ora_sf, descriere, status, observatii, pid))
+        con.commit()
+        con.close()
+        return redirect(url_for('programari'))
+
+    # GET — incarca datele existente
+    cur.execute(q("""
+        SELECT id, id_client, id_vehicul, data_programare, ora_start, ora_sfarsit,
+               descriere, status, observatii,
+               COALESCE(nume_ocazional,'') as nume_ocazional,
+               COALESCE(tel_ocazional,'') as tel_ocazional,
+               COALESCE(vehicul_ocazional,'') as vehicul_ocazional
+        FROM programari WHERE id = ?
+    """), (pid,))
+    p = one(cur)
+    cur.execute("SELECT id, nume, telefon FROM clienti ORDER BY nume")
+    clienti = rows(cur)
+    con.close()
+
+    if not p:
+        return redirect(url_for('programari'))
+    return render_template('programare_editeaza.html', p=p, clienti=clienti, user=session['user'])
+
+
 # ─────────────────────────────────────────────────────────────
 #  API — vehicule pentru un client (folosit din JS)
 # ─────────────────────────────────────────────────────────────
