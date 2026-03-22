@@ -85,6 +85,28 @@ def one(cursor):
     return dict(r) if r else None
 
 
+def _run_migrations():
+    """Asigura ca schema Supabase suporta clienti ocazionali."""
+    if not _USE_PG:
+        return
+    try:
+        con, cur = get_db()
+        cur.execute("""
+            ALTER TABLE programari
+                ALTER COLUMN id_client DROP NOT NULL,
+                ALTER COLUMN id_vehicul DROP NOT NULL
+        """)
+        con.commit()
+        con.close()
+        print("[Velorix Mobile] Migrare Supabase aplicata.")
+    except Exception:
+        try: con.close()
+        except: pass
+
+
+_run_migrations()
+
+
 # ─────────────────────────────────────────────────────────────
 #  Autentificare
 # ─────────────────────────────────────────────────────────────
@@ -165,16 +187,32 @@ def dashboard():
         cur.execute("SELECT COALESCE(SUM(total_general), 0) as total FROM devize WHERE strftime('%Y-%m', data) = ?", (luna,))
     venituri_luna = float(one(cur)['total'] or 0)
 
-    cur.execute(q("""
-        SELECT p.id, c.nume as client, v.marca || ' ' || v.model as vehicul,
-               p.data_programare, p.ora_start, p.ora_sfarsit, p.descriere, p.status
-        FROM programari p
-        JOIN clienti c ON c.id = p.id_client
-        JOIN vehicule v ON v.id = p.id_vehicul
-        WHERE p.data_programare >= date('now')
-        ORDER BY p.data_programare, p.ora_start
-        LIMIT 5
-    """))
+    if _USE_PG:
+        cur.execute("""
+            SELECT p.id,
+                   COALESCE(c.nume, p.nume_ocazional, '—') as client,
+                   COALESCE(v.marca || ' ' || v.model, p.vehicul_ocazional, '—') as vehicul,
+                   p.data_programare, p.ora_start, p.ora_sfarsit, p.descriere, p.status
+            FROM programari p
+            LEFT JOIN clienti c ON c.id = p.id_client
+            LEFT JOIN vehicule v ON v.id = p.id_vehicul
+            WHERE p.data_programare >= CURRENT_DATE::text
+            ORDER BY p.data_programare, p.ora_start
+            LIMIT 5
+        """)
+    else:
+        cur.execute("""
+            SELECT p.id,
+                   COALESCE(c.nume, p.nume_ocazional, '—') as client,
+                   COALESCE(v.marca || ' ' || v.model, p.vehicul_ocazional, '—') as vehicul,
+                   p.data_programare, p.ora_start, p.ora_sfarsit, p.descriere, p.status
+            FROM programari p
+            LEFT JOIN clienti c ON c.id = p.id_client
+            LEFT JOIN vehicule v ON v.id = p.id_vehicul
+            WHERE p.data_programare >= date('now')
+            ORDER BY p.data_programare, p.ora_start
+            LIMIT 5
+        """)
     programari_urm = rows(cur)
     con.close()
 
@@ -198,17 +236,38 @@ def dashboard():
 @login_required
 def programari():
     con, cur = get_db()
-    cur.execute("""
-        SELECT p.id, c.nume as client, c.telefon,
-               v.marca || ' ' || v.model as vehicul, v.nr,
-               p.data_programare, p.ora_start, p.ora_sfarsit,
-               p.descriere, p.status, p.observatii
-        FROM programari p
-        JOIN clienti c ON c.id = p.id_client
-        JOIN vehicule v ON v.id = p.id_vehicul
-        ORDER BY p.data_programare DESC, p.ora_start
-        LIMIT 50
-    """)
+    if _USE_PG:
+        cur.execute("""
+            SELECT p.id,
+                   COALESCE(c.nume, p.nume_ocazional, '—') as client,
+                   COALESCE(c.telefon, p.tel_ocazional, '') as telefon,
+                   COALESCE(v.marca || ' ' || v.model, p.vehicul_ocazional, '—') as vehicul,
+                   COALESCE(v.nr, '') as nr,
+                   p.data_programare, p.ora_start, p.ora_sfarsit,
+                   p.descriere, p.status, p.observatii,
+                   CASE WHEN p.id_client IS NULL THEN true ELSE false END as ocazional
+            FROM programari p
+            LEFT JOIN clienti c ON c.id = p.id_client
+            LEFT JOIN vehicule v ON v.id = p.id_vehicul
+            ORDER BY p.data_programare DESC, p.ora_start
+            LIMIT 100
+        """)
+    else:
+        cur.execute("""
+            SELECT p.id,
+                   COALESCE(c.nume, p.nume_ocazional, '—') as client,
+                   COALESCE(c.telefon, p.tel_ocazional, '') as telefon,
+                   COALESCE(v.marca || ' ' || v.model, p.vehicul_ocazional, '—') as vehicul,
+                   COALESCE(v.nr, '') as nr,
+                   p.data_programare, p.ora_start, p.ora_sfarsit,
+                   p.descriere, p.status, p.observatii,
+                   CASE WHEN p.id_client IS NULL THEN 1 ELSE 0 END as ocazional
+            FROM programari p
+            LEFT JOIN clienti c ON c.id = p.id_client
+            LEFT JOIN vehicule v ON v.id = p.id_vehicul
+            ORDER BY p.data_programare DESC, p.ora_start
+            LIMIT 100
+        """)
     lista = rows(cur)
     con.close()
     return render_template('programari.html', programari=lista, user=session['user'])
