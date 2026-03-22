@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Velorix — Vehicule{% endblock %}
+{% block extra_css %}
+.veh-card { background: var(--card); border-radius: 10px; border: 1px solid var(--border); border-left: 4px solid var(--blue); padding: 14px 16px; margin-bottom: 10px; }
+.veh-marca { font-weight: 700; font-size: 15px; }
+.veh-client { font-size: 12px; color: var(--text2); margin-top: 3px; }
+.veh-meta { display: flex; gap: 14px; margin-top: 8px; font-size: 12px; color: var(--text2); flex-wrap: wrap; }
+.veh-actiuni { display: flex; gap: 8px; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+{% endblock %}
+{% block content %}
+<div class="top-bar">
+    <h2>Vehicule</h2>
+</div>
+
+<form method="GET" action="/vehicule" class="search-bar">
+    <input type="text" name="q" value="{{ q }}" placeholder="Cauta dupa marca, model, nr, client...">
+    <button type="submit" class="btn-primary">Cauta</button>
+</form>
+
+{% if vehicule %}
+    {% for v in vehicule %}
+    <div class="veh-card">
+        <div class="veh-marca">{{ v.marca }} {{ v.model }}{% if v.nr %} · <span style="color:var(--blue)">{{ v.nr }}</span>{% endif %}</div>
+        <div class="veh-client">👤 {{ v.client }}</div>
+        <div class="veh-meta">
+            {% if v.an %}<span>📅 {{ v.an }}</span>{% endif %}
+            {% if v.km %}<span>📍 {{ v.km }} km</span>{% endif %}
+            {% if v.vin %}<span>VIN: {{ v.vin }}</span>{% endif %}
+        </div>
+        <div class="veh-actiuni">
+            <a href="/vehicule/editeaza/{{ v.id }}" class="btn-secondary" style="font-size:12px;padding:7px 14px">✏ Editeaza</a>
+            <a href="/istoric?id_vehicul={{ v.id }}" class="btn-secondary" style="font-size:12px;padding:7px 14px">📋 Istoric</a>
+            <form method="POST" action="/vehicule/sterge/{{ v.id }}" style="margin:0"
+                  onsubmit="return confirm('Stergi vehiculul?')">
+                <button type="submit" class="btn-danger" style="font-size:12px;padding:7px 14px">🗑</button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+{% else %}
+    <div class="empty"><div class="empty-icon">🏍</div>Niciun vehicul gasit.</div>
+{% endif %}
+{% endblock %}

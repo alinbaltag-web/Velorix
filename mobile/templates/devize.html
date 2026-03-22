@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Velorix — Devize{% endblock %}
+{% block extra_css %}
+.dev-card { background: var(--card); border-radius: 10px; border: 1px solid var(--border); border-left: 4px solid var(--blue); padding: 14px 16px; margin-bottom: 10px; cursor: pointer; }
+.dev-card:hover { border-color: var(--blue); }
+.dev-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+.dev-numar { font-weight: 700; font-size: 15px; color: var(--blue); }
+.dev-data  { font-size: 12px; color: var(--text2); }
+.dev-client { font-size: 14px; font-weight: 600; margin-top: 3px; }
+.dev-vehicul { font-size: 13px; color: var(--text2); margin-top: 2px; }
+.dev-total { font-size: 18px; font-weight: 800; color: var(--blue); margin-top: 10px; }
+.dev-actiuni { display: flex; gap: 8px; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+{% endblock %}
+{% block content %}
+<div class="top-bar">
+    <h2>Devize</h2>
+</div>
+
+<form method="GET" action="/devize" class="search-bar">
+    <input type="text" name="q" value="{{ q }}" placeholder="Cauta dupa client, nr deviz, nr inmatriculare...">
+    <button type="submit" class="btn-primary">Cauta</button>
+</form>
+
+{% if devize %}
+    <div style="font-size:12px;color:var(--text2);margin-bottom:12px">{{ devize|length }} devize</div>
+    {% for d in devize %}
+    <div class="dev-card">
+        <div class="dev-header">
+            <span class="dev-numar">{{ d.numar or ('DVZ-' + d.id|string) }}</span>
+            <span class="dev-data">{{ d.data }}</span>
+        </div>
+        <div class="dev-client">{{ d.client or '—' }}</div>
+        <div class="dev-vehicul">{{ d.vehicul }}{% if d.nr %} · {{ d.nr }}{% endif %}</div>
+        <div class="dev-total">{{ "%.2f"|format(d.total_general|float) }} RON</div>
+        <div style="display:flex;gap:16px;font-size:11px;color:var(--text2);margin-top:4px">
+            <span>Manopera: {{ "%.2f"|format(d.total_manopera|float) }}</span>
+            <span>Piese: {{ "%.2f"|format(d.total_piese|float) }}</span>
+            <span>TVA: {{ "%.2f"|format(d.total_tva|float) }}</span>
+        </div>
+        <div class="dev-actiuni">
+            <a href="/devize/{{ d.id }}" class="btn-secondary" style="font-size:12px;padding:7px 14px">👁 Detalii</a>
+            <form method="POST" action="/devize/sterge/{{ d.id }}" style="margin:0"
+                  onsubmit="return confirm('Stergi devizul {{ d.numar or d.id }}?')">
+                <button type="submit" class="btn-danger" style="font-size:12px;padding:7px 14px">🗑 Sterge</button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+{% else %}
+    <div class="empty"><div class="empty-icon">📄</div>Niciun deviz gasit.</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Velorix — Istoric lucrari{% endblock %}
+{% block extra_css %}
+.ist-card { background: var(--card); border-radius: 10px; border: 1px solid var(--border); border-left: 4px solid var(--green); padding: 14px 16px; margin-bottom: 10px; }
+.ist-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+.ist-client { font-weight: 700; font-size: 15px; }
+.ist-vehicul { font-size: 13px; color: var(--text2); margin-top: 2px; }
+.ist-desc { font-size: 13px; margin-top: 6px; }
+.ist-meta { display: flex; gap: 14px; margin-top: 8px; font-size: 12px; color: var(--text2); flex-wrap: wrap; }
+.ist-data { font-size: 12px; color: var(--text2); }
+{% endblock %}
+{% block content %}
+<div class="top-bar">
+    <h2>Istoric lucrari</h2>
+</div>
+
+<form method="GET" action="/istoric" class="search-bar">
+    {% if id_vehicul %}<input type="hidden" name="id_vehicul" value="{{ id_vehicul }}">{% endif %}
+    <input type="text" name="q" value="{{ q }}" placeholder="Cauta client, vehicul, descriere, mecanic...">
+    <button type="submit" class="btn-primary">Cauta</button>
+</form>
+
+{% if id_vehicul %}
+<div style="margin-bottom:12px">
+    <a href="/istoric" class="btn-secondary" style="font-size:12px;padding:7px 14px">✕ Sterge filtru vehicul</a>
+</div>
+{% endif %}
+
+{% if lucrari %}
+    <div style="font-size:12px;color:var(--text2);margin-bottom:12px">{{ lucrari|length }} lucrari finalizate</div>
+    {% for l in lucrari %}
+    <div class="ist-card">
+        <div class="ist-header">
+            <div>
+                <div class="ist-client">{{ l.client }}</div>
+                <div class="ist-vehicul">{{ l.vehicul }}{% if l.nr %} · {{ l.nr }}{% endif %}</div>
+            </div>
+            <span class="ist-data">{{ l.data }}</span>
+        </div>
+        {% if l.descriere %}<div class="ist-desc">{{ l.descriere }}</div>{% endif %}
+        <div class="ist-meta">
+            {% if l.ore_rar %}<span>⏱ {{ l.ore_rar }} ore RAR</span>{% endif %}
+            {% if l.mecanic %}<span>🔧 {{ l.mecanic }}</span>{% endif %}
+            {% if l.km %}<span>📍 {{ l.km }} km</span>{% endif %}
+            {% if l.cost %}<span style="font-weight:700;color:var(--blue)">💰 {{ "%.2f"|format(l.cost|float) }} RON</span>{% endif %}
+        </div>
+        <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border);display:flex;gap:8px">
+            <a href="/lucrari/editeaza/{{ l.id }}" class="btn-secondary" style="font-size:12px;padding:7px 14px">✏ Editeaza</a>
+            <a href="/istoric?id_vehicul={{ l.id_vehicul }}" class="btn-secondary" style="font-size:12px;padding:7px 14px">🚗 Alt vehicul</a>
+        </div>
+    </div>
+    {% endfor %}
+{% else %}
+    <div class="empty"><div class="empty-icon">📋</div>Nicio lucrare finalizata gasita.</div>
+{% endif %}
+{% endblock %}

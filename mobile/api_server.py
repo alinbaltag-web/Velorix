@@ -749,6 +749,248 @@ def lucrare_sterge(lid):
 
 
 # ─────────────────────────────────────────────────────────────
+#  Vehicule (standalone)
+# ─────────────────────────────────────────────────────────────
+
+@app.route('/vehicule')
+@login_required
+def vehicule_lista():
+    search = request.args.get('q', '').strip()
+    con, cur = get_db()
+    if search:
+        if _USE_PG:
+            cur.execute("""
+                SELECT v.id, v.marca, v.model, v.an, v.nr, v.km, v.vin,
+                       c.id as id_client, c.nume as client
+                FROM vehicule v JOIN clienti c ON c.id = v.id_client
+                WHERE v.marca ILIKE %s OR v.model ILIKE %s OR v.nr ILIKE %s OR c.nume ILIKE %s
+                ORDER BY c.nume, v.marca
+            """, (f'%{search}%',) * 4)
+        else:
+            cur.execute("""
+                SELECT v.id, v.marca, v.model, v.an, v.nr, v.km, v.vin,
+                       c.id as id_client, c.nume as client
+                FROM vehicule v JOIN clienti c ON c.id = v.id_client
+                WHERE v.marca LIKE ? OR v.model LIKE ? OR v.nr LIKE ? OR c.nume LIKE ?
+                ORDER BY c.nume, v.marca
+            """, (f'%{search}%',) * 4)
+    else:
+        cur.execute("""
+            SELECT v.id, v.marca, v.model, v.an, v.nr, v.km, v.vin,
+                   c.id as id_client, c.nume as client
+            FROM vehicule v JOIN clienti c ON c.id = v.id_client
+            ORDER BY c.nume, v.marca LIMIT 100
+        """)
+    vehicule = rows(cur)
+    con.close()
+    return render_template('vehicule_lista.html', vehicule=vehicule, q=search,
+                           user=session['user'], activ='vehicule')
+
+
+# ─────────────────────────────────────────────────────────────
+#  Istoric Lucrari
+# ─────────────────────────────────────────────────────────────
+
+@app.route('/istoric')
+@login_required
+def istoric():
+    q_search   = request.args.get('q', '').strip()
+    id_vehicul = request.args.get('id_vehicul', '')
+    con, cur   = get_db()
+
+    where  = ["l.status = 'finalizat'"]
+    params = []
+
+    if id_vehicul:
+        where.append("l.id_vehicul = %s" if _USE_PG else "l.id_vehicul = ?")
+        params.append(id_vehicul)
+
+    if q_search:
+        if _USE_PG:
+            where.append("(c.nume ILIKE %s OR v.marca ILIKE %s OR v.nr ILIKE %s OR l.descriere ILIKE %s OR l.mecanic ILIKE %s)")
+        else:
+            where.append("(c.nume LIKE ? OR v.marca LIKE ? OR v.nr LIKE ? OR l.descriere LIKE ? OR l.mecanic LIKE ?)")
+        params += [f'%{q_search}%'] * 5
+
+    sql = """
+        SELECT l.id, l.descriere, l.data,
+               COALESCE(l.ore_rar, 0) as ore_rar,
+               COALESCE(l.cost, 0) as cost,
+               COALESCE(l.mecanic, '') as mecanic,
+               COALESCE(l.km, '') as km,
+               c.nume as client, c.id as id_client,
+               v.marca || ' ' || v.model as vehicul,
+               COALESCE(v.nr, '') as nr, v.id as id_vehicul
+        FROM lucrari l
+        JOIN vehicule v ON v.id = l.id_vehicul
+        JOIN clienti c ON c.id = v.id_client
+        WHERE """ + " AND ".join(where) + """
+        ORDER BY l.data DESC, l.id DESC LIMIT 200
+    """
+    cur.execute(sql, params)
+    lista = rows(cur)
+    con.close()
+    return render_template('istoric.html', lucrari=lista, q=q_search,
+                           id_vehicul=id_vehicul, user=session['user'], activ='istoric')
+
+
+# ─────────────────────────────────────────────────────────────
+#  Devize
+# ─────────────────────────────────────────────────────────────
+
+@app.route('/devize')
+@login_required
+def devize():
+    q_search = request.args.get('q', '').strip()
+    con, cur = get_db()
+    base = """
+        SELECT d.id, d.numar, d.data,
+               COALESCE(d.total_manopera, 0) as total_manopera,
+               COALESCE(d.total_piese, 0) as total_piese,
+               COALESCE(d.total_tva, 0) as total_tva,
+               COALESCE(d.total_general, 0) as total_general,
+               c.nume as client,
+               COALESCE(v.marca || ' ' || v.model, '—') as vehicul,
+               COALESCE(v.nr, '') as nr
+        FROM devize d
+        LEFT JOIN clienti c ON c.id = d.id_client
+        LEFT JOIN vehicule v ON v.id = d.id_vehicul
+    """
+    if q_search:
+        if _USE_PG:
+            cur.execute(base + "WHERE c.nume ILIKE %s OR d.numar ILIKE %s OR v.nr ILIKE %s ORDER BY d.data DESC, d.id DESC LIMIT 100",
+                        (f'%{q_search}%',) * 3)
+        else:
+            cur.execute(base + "WHERE c.nume LIKE ? OR d.numar LIKE ? OR v.nr LIKE ? ORDER BY d.data DESC, d.id DESC LIMIT 100",
+                        (f'%{q_search}%',) * 3)
+    else:
+        cur.execute(base + "ORDER BY d.data DESC, d.id DESC LIMIT 100")
+    lista = rows(cur)
+    con.close()
+    return render_template('devize.html', devize=lista, q=q_search,
+                           user=session['user'], activ='devize')
+
+
+@app.route('/devize/<int:did>')
+@login_required
+def deviz_detalii(did):
+    con, cur = get_db()
+    cur.execute(q("""
+        SELECT d.id, d.numar, d.data,
+               COALESCE(d.total_manopera, 0) as total_manopera,
+               COALESCE(d.total_piese, 0) as total_piese,
+               COALESCE(d.total_tva, 0) as total_tva,
+               COALESCE(d.total_general, 0) as total_general,
+               COALESCE(d.raportat_rar, 0) as raportat_rar,
+               c.nume as client, COALESCE(c.telefon,'') as telefon,
+               v.marca, v.model, COALESCE(v.an,'') as an,
+               COALESCE(v.nr,'') as nr, COALESCE(v.vin,'') as vin,
+               COALESCE(v.km,'') as km
+        FROM devize d
+        LEFT JOIN clienti c ON c.id = d.id_client
+        LEFT JOIN vehicule v ON v.id = d.id_vehicul
+        WHERE d.id = ?
+    """), (did,))
+    d = one(cur)
+    if not d:
+        con.close()
+        return redirect(url_for('devize'))
+
+    cur.execute(q("SELECT descriere, cost, ore_rar FROM deviz_lucrari WHERE id_deviz = ? ORDER BY id"), (did,))
+    lucrari_d = rows(cur)
+
+    cur.execute(q("SELECT piesa, cantitate, pret_fara_tva, total FROM deviz_piese WHERE id_deviz = ? ORDER BY id"), (did,))
+    piese_d = rows(cur)
+    con.close()
+    return render_template('deviz_detalii.html', d=d, lucrari=lucrari_d, piese=piese_d,
+                           user=session['user'], activ='devize')
+
+
+@app.route('/devize/sterge/<int:did>', methods=['POST'])
+@login_required
+def deviz_sterge(did):
+    con, cur = get_db()
+    cur.execute(q("DELETE FROM deviz_lucrari WHERE id_deviz = ?"), (did,))
+    cur.execute(q("DELETE FROM deviz_piese WHERE id_deviz = ?"), (did,))
+    cur.execute(q("DELETE FROM devize WHERE id = ?"), (did,))
+    con.commit()
+    con.close()
+    return redirect(url_for('devize'))
+
+
+# ─────────────────────────────────────────────────────────────
+#  Rapoarte
+# ─────────────────────────────────────────────────────────────
+
+@app.route('/rapoarte')
+@login_required
+def rapoarte():
+    con, cur = get_db()
+
+    # Venituri pe ultimele 6 luni
+    if _USE_PG:
+        cur.execute("""
+            SELECT SUBSTRING(data, 1, 7) as luna,
+                   COALESCE(SUM(total_general), 0) as total
+            FROM devize
+            WHERE data >= TO_CHAR(CURRENT_DATE - INTERVAL '6 months', 'YYYY-MM-DD')
+            GROUP BY luna ORDER BY luna
+        """)
+    else:
+        cur.execute("""
+            SELECT strftime('%Y-%m', data) as luna,
+                   COALESCE(SUM(total_general), 0) as total
+            FROM devize
+            WHERE data >= date('now', '-6 months')
+            GROUP BY luna ORDER BY luna
+        """)
+    venituri_luni = rows(cur)
+
+    cur.execute("SELECT COUNT(*) as total FROM clienti")
+    nr_clienti = one(cur)['total']
+    cur.execute("SELECT COUNT(*) as total FROM lucrari")
+    nr_lucrari = one(cur)['total']
+    cur.execute("SELECT COUNT(*) as total FROM devize")
+    nr_devize = one(cur)['total']
+    cur.execute("SELECT COALESCE(SUM(total_general), 0) as total FROM devize")
+    total_venituri = float(one(cur)['total'] or 0)
+
+    cur.execute("""
+        SELECT COALESCE(mecanic, '—') as mecanic, COUNT(*) as nr,
+               COALESCE(SUM(cost), 0) as total_cost
+        FROM lucrari WHERE mecanic IS NOT NULL AND mecanic != ''
+        GROUP BY mecanic ORDER BY nr DESC LIMIT 8
+    """)
+    per_mecanic = rows(cur)
+
+    cur.execute("""
+        SELECT c.nume, COUNT(d.id) as nr_devize,
+               COALESCE(SUM(d.total_general), 0) as total
+        FROM devize d JOIN clienti c ON c.id = d.id_client
+        GROUP BY c.id, c.nume ORDER BY total DESC LIMIT 8
+    """)
+    top_clienti = rows(cur)
+
+    cur.execute("SELECT COUNT(*) as total FROM stoc_piese WHERE stoc_curent <= stoc_minim")
+    stoc_critic = one(cur)['total']
+
+    cur.execute("SELECT status, COUNT(*) as nr FROM lucrari GROUP BY status")
+    status_lucrari = {r['status']: r['nr'] for r in rows(cur)}
+
+    con.close()
+    max_venit = max((float(v['total']) for v in venituri_luni), default=1) or 1
+
+    return render_template('rapoarte.html',
+        user=session['user'], activ='rapoarte',
+        venituri_luni=venituri_luni, max_venit=max_venit,
+        nr_clienti=nr_clienti, nr_lucrari=nr_lucrari,
+        nr_devize=nr_devize, total_venituri=total_venituri,
+        per_mecanic=per_mecanic, top_clienti=top_clienti,
+        stoc_critic=stoc_critic, status_lucrari=status_lucrari,
+    )
+
+
+# ─────────────────────────────────────────────────────────────
 #  Setari
 # ─────────────────────────────────────────────────────────────
 

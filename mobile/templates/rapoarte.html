@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% block title %}Velorix — Rapoarte{% endblock %}
+{% block extra_css %}
+.stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+.stat-card { background: var(--card); border-radius: 10px; border: 1px solid var(--border); padding: 16px; text-align: center; }
+.stat-val  { font-size: 26px; font-weight: 800; color: var(--blue); }
+.stat-label{ font-size: 11px; color: var(--text2); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+.section-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text2); margin: 24px 0 12px; }
+.chart-wrap { background: var(--card); border-radius: 10px; border: 1px solid var(--border); padding: 16px; margin-bottom: 8px; }
+.bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 12px; }
+.bar-label { width: 56px; color: var(--text2); flex-shrink: 0; text-align: right; }
+.bar-track { flex: 1; background: var(--blue-light); border-radius: 4px; height: 22px; overflow: hidden; }
+.bar-fill  { background: var(--blue); height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 6px; color: #fff; font-weight: 700; font-size: 11px; min-width: 2px; transition: width 0.6s; }
+.table-card { background: var(--card); border-radius: 10px; border: 1px solid var(--border); overflow: hidden; margin-bottom: 20px; }
+.tbl-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; border-bottom: 1px solid var(--border); font-size: 13px; }
+.tbl-row:last-child { border-bottom: none; }
+.tbl-row:nth-child(even) { background: #f8fafc; }
+.tbl-name { font-weight: 600; }
+.tbl-val  { color: var(--blue); font-weight: 700; }
+.stoc-badge { background: #fef2f2; color: var(--red); border: 1px solid #fecaca; border-radius: 8px; padding: 10px 14px; font-size: 13px; font-weight: 600; margin-bottom: 20px; }
+{% endblock %}
+{% block content %}
+<div class="top-bar">
+    <h2>Rapoarte</h2>
+</div>
+
+<!-- KPI-uri -->
+<div class="stat-grid">
+    <div class="stat-card">
+        <div class="stat-val">{{ nr_clienti }}</div>
+        <div class="stat-label">Clienti</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-val">{{ nr_lucrari }}</div>
+        <div class="stat-label">Lucrari totale</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-val">{{ nr_devize }}</div>
+        <div class="stat-label">Devize emise</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-val" style="font-size:18px">{{ "%.0f"|format(total_venituri) }}</div>
+        <div class="stat-label">Venituri totale RON</div>
+    </div>
+</div>
+
+<!-- Status lucrari -->
+<div class="stat-grid" style="margin-bottom:0">
+    <div class="stat-card" style="border-left:4px solid var(--yellow)">
+        <div class="stat-val" style="color:var(--yellow)">{{ status_lucrari.get('in_lucru', 0) }}</div>
+        <div class="stat-label">In lucru</div>
+    </div>
+    <div class="stat-card" style="border-left:4px solid var(--green)">
+        <div class="stat-val" style="color:var(--green)">{{ status_lucrari.get('finalizat', 0) }}</div>
+        <div class="stat-label">Finalizate</div>
+    </div>
+</div>
+
+<!-- Stoc critic -->
+{% if stoc_critic > 0 %}
+<div class="stoc-badge" style="margin-top:20px">
+    ⚠ {{ stoc_critic }} piese sub stoc minim — <a href="/stocuri?filtru=critic" style="color:var(--red)">Vezi stocuri</a>
+</div>
+{% endif %}
+
+<!-- Grafic venituri 6 luni -->
+<div class="section-title">Venituri — ultimele 6 luni</div>
+{% if venituri_luni %}
+<div class="chart-wrap">
+    {% for v in venituri_luni %}
+    {% set pct = (v.total|float / max_venit * 100)|int %}
+    <div class="bar-row">
+        <span class="bar-label">{{ v.luna[5:] }}/{{ v.luna[:4] }}</span>
+        <div class="bar-track">
+            <div class="bar-fill" style="width:{{ pct if pct > 2 else 2 }}%">
+                {% if pct > 20 %}{{ "%.0f"|format(v.total|float) }}{% endif %}
+            </div>
+        </div>
+        <span style="width:72px;text-align:right;font-weight:700;font-size:11px;color:var(--blue)">
+            {{ "%.0f"|format(v.total|float) }} RON
+        </span>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="empty" style="padding:24px"><div class="empty-icon">📊</div>Nu exista devize in ultimele 6 luni.</div>
+{% endif %}
+
+<!-- Top clienti -->
+{% if top_clienti %}
+<div class="section-title">Top clienti dupa venituri</div>
+<div class="table-card">
+    {% for c in top_clienti %}
+    <div class="tbl-row">
+        <div>
+            <div class="tbl-name">{{ c.nume }}</div>
+            <div style="font-size:11px;color:var(--text2)">{{ c.nr_devize }} devize</div>
+        </div>
+        <span class="tbl-val">{{ "%.2f"|format(c.total|float) }} RON</span>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<!-- Per mecanic -->
+{% if per_mecanic %}
+<div class="section-title">Lucrari per mecanic</div>
+<div class="table-card">
+    {% for m in per_mecanic %}
+    <div class="tbl-row">
+        <div>
+            <div class="tbl-name">🔧 {{ m.mecanic }}</div>
+            <div style="font-size:11px;color:var(--text2)">{{ m.nr }} lucrari</div>
+        </div>
+        <span class="tbl-val">{{ "%.2f"|format(m.total_cost|float) }} RON</span>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% endblock %}
