@@ -1,95 +1,56 @@
-<!DOCTYPE html>
-<html lang="ro">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velorix — Stocuri</title>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: #0f1923; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #e0e8f0; }
-        nav { background: #1a2535; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #2a3a50; position: sticky; top: 0; z-index: 100; }
-        .nav-logo { color: #e8a020; font-weight: 700; font-size: 18px; letter-spacing: 1px; }
-        .nav-user { color: #6b7a8d; font-size: 13px; }
-        .nav-user a { color: #e74c3c; text-decoration: none; margin-left: 10px; font-size: 12px; }
-        .nav-links { background: #1a2535; display: flex; border-bottom: 1px solid #2a3a50; overflow-x: auto; }
-        .nav-links a { color: #6b7a8d; text-decoration: none; padding: 12px 18px; font-size: 13px; font-weight: 600; white-space: nowrap; border-bottom: 2px solid transparent; transition: all 0.2s; }
-        .nav-links a:hover, .nav-links a.activ { color: #e8a020; border-bottom-color: #e8a020; }
-        .content { padding: 20px; max-width: 600px; margin: 0 auto; }
-        .top-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-        .top-bar h2 { font-size: 20px; }
-        .filtre { display: flex; gap: 8px; margin-bottom: 20px; }
-        .filtru-btn {
-            padding: 8px 16px; border-radius: 20px; font-size: 13px;
-            font-weight: 600; text-decoration: none; border: 1px solid #2a3a50;
-            color: #8a9bb0; transition: all 0.2s;
-        }
-        .filtru-btn.activ { background: #e8a020; color: #0f1923; border-color: #e8a020; }
-        .filtru-btn:hover:not(.activ) { border-color: #e8a020; color: #e8a020; }
-        .piesa-item {
-            background: #1a2535; border-radius: 10px;
-            padding: 14px 16px; margin-bottom: 8px;
-            border-left: 3px solid #27ae60;
-        }
-        .piesa-item.critic { border-left-color: #e74c3c; }
-        .piesa-item.atentie { border-left-color: #f39c12; }
-        .piesa-top { display: flex; justify-content: space-between; align-items: flex-start; }
-        .piesa-nume { font-weight: 600; font-size: 15px; }
-        .piesa-cod { font-size: 11px; color: #6b7a8d; margin-top: 2px; }
-        .piesa-stoc { text-align: right; }
-        .stoc-numar { font-size: 20px; font-weight: 700; color: #27ae60; }
-        .piesa-item.critic .stoc-numar { color: #e74c3c; }
-        .piesa-item.atentie .stoc-numar { color: #f39c12; }
-        .stoc-unit { font-size: 11px; color: #6b7a8d; }
-        .piesa-info { font-size: 12px; color: #6b7a8d; margin-top: 6px; }
-        .gol { color: #4a5a6d; font-size: 14px; text-align: center; padding: 40px; }
-    </style>
-</head>
-<body>
-    <nav>
-        <span class="nav-logo">VELORIX</span>
-        <span class="nav-user">{{ user }} <a href="/logout">Iesire</a></span>
-    </nav>
-    <div class="nav-links">
-        <a href="/dashboard">Dashboard</a>
-        <a href="/programari">Programari</a>
-        <a href="/clienti">Clienti</a>
-        <a href="/stocuri" class="activ">Stocuri</a>
-    </div>
+{% extends "base.html" %}
+{% block title %}Velorix — Stocuri{% endblock %}
+{% block extra_css %}
+.stoc-card { background: var(--card); border-radius: 10px; border: 1px solid var(--border); padding: 14px 16px; margin-bottom: 8px; border-left: 4px solid var(--green); }
+.stoc-card.critic  { border-left-color: var(--red); }
+.stoc-card.atentie { border-left-color: var(--yellow); }
+.stoc-titlu { font-weight: 700; font-size: 14px; }
+.stoc-cod   { font-size: 11px; color: var(--text2); font-family: monospace; margin-bottom: 4px; }
+.stoc-meta  { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; }
+.stoc-cant  { font-size: 18px; font-weight: 800; }
+.stoc-cant.critic  { color: var(--red); }
+.stoc-cant.ok      { color: var(--green); }
+.stoc-cant.atentie { color: var(--yellow); }
+.stoc-info  { font-size: 12px; color: var(--text2); text-align: right; }
+.filtru-bar { display: flex; gap: 8px; margin-bottom: 16px; }
+.filtru-btn { padding: 7px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; border: 1.5px solid var(--border); background: var(--card); color: var(--text2); text-decoration: none; }
+.filtru-btn.activ { background: var(--blue); color: #fff; border-color: var(--blue); }
+{% endblock %}
+{% block content %}
+<div class="top-bar">
+    <h2>Stocuri</h2>
+</div>
 
-    <div class="content">
-        <div class="top-bar">
-            <h2>Stocuri</h2>
-        </div>
+<form method="GET" class="search-bar">
+    <input type="text" name="q" value="{{ q }}" placeholder="Cauta dupa cod sau denumire...">
+    <button type="submit" class="btn-primary" style="padding:11px 16px">Cauta</button>
+</form>
 
-        <div class="filtre">
-            <a href="/stocuri?filtru=toate" class="filtru-btn {% if filtru == 'toate' %}activ{% endif %}">Toate</a>
-            <a href="/stocuri?filtru=critic" class="filtru-btn {% if filtru == 'critic' %}activ{% endif %}">Stoc critic</a>
-        </div>
+<div class="filtru-bar">
+    <a href="/stocuri" class="filtru-btn {% if filtru == 'toate' %}activ{% endif %}">Toate</a>
+    <a href="/stocuri?filtru=critic{% if q %}&q={{ q }}{% endif %}" class="filtru-btn {% if filtru == 'critic' %}activ{% endif %}">🔴 Stoc critic</a>
+</div>
 
-        {% if stocuri %}
-            {% for p in stocuri %}
-            {% set cls = 'critic' if p.stoc_curent == 0 else ('atentie' if p.stoc_curent <= p.stoc_minim else '') %}
-            <div class="piesa-item {{ cls }}">
-                <div class="piesa-top">
-                    <div>
-                        <div class="piesa-nume">{{ p.nume }}</div>
-                        {% if p.cod %}<div class="piesa-cod">Cod: {{ p.cod }}</div>{% endif %}
-                    </div>
-                    <div class="piesa-stoc">
-                        <div class="stoc-numar">{{ p.stoc_curent }}</div>
-                        <div class="stoc-unit">{{ p.unitate }} / min {{ p.stoc_minim }}</div>
-                    </div>
-                </div>
-                <div class="piesa-info">
-                    {% if p.categorie %}{{ p.categorie }} &nbsp;·&nbsp; {% endif %}
-                    {% if p.furnizor %}Furnizor: {{ p.furnizor }} &nbsp;·&nbsp; {% endif %}
-                    Pret vanzare: {{ "%.2f"|format(p.pret_vanzare) }} lei
-                </div>
+{% if stocuri %}
+    {% for s in stocuri %}
+    {% set nivel = 'critic' if s.stoc_curent <= s.stoc_minim else ('atentie' if s.stoc_curent <= s.stoc_minim * 1.5 else 'ok') %}
+    <div class="stoc-card {{ nivel }}">
+        {% if s.cod %}<div class="stoc-cod">{{ s.cod }}</div>{% endif %}
+        <div class="stoc-titlu">{{ s.nume }}</div>
+        <div class="stoc-meta">
+            <div>
+                <span class="stoc-cant {{ nivel }}">{{ s.stoc_curent }}</span>
+                <span style="font-size:12px;color:var(--text2);margin-left:4px">{{ s.unitate }} (min: {{ s.stoc_minim }})</span>
             </div>
-            {% endfor %}
-        {% else %}
-            <div class="gol">Nicio piesa gasita.</div>
-        {% endif %}
+            <div class="stoc-info">
+                {% if s.pret_vanzare %}{{ "%.2f"|format(s.pret_vanzare) }} RON<br>{% endif %}
+                {% if s.furnizor %}{{ s.furnizor }}{% endif %}
+            </div>
+        </div>
+        {% if s.categorie %}<div style="font-size:11px;color:var(--text2);margin-top:4px">📁 {{ s.categorie }}</div>{% endif %}
     </div>
-</body>
-</html>
+    {% endfor %}
+{% else %}
+    <div class="empty"><div class="empty-icon">📦</div>Nicio piesa gasita.</div>
+{% endif %}
+{% endblock %}

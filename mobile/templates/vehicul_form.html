@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Velorix — {% if v %}Editeaza vehicul{% else %}Vehicul nou{% endif %}{% endblock %}
+{% block content %}
+<a href="{% if client %}/clienti/{{ client.id }}/vehicule{% else %}/clienti{% endif %}" class="back">← Inapoi</a>
+<h2 style="margin-bottom:24px">{% if v %}Editeaza vehicul{% else %}Vehicul nou{% endif %}</h2>
+
+<div class="card">
+<form method="POST">
+    <div class="row2">
+        <div><label>Marca *</label><input type="text" name="marca" value="{{ v.marca if v else '' }}" placeholder="Honda" required></div>
+        <div><label>Model *</label><input type="text" name="model" value="{{ v.model if v else '' }}" placeholder="CBR 600" required></div>
+    </div>
+
+    <div class="row2">
+        <div><label>An fabricatie</label><input type="text" name="an" value="{{ v.an if v else '' }}" placeholder="2020"></div>
+        <div><label>Km actuali</label><input type="number" name="km" value="{{ v.km if v else '' }}" placeholder="15000"></div>
+    </div>
+
+    <label>Numar inmatriculare</label>
+    <input type="text" name="nr" value="{{ v.nr if v else '' }}" placeholder="B-12-XYZ">
+
+    <label>VIN</label>
+    <input type="text" name="vin" value="{{ v.vin if v else '' }}" placeholder="Seria sasiu">
+
+    {% if not v %}
+    <input type="hidden" name="id_client" value="{{ client.id }}">
+    {% endif %}
+
+    <button type="submit" class="btn-primary btn-full">{% if v %}Salveaza modificarile{% else %}Adauga vehicul{% endif %}</button>
+</form>
+</div>
+{% endblock %}

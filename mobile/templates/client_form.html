@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Velorix — {% if c %}Editeaza{% else %}Client nou{% endif %}{% endblock %}
+{% block content %}
+<a href="/clienti" class="back">← Inapoi la clienti</a>
+<h2 style="margin-bottom:24px">{% if c %}Editeaza client{% else %}Client nou{% endif %}</h2>
+
+<div class="card">
+<form method="POST">
+    <label>Tip</label>
+    <select name="tip">
+        <option value="Persoana Fizica" {% if not c or c.tip == 'Persoana Fizica' %}selected{% endif %}>Persoana Fizica</option>
+        <option value="Persoana Juridica" {% if c and c.tip == 'Persoana Juridica' %}selected{% endif %}>Persoana Juridica</option>
+    </select>
+
+    <label>Nume *</label>
+    <input type="text" name="nume" value="{{ c.nume if c else '' }}" placeholder="Nume complet" required>
+
+    <label>Telefon</label>
+    <input type="text" name="telefon" value="{{ c.telefon if c else '' }}" placeholder="07xx xxx xxx">
+
+    <label>Email</label>
+    <input type="email" name="email" value="{{ c.email if c else '' }}" placeholder="email@exemplu.ro">
+
+    <label>Adresa</label>
+    <input type="text" name="adresa" value="{{ c.adresa if c else '' }}" placeholder="Strada, nr, oras">
+
+    <label>CUI / CNP</label>
+    <input type="text" name="cui_cnp" value="{{ c.cui_cnp if c else '' }}" placeholder="CUI sau CNP">
+
+    <label>Observatii</label>
+    <textarea name="observatii">{{ c.observatii if c else '' }}</textarea>
+
+    <button type="submit" class="btn-primary btn-full">{% if c %}Salveaza modificarile{% else %}Adauga client{% endif %}</button>
+</form>
+</div>
+{% endblock %}

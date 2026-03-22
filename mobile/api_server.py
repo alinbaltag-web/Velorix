@@ -217,7 +217,7 @@ def dashboard():
     con.close()
 
     return render_template('dashboard.html',
-        user=session['user'],
+        user=session['user'], activ='dashboard',
         role=session['role'],
         total_clienti=total_clienti,
         total_vehicule=total_vehicule,
@@ -270,7 +270,7 @@ def programari():
         """)
     lista = rows(cur)
     con.close()
-    return render_template('programari.html', programari=lista, user=session['user'])
+    return render_template('programari.html', programari=lista, user=session['user'], activ='programari')
 
 
 @app.route('/programari/adauga', methods=['GET', 'POST'])
@@ -311,7 +311,7 @@ def programare_adauga():
     cur.execute("SELECT id, nume, telefon FROM clienti ORDER BY nume")
     clienti = rows(cur)
     con.close()
-    return render_template('programare_adauga.html', clienti=clienti, user=session['user'])
+    return render_template('programare_adauga.html', clienti=clienti, user=session['user'], activ='programari')
 
 
 @app.route('/programari/sterge/<int:pid>', methods=['POST'])
@@ -378,7 +378,7 @@ def programare_editeaza(pid):
 
     if not p:
         return redirect(url_for('programari'))
-    return render_template('programare_editeaza.html', p=p, clienti=clienti, user=session['user'])
+    return render_template('programare_editeaza.html', p=p, clienti=clienti, user=session['user'], activ='programari')
 
 
 # ─────────────────────────────────────────────────────────────
@@ -431,7 +431,137 @@ def clienti():
         """)
     lista = rows(cur)
     con.close()
-    return render_template('clienti.html', clienti=lista, q=search, user=session['user'])
+    return render_template('clienti.html', clienti=lista, q=search, user=session['user'], activ='clienti')
+
+
+@app.route('/clienti/adauga', methods=['GET', 'POST'])
+@login_required
+def client_adauga():
+    if request.method == 'POST':
+        con, cur = get_db()
+        cur.execute(q("""
+            INSERT INTO clienti (tip, nume, telefon, email, adresa, cui_cnp, observatii)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """), (request.form.get('tip', 'Persoana Fizica'),
+               request.form.get('nume', '').strip(),
+               request.form.get('telefon', ''),
+               request.form.get('email', ''),
+               request.form.get('adresa', ''),
+               request.form.get('cui_cnp', ''),
+               request.form.get('observatii', '')))
+        con.commit()
+        con.close()
+        return redirect(url_for('clienti'))
+    return render_template('client_form.html', c=None, user=session['user'], activ='clienti')
+
+
+@app.route('/clienti/editeaza/<int:cid>', methods=['GET', 'POST'])
+@login_required
+def client_editeaza(cid):
+    con, cur = get_db()
+    if request.method == 'POST':
+        cur.execute(q("""
+            UPDATE clienti SET tip=?, nume=?, telefon=?, email=?, adresa=?, cui_cnp=?, observatii=?
+            WHERE id=?
+        """), (request.form.get('tip', 'Persoana Fizica'),
+               request.form.get('nume', '').strip(),
+               request.form.get('telefon', ''),
+               request.form.get('email', ''),
+               request.form.get('adresa', ''),
+               request.form.get('cui_cnp', ''),
+               request.form.get('observatii', ''), cid))
+        con.commit()
+        con.close()
+        return redirect(url_for('clienti'))
+    cur.execute(q("SELECT * FROM clienti WHERE id=?"), (cid,))
+    c = one(cur)
+    con.close()
+    return render_template('client_form.html', c=c, user=session['user'], activ='clienti')
+
+
+@app.route('/clienti/sterge/<int:cid>', methods=['POST'])
+@login_required
+def client_sterge(cid):
+    con, cur = get_db()
+    cur.execute(q("DELETE FROM clienti WHERE id=?"), (cid,))
+    con.commit()
+    con.close()
+    return redirect(url_for('clienti'))
+
+
+@app.route('/clienti/<int:cid>/vehicule')
+@login_required
+def vehicule_client(cid):
+    con, cur = get_db()
+    cur.execute(q("SELECT * FROM clienti WHERE id=?"), (cid,))
+    client = one(cur)
+    cur.execute(q("SELECT * FROM vehicule WHERE id_client=? ORDER BY marca, model"), (cid,))
+    vehicule = rows(cur)
+    con.close()
+    return render_template('vehicule.html', client=client, vehicule=vehicule, user=session['user'], activ='clienti')
+
+
+@app.route('/clienti/<int:cid>/vehicule/adauga', methods=['GET', 'POST'])
+@login_required
+def vehicul_adauga(cid):
+    con, cur = get_db()
+    if request.method == 'POST':
+        cur.execute(q("""
+            INSERT INTO vehicule (id_client, marca, model, an, km, nr, vin)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """), (cid,
+               request.form.get('marca', '').strip(),
+               request.form.get('model', '').strip(),
+               request.form.get('an', ''),
+               request.form.get('km') or None,
+               request.form.get('nr', ''),
+               request.form.get('vin', '')))
+        con.commit()
+        con.close()
+        return redirect(url_for('vehicule_client', cid=cid))
+    cur.execute(q("SELECT * FROM clienti WHERE id=?"), (cid,))
+    client = one(cur)
+    con.close()
+    return render_template('vehicul_form.html', v=None, client=client, user=session['user'], activ='clienti')
+
+
+@app.route('/vehicule/editeaza/<int:vid>', methods=['GET', 'POST'])
+@login_required
+def vehicul_editeaza(vid):
+    con, cur = get_db()
+    if request.method == 'POST':
+        cur.execute(q("""
+            UPDATE vehicule SET marca=?, model=?, an=?, km=?, nr=?, vin=? WHERE id=?
+        """), (request.form.get('marca', '').strip(),
+               request.form.get('model', '').strip(),
+               request.form.get('an', ''),
+               request.form.get('km') or None,
+               request.form.get('nr', ''),
+               request.form.get('vin', ''), vid))
+        con.commit()
+        cur.execute(q("SELECT id_client FROM vehicule WHERE id=?"), (vid,))
+        r = one(cur)
+        con.close()
+        return redirect(url_for('vehicule_client', cid=r['id_client']))
+    cur.execute(q("SELECT * FROM vehicule WHERE id=?"), (vid,))
+    v = one(cur)
+    cur.execute(q("SELECT * FROM clienti WHERE id=?"), (v['id_client'],))
+    client = one(cur)
+    con.close()
+    return render_template('vehicul_form.html', v=v, client=client, user=session['user'], activ='clienti')
+
+
+@app.route('/vehicule/sterge/<int:vid>', methods=['POST'])
+@login_required
+def vehicul_sterge(vid):
+    con, cur = get_db()
+    cur.execute(q("SELECT id_client FROM vehicule WHERE id=?"), (vid,))
+    r = one(cur)
+    cid = r['id_client'] if r else None
+    cur.execute(q("DELETE FROM vehicule WHERE id=?"), (vid,))
+    con.commit()
+    con.close()
+    return redirect(url_for('vehicule_client', cid=cid) if cid else url_for('clienti'))
 
 
 # ─────────────────────────────────────────────────────────────
@@ -442,29 +572,226 @@ def clienti():
 @login_required
 def stocuri():
     filtru = request.args.get('filtru', 'toate')
+    q_search = request.args.get('q', '').strip()
     con, cur = get_db()
+
+    base = """
+        SELECT s.id, s.cod, s.nume, s.stoc_curent, s.stoc_minim,
+               s.unitate, s.pret_vanzare, s.furnizor,
+               c.nume as categorie
+        FROM stoc_piese s
+        LEFT JOIN categorii_piese c ON c.id = s.id_categorie
+    """
+    where, params = [], []
+
     if filtru == 'critic':
-        cur.execute("""
-            SELECT s.id, s.cod, s.nume, s.stoc_curent, s.stoc_minim,
-                   s.unitate, s.pret_vanzare, s.furnizor,
-                   c.nume as categorie
-            FROM stoc_piese s
-            LEFT JOIN categorii_piese c ON c.id = s.id_categorie
-            WHERE s.stoc_curent <= s.stoc_minim
-            ORDER BY s.stoc_curent ASC
-        """)
+        where.append("s.stoc_curent <= s.stoc_minim")
+
+    if q_search:
+        if _USE_PG:
+            where.append("(s.cod ILIKE %s OR s.nume ILIKE %s)")
+        else:
+            where.append("(s.cod LIKE ? OR s.nume LIKE ?)")
+        params += [f'%{q_search}%', f'%{q_search}%']
+
+    sql = base
+    if where:
+        sql += " WHERE " + " AND ".join(where)
+    sql += " ORDER BY s.nume"
+
+    if _USE_PG:
+        cur.execute(sql, params)
     else:
-        cur.execute("""
-            SELECT s.id, s.cod, s.nume, s.stoc_curent, s.stoc_minim,
-                   s.unitate, s.pret_vanzare, s.furnizor,
-                   c.nume as categorie
-            FROM stoc_piese s
-            LEFT JOIN categorii_piese c ON c.id = s.id_categorie
-            ORDER BY s.nume
-        """)
+        cur.execute(sql, params)
+
     lista = rows(cur)
     con.close()
-    return render_template('stocuri.html', stocuri=lista, filtru=filtru, user=session['user'])
+    return render_template('stocuri.html', stocuri=lista, filtru=filtru, q=q_search, user=session['user'], activ='stocuri')
+
+
+# ─────────────────────────────────────────────────────────────
+#  Setari
+# ─────────────────────────────────────────────────────────────
+
+@app.route('/setari')
+@login_required
+def setari():
+    return render_template('setari.html', user=session['user'], activ='setari')
+
+
+@app.route('/setari/firma', methods=['GET', 'POST'])
+@login_required
+def setari_firma():
+    con, cur = get_db()
+    msg = None
+    if request.method == 'POST':
+        cur.execute(q("""
+            INSERT INTO firma (id, nume, cui, reg_com, adresa, telefon, tva, tarif_ora, cont_bancar)
+            VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?)
+            ON CONFLICT(id) DO UPDATE SET
+                nume=EXCLUDED.nume, cui=EXCLUDED.cui, reg_com=EXCLUDED.reg_com,
+                adresa=EXCLUDED.adresa, telefon=EXCLUDED.telefon, tva=EXCLUDED.tva,
+                tarif_ora=EXCLUDED.tarif_ora, cont_bancar=EXCLUDED.cont_bancar
+        """ if _USE_PG else """
+            INSERT OR REPLACE INTO firma (id, nume, cui, reg_com, adresa, telefon, tva, tarif_ora, cont_bancar)
+            VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?)
+        """), (request.form.get('nume',''), request.form.get('cui',''),
+               request.form.get('reg_com',''), request.form.get('adresa',''),
+               request.form.get('telefon',''),
+               float(request.form.get('tva', 19) or 19),
+               float(request.form.get('tarif_ora', 150) or 150),
+               request.form.get('cont_bancar','')))
+        con.commit()
+        msg = "Datele firmei au fost salvate."
+    cur.execute("SELECT * FROM firma WHERE id=1")
+    f = one(cur)
+    con.close()
+    return render_template('setari_firma.html', f=f, msg=msg, user=session['user'], activ='setari')
+
+
+@app.route('/setari/preferinte', methods=['GET', 'POST'])
+@login_required
+def setari_preferinte():
+    con, cur = get_db()
+    msg = None
+    if request.method == 'POST':
+        limba = request.form.get('limba', 'ro')
+        if _USE_PG:
+            cur.execute("INSERT INTO setari (id, limba) VALUES (1, %s) ON CONFLICT(id) DO UPDATE SET limba=EXCLUDED.limba", (limba,))
+        else:
+            cur.execute("INSERT OR REPLACE INTO setari (id, limba) VALUES (1, ?)", (limba,))
+        con.commit()
+        msg = "Preferintele au fost salvate."
+    cur.execute(q("SELECT limba FROM setari WHERE id=1") if not _USE_PG else "SELECT limba FROM setari LIMIT 1")
+    r = one(cur)
+    con.close()
+    return render_template('setari_preferinte.html', limba=r['limba'] if r else 'ro', msg=msg, user=session['user'], activ='setari')
+
+
+@app.route('/setari/utilizatori')
+@login_required
+def setari_utilizatori():
+    con, cur = get_db()
+    cur.execute("SELECT id, username, role, last_login FROM users ORDER BY username")
+    utilizatori = rows(cur)
+    con.close()
+    return render_template('setari_utilizatori.html', utilizatori=utilizatori,
+                           session_user=session['user'], user=session['user'], activ='setari')
+
+
+@app.route('/setari/utilizatori/adauga', methods=['GET', 'POST'])
+@login_required
+def setari_utilizator_adauga():
+    eroare = None
+    if request.method == 'POST':
+        import bcrypt
+        username = request.form.get('username', '').strip()
+        password = request.form.get('password', '')
+        role     = request.form.get('role', 'mecanic')
+        if not username or not password:
+            eroare = "Username si parola sunt obligatorii."
+        else:
+            try:
+                hashed = bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
+                con, cur = get_db()
+                cur.execute(q("INSERT INTO users (username, password, role) VALUES (?, ?, ?)"),
+                            (username, hashed, role))
+                con.commit()
+                con.close()
+                return redirect(url_for('setari_utilizatori'))
+            except Exception as e:
+                eroare = f"Username deja existent sau eroare: {e}"
+    return render_template('setari_utilizator_form.html', u=None, eroare=eroare, user=session['user'], activ='setari')
+
+
+@app.route('/setari/utilizatori/editeaza/<int:uid>', methods=['GET', 'POST'])
+@login_required
+def setari_utilizator_editeaza(uid):
+    eroare = None
+    con, cur = get_db()
+    if request.method == 'POST':
+        import bcrypt
+        password = request.form.get('password', '')
+        role     = request.form.get('role', 'mecanic')
+        if password:
+            hashed = bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
+            cur.execute(q("UPDATE users SET password=?, role=? WHERE id=?"), (hashed, role, uid))
+        else:
+            cur.execute(q("UPDATE users SET role=? WHERE id=?"), (role, uid))
+        con.commit()
+        con.close()
+        return redirect(url_for('setari_utilizatori'))
+    cur.execute(q("SELECT * FROM users WHERE id=?"), (uid,))
+    u = one(cur)
+    con.close()
+    return render_template('setari_utilizator_form.html', u=u, eroare=eroare, user=session['user'], activ='setari')
+
+
+@app.route('/setari/utilizatori/sterge/<int:uid>', methods=['POST'])
+@login_required
+def setari_utilizator_sterge(uid):
+    con, cur = get_db()
+    cur.execute(q("DELETE FROM users WHERE id=?"), (uid,))
+    con.commit()
+    con.close()
+    return redirect(url_for('setari_utilizatori'))
+
+
+SECTIUNI = ['Dashboard', 'Programari', 'Clienti', 'Stocuri', 'Devize', 'Facturare', 'Rapoarte', 'Setari']
+ROLURI   = ['administrator', 'mecanic', 'receptie']
+
+@app.route('/setari/permisiuni', methods=['GET', 'POST'])
+@login_required
+def setari_permisiuni():
+    con, cur = get_db()
+    msg = None
+    if request.method == 'POST':
+        for rol in ROLURI:
+            if rol == 'administrator':
+                continue
+            for sectiune in SECTIUNI:
+                acces = 1 if request.form.get(f'perm_{rol}_{sectiune}') else 0
+                if _USE_PG:
+                    cur.execute("""
+                        INSERT INTO permisiuni (rol, sectiune, acces) VALUES (%s, %s, %s)
+                        ON CONFLICT(rol, sectiune) DO UPDATE SET acces=EXCLUDED.acces
+                    """, (rol, sectiune, acces))
+                else:
+                    cur.execute("INSERT OR REPLACE INTO permisiuni (rol, sectiune, acces) VALUES (?, ?, ?)",
+                                (rol, sectiune, acces))
+        con.commit()
+        msg = "Permisiunile au fost salvate."
+
+    cur.execute("SELECT rol, sectiune, acces FROM permisiuni")
+    db_perms = {(r['rol'], r['sectiune']): r['acces'] for r in rows(cur)}
+    con.close()
+
+    permisiuni = {}
+    for rol in ROLURI:
+        permisiuni[rol] = {}
+        for sectiune in SECTIUNI:
+            permisiuni[rol][sectiune] = db_perms.get((rol, sectiune), 1 if rol == 'administrator' else 0)
+
+    return render_template('setari_permisiuni.html', permisiuni=permisiuni, msg=msg, user=session['user'], activ='setari')
+
+
+@app.route('/setari/jurnal')
+@login_required
+def setari_jurnal():
+    q_search = request.args.get('q', '').strip()
+    con, cur = get_db()
+    if q_search:
+        if _USE_PG:
+            cur.execute("SELECT * FROM audit_log WHERE username ILIKE %s OR actiune ILIKE %s ORDER BY id DESC LIMIT 200",
+                        (f'%{q_search}%', f'%{q_search}%'))
+        else:
+            cur.execute("SELECT * FROM audit_log WHERE username LIKE ? OR actiune LIKE ? ORDER BY id DESC LIMIT 200",
+                        (f'%{q_search}%', f'%{q_search}%'))
+    else:
+        cur.execute("SELECT * FROM audit_log ORDER BY id DESC LIMIT 200")
+    log = rows(cur)
+    con.close()
+    return render_template('setari_jurnal.html', log=log, q=q_search, user=session['user'], activ='setari')
 
 
 # ─────────────────────────────────────────────────────────────

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Velorix — Jurnal activitate{% endblock %}
+{% block extra_css %}
+.log-item { background: var(--card); border-radius: 8px; border: 1px solid var(--border); padding: 12px 14px; margin-bottom: 8px; }
+.log-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+.log-user { font-weight: 700; font-size: 13px; }
+.log-time { font-size: 11px; color: var(--text2); }
+.log-actiune { font-size: 13px; color: var(--blue); font-weight: 600; }
+.log-detalii { font-size: 12px; color: var(--text2); margin-top: 2px; }
+{% endblock %}
+{% block content %}
+<a href="/setari" class="back">← Inapoi la setari</a>
+<div class="top-bar">
+    <h2>Jurnal activitate</h2>
+</div>
+
+<form method="GET" class="search-bar">
+    <input type="text" name="q" value="{{ q }}" placeholder="Cauta dupa utilizator sau actiune...">
+    <button type="submit" class="btn-primary" style="padding:11px 16px">Cauta</button>
+</form>
+
+{% if log %}
+    {% for e in log %}
+    <div class="log-item">
+        <div class="log-header">
+            <span class="log-user">{{ e.username }}</span>
+            <span class="log-time">{{ e.timestamp[:16] if e.timestamp else '' }}</span>
+        </div>
+        <div class="log-actiune">{{ e.actiune }}</div>
+        {% if e.detalii %}<div class="log-detalii">{{ e.detalii }}</div>{% endif %}
+    </div>
+    {% endfor %}
+{% else %}
+    <div class="empty"><div class="empty-icon">📋</div>Nicio activitate inregistrata.</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Velorix — Preferinte{% endblock %}
+{% block content %}
+<a href="/setari" class="back">← Inapoi la setari</a>
+<h2 style="margin-bottom:24px">Preferinte</h2>
+
+{% if msg %}<div class="alert-success">{{ msg }}</div>{% endif %}
+
+<div class="card">
+<form method="POST">
+    <label>Limba interfata</label>
+    <select name="limba">
+        <option value="ro" {% if limba == 'ro' %}selected{% endif %}>Romana</option>
+        <option value="en" {% if limba == 'en' %}selected{% endif %}>English</option>
+    </select>
+
+    <button type="submit" class="btn-primary btn-full">Salveaza</button>
+</form>
+</div>
+{% endblock %}

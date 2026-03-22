@@ -1,155 +1,85 @@
-<!DOCTYPE html>
-<html lang="ro">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velorix — Programare noua</title>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: #0f1923; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #e0e8f0; }
-        nav { background: #1a2535; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #2a3a50; }
-        .nav-logo { color: #e8a020; font-weight: 700; font-size: 18px; letter-spacing: 1px; }
-        .nav-user { color: #6b7a8d; font-size: 13px; }
-        .nav-user a { color: #e74c3c; text-decoration: none; margin-left: 10px; font-size: 12px; }
-        .content { padding: 20px; max-width: 500px; margin: 0 auto; }
-        .back { color: #6b7a8d; text-decoration: none; font-size: 13px; display: inline-block; margin-bottom: 20px; }
-        .back:hover { color: #e8a020; }
-        h2 { font-size: 20px; margin-bottom: 24px; }
-        label { display: block; color: #8a9bb0; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-        input, select, textarea {
-            width: 100%; background: #1a2535; border: 1px solid #2a3a50;
-            border-radius: 8px; color: #e0e8f0; font-size: 15px;
-            padding: 12px 14px; margin-bottom: 18px; outline: none;
-            transition: border-color 0.2s;
-        }
-        input:focus, select:focus, textarea:focus { border-color: #e8a020; }
-        select option { background: #1a2535; }
-        textarea { resize: vertical; min-height: 80px; }
-        .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .btn { width: 100%; background: #e8a020; color: #0f1923; font-size: 15px; font-weight: 700; border: none; border-radius: 8px; padding: 14px; cursor: pointer; margin-top: 4px; }
-        .btn:hover { background: #f0b030; }
-        /* Toggle client tip */
-        .tip-toggle { display: flex; gap: 8px; margin-bottom: 20px; }
-        .tip-btn {
-            flex: 1; padding: 10px; border-radius: 8px; border: 1px solid #2a3a50;
-            background: #1a2535; color: #8a9bb0; font-size: 13px; font-weight: 600;
-            cursor: pointer; text-align: center; transition: all 0.2s;
-        }
-        .tip-btn.activ { background: #e8a020; color: #0f1923; border-color: #e8a020; }
-        .sectiune { display: none; }
-        .sectiune.vizibil { display: block; }
-    </style>
-</head>
-<body>
-    <nav>
-        <span class="nav-logo">VELORIX</span>
-        <span class="nav-user">{{ user }} <a href="/logout">Iesire</a></span>
-    </nav>
+{% extends "base.html" %}
+{% block title %}Velorix — Programare noua{% endblock %}
+{% block extra_css %}
+.tip-toggle { display: flex; gap: 8px; margin-bottom: 20px; }
+.tip-btn { flex: 1; padding: 10px; border-radius: 8px; border: 1.5px solid var(--border); background: #f8fafc; color: var(--text2); font-size: 13px; font-weight: 600; cursor: pointer; text-align: center; transition: all 0.2s; }
+.tip-btn.activ { background: var(--blue-light); color: var(--blue); border-color: var(--blue); }
+.sectiune { display: none; }
+.sectiune.vizibil { display: block; }
+{% endblock %}
+{% block content %}
+<a href="/programari" class="back">← Inapoi</a>
+<h2 style="margin-bottom:24px">Programare noua</h2>
 
-    <div class="content">
-        <a href="/programari" class="back">← Inapoi la programari</a>
-        <h2>Programare noua</h2>
-
-        <form method="POST" id="form-prog">
-            <!-- Tip client -->
-            <label>Tip client</label>
-            <div class="tip-toggle">
-                <div class="tip-btn activ" onclick="setTip('existent')">Client existent</div>
-                <div class="tip-btn" onclick="setTip('ocazional')">Ocazional</div>
-            </div>
-
-            <!-- CLIENT EXISTENT -->
-            <div class="sectiune vizibil" id="sec-existent">
-                <label>Client</label>
-                <select name="id_client" id="sel-client" onchange="incarcaVehicule(this.value)">
-                    <option value="">— Selecteaza client —</option>
-                    {% for c in clienti %}
-                    <option value="{{ c.id }}">{{ c.nume }} {% if c.telefon %}({{ c.telefon }}){% endif %}</option>
-                    {% endfor %}
-                </select>
-
-                <label>Vehicul</label>
-                <select name="id_vehicul" id="sel-vehicul">
-                    <option value="">— Selecteaza mai intai clientul —</option>
-                </select>
-            </div>
-
-            <!-- CLIENT OCAZIONAL -->
-            <div class="sectiune" id="sec-ocazional">
-                <label>Nume client</label>
-                <input type="text" name="nume_ocazional" id="inp-nume" placeholder="Nume si prenume">
-
-                <label>Telefon</label>
-                <input type="text" name="tel_ocazional" placeholder="07xx xxx xxx">
-
-                <label>Vehicul (marca/model/nr)</label>
-                <input type="text" name="vehicul_ocazional" placeholder="ex: Honda CBR 600 / B-12-XYZ">
-            </div>
-
-            <!-- DETALII PROGRAMARE -->
-            <label>Data</label>
-            <input type="date" name="data_programare" required>
-
-            <div class="row">
-                <div>
-                    <label>Ora start</label>
-                    <input type="time" name="ora_start" value="08:00" required>
-                </div>
-                <div>
-                    <label>Ora sfarsit</label>
-                    <input type="time" name="ora_sfarsit" value="09:00" required>
-                </div>
-            </div>
-
-            <label>Descriere lucrare</label>
-            <input type="text" name="descriere" placeholder="ex: Schimb ulei, revizie...">
-
-            <label>Observatii</label>
-            <textarea name="observatii" placeholder="Observatii suplimentare..."></textarea>
-
-            <input type="hidden" name="tip_client" id="tip_client" value="existent">
-            <button type="submit" class="btn">Salveaza programarea</button>
-        </form>
+<div class="card">
+<form method="POST" id="form-prog">
+    <label>Tip client</label>
+    <div class="tip-toggle">
+        <div class="tip-btn activ" onclick="setTip('existent',this)">Client existent</div>
+        <div class="tip-btn" onclick="setTip('ocazional',this)">Ocazional</div>
     </div>
 
-    <script>
-        function setTip(tip) {
-            document.getElementById('tip_client').value = tip;
-            document.querySelectorAll('.tip-btn').forEach(b => b.classList.remove('activ'));
-            event.target.classList.add('activ');
+    <div class="sectiune vizibil" id="sec-existent">
+        <label>Client</label>
+        <select name="id_client" id="sel-client" onchange="incarcaVehicule(this.value)">
+            <option value="">— Selecteaza client —</option>
+            {% for c in clienti %}
+            <option value="{{ c.id }}">{{ c.nume }}{% if c.telefon %} ({{ c.telefon }}){% endif %}</option>
+            {% endfor %}
+        </select>
+        <label>Vehicul</label>
+        <select name="id_vehicul" id="sel-vehicul">
+            <option value="">— Selecteaza mai intai clientul —</option>
+        </select>
+    </div>
 
-            if (tip === 'existent') {
-                document.getElementById('sec-existent').classList.add('vizibil');
-                document.getElementById('sec-ocazional').classList.remove('vizibil');
-                document.getElementById('sel-client').required = true;
-                document.getElementById('inp-nume').required = false;
-            } else {
-                document.getElementById('sec-existent').classList.remove('vizibil');
-                document.getElementById('sec-ocazional').classList.add('vizibil');
-                document.getElementById('sel-client').required = false;
-                document.getElementById('inp-nume').required = true;
-            }
-        }
+    <div class="sectiune" id="sec-ocazional">
+        <label>Nume client</label>
+        <input type="text" name="nume_ocazional" id="inp-nume" placeholder="Nume si prenume">
+        <label>Telefon</label>
+        <input type="text" name="tel_ocazional" placeholder="07xx xxx xxx">
+        <label>Vehicul (marca / model / nr)</label>
+        <input type="text" name="vehicul_ocazional" placeholder="ex: Honda CBR 600 / B-12-XYZ">
+    </div>
 
-        function incarcaVehicule(idClient) {
-            const sel = document.getElementById('sel-vehicul');
-            sel.innerHTML = '<option value="">Se incarca...</option>';
-            if (!idClient) {
-                sel.innerHTML = '<option value="">— Selecteaza mai intai clientul —</option>';
-                return;
-            }
-            fetch('/api/vehicule/' + idClient)
-                .then(r => r.json())
-                .then(data => {
-                    if (data.length === 0) {
-                        sel.innerHTML = '<option value="">Clientul nu are vehicule</option>';
-                    } else {
-                        sel.innerHTML = data.map(v =>
-                            `<option value="${v.id}">${v.marca} ${v.model} ${v.nr ? '- ' + v.nr : ''}</option>`
-                        ).join('');
-                    }
-                });
-        }
-    </script>
-</body>
-</html>
+    <label>Data</label>
+    <input type="date" name="data_programare" required>
+
+    <div class="row2">
+        <div><label>Ora start</label><input type="time" name="ora_start" value="08:00" required></div>
+        <div><label>Ora sfarsit</label><input type="time" name="ora_sfarsit" value="09:00" required></div>
+    </div>
+
+    <label>Descriere lucrare</label>
+    <input type="text" name="descriere" placeholder="ex: Schimb ulei, revizie...">
+
+    <label>Observatii</label>
+    <textarea name="observatii" placeholder="Observatii suplimentare..."></textarea>
+
+    <input type="hidden" name="tip_client" id="tip_client" value="existent">
+    <button type="submit" class="btn-primary btn-full">Salveaza programarea</button>
+</form>
+</div>
+
+<script>
+function setTip(tip, btn) {
+    document.getElementById('tip_client').value = tip;
+    document.querySelectorAll('.tip-btn').forEach(b => b.classList.remove('activ'));
+    btn.classList.add('activ');
+    document.getElementById('sec-existent').classList.toggle('vizibil', tip === 'existent');
+    document.getElementById('sec-ocazional').classList.toggle('vizibil', tip === 'ocazional');
+    document.getElementById('sel-client').required = tip === 'existent';
+    document.getElementById('inp-nume').required = tip === 'ocazional';
+}
+function incarcaVehicule(id) {
+    const sel = document.getElementById('sel-vehicul');
+    if (!id) { sel.innerHTML = '<option value="">— Selecteaza mai intai clientul —</option>'; return; }
+    sel.innerHTML = '<option>Se incarca...</option>';
+    fetch('/api/vehicule/' + id).then(r => r.json()).then(data => {
+        sel.innerHTML = data.length
+            ? data.map(v => `<option value="${v.id}">${v.marca} ${v.model}${v.nr ? ' - ' + v.nr : ''}</option>`).join('')
+            : '<option value="">Clientul nu are vehicule</option>';
+    });
+}
+</script>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Velorix — Utilizatori{% endblock %}
+{% block extra_css %}
+.user-card { background: var(--card); border-radius: 10px; border: 1px solid var(--border); padding: 14px 16px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.user-info { flex: 1; }
+.user-name { font-weight: 700; font-size: 15px; }
+.user-role { font-size: 12px; margin-top: 4px; }
+.user-actiuni { display: flex; flex-direction: column; gap: 6px; flex-shrink: 0; }
+{% endblock %}
+{% block content %}
+<a href="/setari" class="back">← Inapoi la setari</a>
+<div class="top-bar">
+    <h2>Utilizatori</h2>
+    <a href="/setari/utilizatori/adauga" class="btn-primary">+ Adauga</a>
+</div>
+
+{% if msg %}<div class="alert-success">{{ msg }}</div>{% endif %}
+
+{% for u in utilizatori %}
+<div class="user-card">
+    <div class="user-info">
+        <div class="user-name">{{ u.username }}</div>
+        <div class="user-role">
+            <span class="badge badge-{% if u.role == 'administrator' %}red{% elif u.role == 'mecanic' %}blue{% else %}green{% endif %}">{{ u.role }}</span>
+            {% if u.last_login %}<span style="font-size:11px;color:var(--text2);margin-left:6px">Ultimul login: {{ u.last_login[:10] }}</span>{% endif %}
+        </div>
+    </div>
+    <div class="user-actiuni">
+        <a href="/setari/utilizatori/editeaza/{{ u.id }}" class="btn-secondary" style="font-size:12px;padding:6px 12px;text-align:center">✏ Edit</a>
+        {% if u.username != session_user %}
+        <form method="POST" action="/setari/utilizatori/sterge/{{ u.id }}" style="margin:0" onsubmit="return confirm('Stergi utilizatorul {{ u.username }}?')">
+            <button type="submit" class="btn-danger" style="font-size:12px;padding:6px 12px;width:100%">🗑</button>
+        </form>
+        {% endif %}
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

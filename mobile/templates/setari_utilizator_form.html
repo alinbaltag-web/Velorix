@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Velorix — {% if u %}Editeaza utilizator{% else %}Utilizator nou{% endif %}{% endblock %}
+{% block content %}
+<a href="/setari/utilizatori" class="back">← Inapoi la utilizatori</a>
+<h2 style="margin-bottom:24px">{% if u %}Editeaza utilizator{% else %}Utilizator nou{% endif %}</h2>
+
+{% if eroare %}<div class="alert-error">{{ eroare }}</div>{% endif %}
+
+<div class="card">
+<form method="POST">
+    <label>Username *</label>
+    <input type="text" name="username" value="{{ u.username if u else '' }}" placeholder="username" required {% if u %}readonly{% endif %}>
+
+    <label>{% if u %}Parola noua (lasa gol pentru a pastra){% else %}Parola *{% endif %}</label>
+    <input type="password" name="password" placeholder="••••••••" {% if not u %}required{% endif %}>
+
+    <label>Rol *</label>
+    <select name="role" required>
+        <option value="administrator" {% if u and u.role == 'administrator' %}selected{% endif %}>Administrator</option>
+        <option value="mecanic"       {% if u and u.role == 'mecanic'       %}selected{% endif %}>Mecanic</option>
+        <option value="receptie"      {% if u and u.role == 'receptie'      %}selected{% endif %}>Receptie</option>
+    </select>
+
+    <button type="submit" class="btn-primary btn-full">{% if u %}Salveaza modificarile{% else %}Adauga utilizator{% endif %}</button>
+</form>
+</div>
+{% endblock %}

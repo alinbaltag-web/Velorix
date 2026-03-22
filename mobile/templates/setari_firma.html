@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Velorix — Detalii Firma{% endblock %}
+{% block content %}
+<a href="/setari" class="back">← Inapoi la setari</a>
+<h2 style="margin-bottom:24px">Detalii Firma</h2>
+
+{% if msg %}<div class="alert-success">{{ msg }}</div>{% endif %}
+
+<div class="card">
+<form method="POST">
+    <label>Denumire firma *</label>
+    <input type="text" name="nume" value="{{ f.nume or '' }}" placeholder="SC Exemplu SRL" required>
+
+    <label>CUI</label>
+    <input type="text" name="cui" value="{{ f.cui or '' }}" placeholder="RO12345678">
+
+    <label>Reg. Comertului</label>
+    <input type="text" name="reg_com" value="{{ f.reg_com or '' }}" placeholder="J40/1234/2020">
+
+    <label>Adresa</label>
+    <input type="text" name="adresa" value="{{ f.adresa or '' }}" placeholder="Str. Exemplu nr.1, Bucuresti">
+
+    <label>Telefon</label>
+    <input type="text" name="telefon" value="{{ f.telefon or '' }}" placeholder="07xx xxx xxx">
+
+    <label>TVA (%)</label>
+    <input type="number" name="tva" value="{{ f.tva or 19 }}" placeholder="19">
+
+    <label>Tarif ora manopera (RON)</label>
+    <input type="number" name="tarif_ora" value="{{ f.tarif_ora or 150 }}" placeholder="150">
+
+    <label>Cont bancar (IBAN)</label>
+    <input type="text" name="cont_bancar" value="{{ f.cont_bancar or '' }}" placeholder="RO49AAAA1B31007593840000">
+
+    <button type="submit" class="btn-primary btn-full">Salveaza</button>
+</form>
+</div>
+{% endblock %}

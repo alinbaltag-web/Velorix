@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Velorix — Vehicule {{ client.nume }}{% endblock %}
+{% block extra_css %}
+.vehicul-card { background: var(--card); border-radius: 10px; border: 1px solid var(--border); padding: 14px 16px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.vehicul-info { flex: 1; }
+.vehicul-titlu { font-weight: 700; font-size: 15px; }
+.vehicul-sub { font-size: 13px; color: var(--text2); margin-top: 3px; }
+.vehicul-actiuni { display: flex; flex-direction: column; gap: 6px; flex-shrink: 0; }
+{% endblock %}
+{% block content %}
+<a href="/clienti" class="back">← Inapoi la clienti</a>
+
+<div class="top-bar">
+    <div>
+        <h2>Vehicule</h2>
+        <div style="font-size:13px;color:var(--text2);margin-top:2px">{{ client.nume }}</div>
+    </div>
+    <a href="/clienti/{{ client.id }}/vehicule/adauga" class="btn-primary">+ Adauga</a>
+</div>
+
+{% if vehicule %}
+    {% for v in vehicule %}
+    <div class="vehicul-card">
+        <div class="vehicul-info">
+            <div class="vehicul-titlu">{{ v.marca }} {{ v.model }}</div>
+            <div class="vehicul-sub">
+                {% if v.nr %}🔖 {{ v.nr }}{% endif %}
+                {% if v.an %}&nbsp;·&nbsp; {{ v.an }}{% endif %}
+                {% if v.km %}&nbsp;·&nbsp; {{ v.km }} km{% endif %}
+            </div>
+            {% if v.vin %}<div style="font-size:11px;color:var(--text2);margin-top:2px">VIN: {{ v.vin }}</div>{% endif %}
+        </div>
+        <div class="vehicul-actiuni">
+            <a href="/vehicule/editeaza/{{ v.id }}" class="btn-secondary" style="font-size:12px;padding:6px 12px;text-align:center">✏ Edit</a>
+            <form method="POST" action="/vehicule/sterge/{{ v.id }}" style="margin:0" onsubmit="return confirm('Stergi vehiculul?')">
+                <button type="submit" class="btn-danger" style="font-size:12px;padding:6px 12px;width:100%">🗑</button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+{% else %}
+    <div class="empty"><div class="empty-icon">🏍</div>Niciun vehicul adaugat.</div>
+{% endif %}
+{% endblock %}

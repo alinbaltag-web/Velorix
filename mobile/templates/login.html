@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velorix — Login</title>
+    <title>Velorix — Autentificare</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -13,83 +13,40 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
         .card {
-            background: #ffffff;
-            border-radius: 18px;
-            padding: 40px 32px;
-            width: 100%; max-width: 380px;
-            box-shadow: 0 12px 48px rgba(0,0,0,0.4);
+            background: #fff; border-radius: 18px;
+            padding: 40px 32px; width: 100%; max-width: 380px;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.4);
         }
-        .logo {
-            text-align: center;
-            margin-bottom: 28px;
-        }
-        .logo img {
-            height: 60px;
-            max-width: 240px;
-            object-fit: contain;
-        }
-        .logo p {
-            color: #7a8ba0;
-            font-size: 12px;
-            margin-top: 6px;
-            letter-spacing: 0.5px;
-        }
-        label {
-            display: block;
-            color: #7a8ba0;
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 6px;
-        }
+        .logo { text-align: center; margin-bottom: 32px; }
+        .logo img { height: 64px; max-width: 220px; object-fit: contain; display: block; margin: 0 auto 10px; }
+        .logo-text { font-size: 26px; font-weight: 800; color: #1a2535; letter-spacing: 3px; }
+        .logo-text span { color: #1a73e8; }
+        .logo-sub { font-size: 12px; color: #7a8ba0; margin-top: 4px; letter-spacing: 0.5px; }
+        label { display: block; color: #7a8ba0; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px; }
         input {
-            width: 100%;
-            background: #f0f4f8;
-            border: 1.5px solid #dce4ef;
-            border-radius: 8px;
-            color: #1a2535;
-            font-size: 15px;
-            padding: 12px 14px;
-            margin-bottom: 18px;
-            outline: none;
-            transition: border-color 0.2s, background 0.2s;
+            width: 100%; background: #f0f4f8; border: 1.5px solid #dce4ef;
+            border-radius: 8px; color: #1a2535; font-size: 15px;
+            padding: 12px 14px; margin-bottom: 18px; outline: none;
+            transition: border-color 0.2s, background 0.2s; font-family: inherit;
         }
-        input:focus {
-            border-color: #1a73e8;
-            background: #ffffff;
-        }
+        input:focus { border-color: #1a73e8; background: #fff; }
         .btn {
-            width: 100%;
-            background: linear-gradient(90deg, #1a73e8, #0d5abf);
-            color: #ffffff;
-            font-size: 15px;
-            font-weight: 700;
-            border: none;
-            border-radius: 8px;
-            padding: 14px;
-            cursor: pointer;
-            transition: background 0.2s;
-            letter-spacing: 0.5px;
+            width: 100%; background: linear-gradient(90deg, #1a73e8, #0d5abf);
+            color: #fff; font-size: 15px; font-weight: 700;
+            border: none; border-radius: 8px; padding: 14px;
+            cursor: pointer; letter-spacing: 0.5px; transition: background 0.2s;
         }
         .btn:hover { background: linear-gradient(90deg, #2b82f5, #1a6ad4); }
-        .btn:active { background: #0d5abf; }
-        .eroare {
-            background: #fef2f2;
-            border: 1px solid #fca5a5;
-            color: #b91c1c;
-            border-radius: 8px;
-            padding: 10px 14px;
-            font-size: 13px;
-            margin-bottom: 18px;
-        }
+        .eroare { background: #fef2f2; border: 1px solid #fca5a5; color: #b91c1c; border-radius: 8px; padding: 10px 14px; font-size: 13px; margin-bottom: 18px; }
+        .footer { text-align: center; margin-top: 24px; font-size: 11px; color: #b0bec5; }
     </style>
 </head>
 <body>
     <div class="card">
         <div class="logo">
-            <img src="/static/logo_velorix.svg" alt="Velorix">
-            <p>Service Management</p>
+            <img src="/static/logo_velorix.svg" alt="Velorix" onerror="this.style.display='none'">
+            <div class="logo-text">VELO<span>RIX</span></div>
+            <div class="logo-sub">Service Management</div>
         </div>
 
         {% if eroare %}
@@ -99,12 +56,11 @@
         <form method="POST">
             <label>Username</label>
             <input type="text" name="username" placeholder="username" autocomplete="username" required>
-
             <label>Parola</label>
             <input type="password" name="password" placeholder="••••••••" autocomplete="current-password" required>
-
             <button type="submit" class="btn">Conectare</button>
         </form>
+        <div class="footer">© 2026 Velorix · Service Management</div>
     </div>
 </body>
 </html>

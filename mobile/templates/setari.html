@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}Velorix — Setari{% endblock %}
+{% block extra_css %}
+.setari-sectiune { margin-bottom: 24px; }
+.setari-titlu { font-size: 13px; font-weight: 700; color: var(--text2); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+.setari-link { display: flex; align-items: center; justify-content: space-between; background: var(--card); border-radius: 10px; border: 1px solid var(--border); padding: 14px 16px; margin-bottom: 8px; text-decoration: none; color: var(--text); transition: border-color 0.2s; }
+.setari-link:hover { border-color: var(--blue); }
+.setari-link-stanga { display: flex; align-items: center; gap: 12px; }
+.setari-icon { font-size: 20px; width: 36px; text-align: center; }
+.setari-name { font-weight: 600; font-size: 14px; }
+.setari-desc { font-size: 12px; color: var(--text2); margin-top: 1px; }
+.arrow { color: var(--text2); font-size: 18px; }
+{% endblock %}
+{% block content %}
+<h2 style="margin-bottom:24px">Setari</h2>
+
+<div class="setari-sectiune">
+    <div class="setari-titlu">Firma si preferinte</div>
+    <a href="/setari/firma" class="setari-link">
+        <div class="setari-link-stanga">
+            <span class="setari-icon">🏢</span>
+            <div><div class="setari-name">Detalii Firma</div><div class="setari-desc">Nume, CUI, adresa, tarif ora</div></div>
+        </div>
+        <span class="arrow">›</span>
+    </a>
+    <a href="/setari/preferinte" class="setari-link">
+        <div class="setari-link-stanga">
+            <span class="setari-icon">⚙️</span>
+            <div><div class="setari-name">Preferinte</div><div class="setari-desc">Limba, TVA implicit</div></div>
+        </div>
+        <span class="arrow">›</span>
+    </a>
+</div>
+
+<div class="setari-sectiune">
+    <div class="setari-titlu">Utilizatori si acces</div>
+    <a href="/setari/utilizatori" class="setari-link">
+        <div class="setari-link-stanga">
+            <span class="setari-icon">👥</span>
+            <div><div class="setari-name">Utilizatori</div><div class="setari-desc">Gestionare conturi si roluri</div></div>
+        </div>
+        <span class="arrow">›</span>
+    </a>
+    <a href="/setari/permisiuni" class="setari-link">
+        <div class="setari-link-stanga">
+            <span class="setari-icon">🔐</span>
+            <div><div class="setari-name">Permisiuni roluri</div><div class="setari-desc">Administrator, Mecanic, Receptie</div></div>
+        </div>
+        <span class="arrow">›</span>
+    </a>
+</div>
+
+<div class="setari-sectiune">
+    <div class="setari-titlu">Activitate</div>
+    <a href="/setari/jurnal" class="setari-link">
+        <div class="setari-link-stanga">
+            <span class="setari-icon">📋</span>
+            <div><div class="setari-name">Jurnal activitate</div><div class="setari-desc">Log actiuni utilizatori</div></div>
+        </div>
+        <span class="arrow">›</span>
+    </a>
+</div>
+{% endblock %}

@@ -1,152 +1,64 @@
-<!DOCTYPE html>
-<html lang="ro">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velorix — Dashboard</title>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            background: #0f1923;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            color: #e0e8f0;
-            min-height: 100vh;
-        }
-        /* NAV */
-        nav {
-            background: #1a2535;
-            padding: 14px 20px;
-            display: flex; align-items: center; justify-content: space-between;
-            border-bottom: 1px solid #2a3a50;
-            position: sticky; top: 0; z-index: 100;
-        }
-        .nav-logo { color: #e8a020; font-weight: 700; font-size: 18px; letter-spacing: 1px; }
-        .nav-user { color: #6b7a8d; font-size: 13px; }
-        .nav-user a { color: #e74c3c; text-decoration: none; margin-left: 10px; font-size: 12px; }
-        /* NAV LINKS */
-        .nav-links {
-            background: #1a2535;
-            display: flex; gap: 0;
-            border-bottom: 1px solid #2a3a50;
-            overflow-x: auto;
-        }
-        .nav-links a {
-            color: #6b7a8d; text-decoration: none;
-            padding: 12px 18px; font-size: 13px; font-weight: 600;
-            white-space: nowrap; border-bottom: 2px solid transparent;
-            transition: all 0.2s;
-        }
-        .nav-links a:hover, .nav-links a.activ {
-            color: #e8a020; border-bottom-color: #e8a020;
-        }
-        /* CONTENT */
-        .content { padding: 20px; max-width: 600px; margin: 0 auto; }
-        h2 { font-size: 20px; margin-bottom: 20px; color: #e0e8f0; }
-        /* CARDS STATS */
-        .stats-grid {
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 12px; margin-bottom: 24px;
-        }
-        .stat-card {
-            background: #1a2535; border-radius: 12px;
-            padding: 18px; text-align: center;
-            border: 1px solid #2a3a50;
-        }
-        .stat-card .numar {
-            font-size: 32px; font-weight: 700; color: #e8a020;
-        }
-        .stat-card .eticheta {
-            font-size: 12px; color: #6b7a8d;
-            margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px;
-        }
-        .stat-card.critic .numar { color: #e74c3c; }
-        .stat-card.venituri .numar { color: #1a73e8; }
-        /* SECTIUNE */
-        .sectiune { margin-bottom: 24px; }
-        .sectiune h3 {
-            font-size: 14px; text-transform: uppercase;
-            letter-spacing: 1px; color: #6b7a8d;
-            margin-bottom: 12px;
-        }
-        /* PROGRAMARE ITEM */
-        .prog-item {
-            background: #1a2535; border-radius: 10px;
-            padding: 14px 16px; margin-bottom: 8px;
-            border-left: 3px solid #e8a020;
-        }
-        .prog-item .prog-data {
-            font-size: 12px; color: #6b7a8d; margin-bottom: 4px;
-        }
-        .prog-item .prog-client { font-weight: 600; font-size: 15px; }
-        .prog-item .prog-vehicul { font-size: 13px; color: #8a9bb0; margin-top: 2px; }
-        .prog-item .prog-desc { font-size: 12px; color: #6b7a8d; margin-top: 4px; }
-        .gol { color: #4a5a6d; font-size: 14px; text-align: center; padding: 20px; }
-        /* BTN */
-        .btn-add {
-            display: block; background: #e8a020; color: #0f1923;
-            text-align: center; text-decoration: none;
-            font-weight: 700; font-size: 14px;
-            border-radius: 10px; padding: 14px;
-            margin-bottom: 24px;
-        }
-    </style>
-</head>
-<body>
-    <nav>
-        <span class="nav-logo">VELORIX</span>
-        <span class="nav-user">
-            {{ user }}
-            <a href="/logout">Iesire</a>
-        </span>
-    </nav>
-    <div class="nav-links">
-        <a href="/dashboard" class="activ">Dashboard</a>
-        <a href="/programari">Programari</a>
-        <a href="/clienti">Clienti</a>
-        <a href="/stocuri">Stocuri</a>
+{% extends "base.html" %}
+{% block title %}Velorix — Dashboard{% endblock %}
+{% block extra_css %}
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+.stat-card { background: var(--card); border-radius: 12px; border: 1px solid var(--border); padding: 16px; border-left: 4px solid var(--blue); }
+.stat-card.verde  { border-left-color: var(--green); }
+.stat-card.rosu   { border-left-color: var(--red); }
+.stat-card.galben { border-left-color: var(--yellow); }
+.stat-label { font-size: 11px; color: var(--text2); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+.stat-val { font-size: 26px; font-weight: 800; color: var(--blue); }
+.stat-card.verde .stat-val  { color: var(--green); }
+.stat-card.rosu  .stat-val  { color: var(--red); }
+.stat-card.galben .stat-val { color: var(--yellow); }
+.sec-title { font-size: 13px; font-weight: 700; color: var(--text2); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
+.prog-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--border); gap: 12px; }
+.prog-row:last-child { border-bottom: none; }
+.prog-client { font-weight: 600; font-size: 14px; }
+.prog-vehicul, .prog-desc { font-size: 12px; color: var(--text2); margin-top: 2px; }
+.prog-time { text-align: right; font-size: 12px; color: var(--text2); white-space: nowrap; }
+.prog-date { font-weight: 600; font-size: 13px; color: var(--text); }
+{% endblock %}
+{% block content %}
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-label">Venituri luna</div>
+        <div class="stat-val">{{ "{:,.0f}".format(venituri_luna) }}</div>
+        <div style="font-size:11px;color:var(--text2);margin-top:4px;">RON</div>
     </div>
+    <div class="stat-card verde">
+        <div class="stat-label">Programari azi</div>
+        <div class="stat-val">{{ programari_azi }}</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-label">Clienti</div>
+        <div class="stat-val">{{ total_clienti }}</div>
+    </div>
+    <div class="stat-card {% if stoc_critic > 0 %}rosu{% else %}galben{% endif %}">
+        <div class="stat-label">Stoc critic</div>
+        <div class="stat-val">{{ stoc_critic }}</div>
+    </div>
+</div>
 
-    <div class="content">
-        <h2>Buna ziua, {{ user }}!</h2>
-
-        <div class="stats-grid">
-            <div class="stat-card venituri">
-                <div class="numar">{{ "{:,.0f}".format(venituri_luna) }}</div>
-                <div class="eticheta">Venituri luna (RON)</div>
+<div class="card">
+    <div class="sec-title">Urmatoarele programari</div>
+    {% if programari_urm %}
+        {% for p in programari_urm %}
+        <div class="prog-row">
+            <div style="flex:1">
+                <div class="prog-client">{{ p.client }}</div>
+                <div class="prog-vehicul">{{ p.vehicul }}</div>
+                {% if p.descriere %}<div class="prog-desc">{{ p.descriere }}</div>{% endif %}
             </div>
-            <div class="stat-card">
-                <div class="numar">{{ programari_azi }}</div>
-                <div class="eticheta">Programari azi</div>
-            </div>
-            <div class="stat-card">
-                <div class="numar">{{ total_clienti }}</div>
-                <div class="eticheta">Clienti</div>
-            </div>
-            <div class="stat-card {% if stoc_critic > 0 %}critic{% endif %}">
-                <div class="numar">{{ stoc_critic }}</div>
-                <div class="eticheta">Stoc critic</div>
+            <div class="prog-time">
+                <div class="prog-date">{{ p.data_programare }}</div>
+                <div>{{ p.ora_start }} – {{ p.ora_sfarsit }}</div>
+                <span class="badge badge-{% if p.status == 'efectuat' %}green{% elif p.status == 'anulat' %}red{% else %}blue{% endif %}" style="margin-top:4px;display:inline-block">{{ p.status }}</span>
             </div>
         </div>
-
-        <a href="/programari/adauga" class="btn-add">+ Programare noua</a>
-
-        <div class="sectiune">
-            <h3>Urmatoarele programari</h3>
-            {% if programari_urm %}
-                {% for p in programari_urm %}
-                <div class="prog-item">
-                    <div class="prog-data">{{ p.data_programare }} &nbsp; {{ p.ora_start }} – {{ p.ora_sfarsit }}</div>
-                    <div class="prog-client">{{ p.client }}</div>
-                    <div class="prog-vehicul">{{ p.vehicul }}</div>
-                    {% if p.descriere %}
-                    <div class="prog-desc">{{ p.descriere }}</div>
-                    {% endif %}
-                </div>
-                {% endfor %}
-            {% else %}
-                <div class="gol">Nicio programare viitoare.</div>
-            {% endif %}
-        </div>
-    </div>
-</body>
-</html>
+        {% endfor %}
+    {% else %}
+        <div class="empty"><div class="empty-icon">📅</div>Nicio programare viitoare.</div>
+    {% endif %}
+</div>
+{% endblock %}

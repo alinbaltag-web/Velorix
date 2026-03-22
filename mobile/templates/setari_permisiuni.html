@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Velorix — Permisiuni roluri{% endblock %}
+{% block extra_css %}
+.rol-card { background: var(--card); border-radius: 10px; border: 1px solid var(--border); padding: 16px; margin-bottom: 16px; }
+.rol-titlu { font-weight: 700; font-size: 15px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.perm-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); }
+.perm-row:last-child { border-bottom: none; }
+.perm-name { font-size: 14px; }
+.toggle { position: relative; width: 44px; height: 24px; flex-shrink: 0; }
+.toggle input { opacity: 0; width: 0; height: 0; }
+.toggle-slider { position: absolute; inset: 0; background: #e2e8f0; border-radius: 24px; cursor: pointer; transition: background 0.2s; }
+.toggle-slider:before { content: ''; position: absolute; width: 18px; height: 18px; left: 3px; top: 3px; background: #fff; border-radius: 50%; transition: transform 0.2s; }
+.toggle input:checked + .toggle-slider { background: var(--blue); }
+.toggle input:checked + .toggle-slider:before { transform: translateX(20px); }
+{% endblock %}
+{% block content %}
+<a href="/setari" class="back">← Inapoi la setari</a>
+<h2 style="margin-bottom:24px">Permisiuni roluri</h2>
+
+{% if msg %}<div class="alert-success">{{ msg }}</div>{% endif %}
+
+<form method="POST">
+{% for rol, sectiuni in permisiuni.items() %}
+<div class="rol-card">
+    <div class="rol-titlu">
+        <span class="badge badge-{% if rol == 'administrator' %}red{% elif rol == 'mecanic' %}blue{% else %}green{% endif %}">{{ rol }}</span>
+    </div>
+    {% for sectiune, acces in sectiuni.items() %}
+    <div class="perm-row">
+        <span class="perm-name">{{ sectiune }}</span>
+        <label class="toggle">
+            <input type="checkbox" name="perm_{{ rol }}_{{ sectiune }}" {% if acces %}checked{% endif %} {% if rol == 'administrator' %}disabled{% endif %}>
+            <span class="toggle-slider"></span>
+        </label>
+    </div>
+    {% endfor %}
+</div>
+{% endfor %}
+<button type="submit" class="btn-primary btn-full">Salveaza permisiunile</button>
+</form>
+{% endblock %}
