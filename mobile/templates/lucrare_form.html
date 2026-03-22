@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}Velorix — {% if l %}Editeaza lucrare{% else %}Lucrare noua{% endif %}{% endblock %}
+{% block extra_css %}
+.cost-preview { background: var(--blue-light); color: var(--blue); border-radius: 8px; padding: 10px 14px; font-weight: 700; font-size: 14px; margin-bottom: 16px; }
+{% endblock %}
+{% block content %}
+<a href="/lucrari" class="back">← Inapoi la lucrari</a>
+<h2 style="margin-bottom:24px">{% if l %}Editeaza lucrare{% else %}Lucrare noua{% endif %}</h2>
+
+<div class="card">
+<form method="POST">
+
+    {% if not l %}
+    <label>Vehicul</label>
+    <select name="id_vehicul" required>
+        <option value="">— Selecteaza vehicul —</option>
+        {% for v in vehicule %}
+        <option value="{{ v.id }}">{{ v.client }} — {{ v.vehicul }}{% if v.nr %} ({{ v.nr }}){% endif %}</option>
+        {% endfor %}
+    </select>
+    {% else %}
+    <label>Vehicul</label>
+    <input type="text" value="{{ l.client }} — {{ l.vehicul }}{% if l.nr %} ({{ l.nr }}){% endif %}" disabled>
+    {% endif %}
+
+    <label>Descriere lucrare</label>
+    <input type="text" name="descriere" value="{{ l.descriere if l else '' }}" placeholder="ex: Schimb ulei, revizie, curea distributie..." required>
+
+    <div class="row2">
+        <div>
+            <label>Data</label>
+            <input type="date" name="data" value="{{ l.data if l else '' }}" required>
+        </div>
+        <div>
+            <label>KM la intrare</label>
+            <input type="text" name="km" value="{{ l.km if l else '' }}" placeholder="ex: 15000">
+        </div>
+    </div>
+
+    <div class="row2">
+        <div>
+            <label>Ore RAR</label>
+            <input type="number" name="ore_rar" id="ore_rar" step="0.5" min="0"
+                   value="{{ l.ore_rar if l else '0' }}" oninput="calcCost()">
+        </div>
+        <div>
+            <label>Tarif/ora (RON)</label>
+            <input type="number" name="tarif_ora" id="tarif_ora" step="1" min="0"
+                   value="{{ l.tarif_ora if l else '150' }}" oninput="calcCost()">
+        </div>
+    </div>
+
+    <div class="cost-preview" id="cost-preview">
+        Cost manopera: <span id="cost-val">{{ "%.2f"|format((l.cost or 0)|float) if l else "0.00" }}</span> RON
+    </div>
+
+    <label>Mecanic</label>
+    <input type="text" name="mecanic" value="{{ l.mecanic if l else '' }}" placeholder="Numele mecanicului">
+
+    {% if l %}
+    <label>Status</label>
+    <select name="status">
+        <option value="in_lucru"  {% if l.status == 'in_lucru'  %}selected{% endif %}>In lucru</option>
+        <option value="finalizat" {% if l.status == 'finalizat' %}selected{% endif %}>Finalizat</option>
+    </select>
+    {% endif %}
+
+    <button type="submit" class="btn-primary btn-full">
+        {% if l %}Salveaza modificarile{% else %}Adauga lucrarea{% endif %}
+    </button>
+</form>
+</div>
+
+<script>
+function calcCost() {
+    const ore = parseFloat(document.getElementById('ore_rar').value) || 0;
+    const tarif = parseFloat(document.getElementById('tarif_ora').value) || 0;
+    document.getElementById('cost-val').textContent = (ore * tarif).toFixed(2);
+}
+</script>
+{% endblock %}

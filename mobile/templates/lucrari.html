@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}Velorix — Lucrari{% endblock %}
+{% block extra_css %}
+.luc-card { background: var(--card); border-radius: 10px; border: 1px solid var(--border); border-left: 4px solid var(--blue); padding: 14px 16px; margin-bottom: 10px; }
+.luc-card.in_lucru  { border-left-color: var(--yellow); }
+.luc-card.finalizat { border-left-color: var(--green); }
+.luc-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.luc-data { font-size: 12px; color: var(--text2); }
+.luc-client { font-weight: 700; font-size: 15px; }
+.luc-vehicul { font-size: 13px; color: var(--text2); margin-top: 2px; }
+.luc-desc { font-size: 13px; margin-top: 6px; }
+.luc-stats { display: flex; gap: 16px; margin-top: 8px; font-size: 12px; color: var(--text2); }
+.luc-stats span { display: flex; align-items: center; gap: 4px; }
+.luc-actiuni { display: flex; gap: 8px; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); flex-wrap: wrap; }
+.filtru-bar { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.filtru-btn { padding: 7px 14px; border-radius: 20px; border: 1.5px solid var(--border); background: var(--card); color: var(--text2); font-size: 12px; font-weight: 600; text-decoration: none; cursor: pointer; }
+.filtru-btn.activ { background: var(--blue); color: #fff; border-color: var(--blue); }
+.filtru-btn.yellow.activ { background: var(--yellow); border-color: var(--yellow); }
+.filtru-btn.green.activ  { background: var(--green);  border-color: var(--green); }
+{% endblock %}
+{% block content %}
+<div class="top-bar">
+    <h2>Lucrari</h2>
+    <a href="/lucrari/adauga" class="btn-primary">+ Adauga</a>
+</div>
+
+<form method="GET" action="/lucrari" class="search-bar">
+    <input type="text" name="q" value="{{ q }}" placeholder="Cauta client, vehicul, descriere...">
+    <input type="hidden" name="filtru" value="{{ filtru }}">
+    <button type="submit" class="btn-primary">Cauta</button>
+</form>
+
+<div class="filtru-bar">
+    <a href="/lucrari?filtru=toate&q={{ q }}"    class="filtru-btn {% if filtru == 'toate' %}activ{% endif %}">Toate</a>
+    <a href="/lucrari?filtru=in_lucru&q={{ q }}" class="filtru-btn yellow {% if filtru == 'in_lucru' %}activ{% endif %}">In lucru</a>
+    <a href="/lucrari?filtru=finalizat&q={{ q }}" class="filtru-btn green {% if filtru == 'finalizat' %}activ{% endif %}">Finalizate</a>
+</div>
+
+{% if lucrari %}
+    {% for l in lucrari %}
+    <div class="luc-card {{ l.status }}">
+        <div class="luc-meta">
+            <span class="luc-data">{{ l.data }}</span>
+            <span class="badge {% if l.status == 'in_lucru' %}badge-yellow{% else %}badge-green{% endif %}">
+                {{ 'In lucru' if l.status == 'in_lucru' else 'Finalizat' }}
+            </span>
+        </div>
+        <div class="luc-client">{{ l.client }}</div>
+        <div class="luc-vehicul">{{ l.vehicul }}{% if l.nr %} · {{ l.nr }}{% endif %}</div>
+        {% if l.descriere %}<div class="luc-desc">{{ l.descriere }}</div>{% endif %}
+        <div class="luc-stats">
+            {% if l.ore_rar %}<span>⏱ {{ l.ore_rar }} ore RAR</span>{% endif %}
+            {% if l.mecanic %}<span>🔧 {{ l.mecanic }}</span>{% endif %}
+            {% if l.km %}<span>📍 {{ l.km }} km</span>{% endif %}
+            {% if l.cost %}<span>💰 {{ "%.2f"|format(l.cost|float) }} RON</span>{% endif %}
+        </div>
+        <div class="luc-actiuni">
+            <a href="/lucrari/editeaza/{{ l.id }}" class="btn-secondary" style="font-size:12px;padding:7px 14px">✏ Editeaza</a>
+            {% if l.status == 'in_lucru' %}
+            <form method="POST" action="/lucrari/status/{{ l.id }}" style="margin:0">
+                <input type="hidden" name="status" value="finalizat">
+                <button type="submit" class="btn-primary" style="font-size:12px;padding:7px 14px;background:var(--green)">✓ Finalizeaza</button>
+            </form>
+            {% else %}
+            <form method="POST" action="/lucrari/status/{{ l.id }}" style="margin:0">
+                <input type="hidden" name="status" value="in_lucru">
+                <button type="submit" class="btn-secondary" style="font-size:12px;padding:7px 14px">↩ Redeschide</button>
+            </form>
+            {% endif %}
+            <form method="POST" action="/lucrari/sterge/{{ l.id }}" style="margin:0"
+                  onsubmit="return confirm('Stergi lucrarea?')">
+                <button type="submit" class="btn-danger" style="font-size:12px;padding:7px 14px">🗑 Sterge</button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+{% else %}
+    <div class="empty"><div class="empty-icon">🔧</div>Nicio lucrare gasita.</div>
+{% endif %}
+{% endblock %}

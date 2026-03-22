@@ -609,6 +609,146 @@ def stocuri():
 
 
 # ─────────────────────────────────────────────────────────────
+#  Lucrari
+# ─────────────────────────────────────────────────────────────
+
+@app.route('/lucrari')
+@login_required
+def lucrari():
+    filtru   = request.args.get('filtru', 'toate')
+    q_search = request.args.get('q', '').strip()
+    con, cur = get_db()
+
+    where, params = [], []
+    if filtru == 'in_lucru':
+        where.append("l.status = 'in_lucru'")
+    elif filtru == 'finalizat':
+        where.append("l.status = 'finalizat'")
+
+    if q_search:
+        if _USE_PG:
+            where.append("(c.nume ILIKE %s OR v.marca ILIKE %s OR v.nr ILIKE %s OR l.descriere ILIKE %s)")
+        else:
+            where.append("(c.nume LIKE ? OR v.marca LIKE ? OR v.nr LIKE ? OR l.descriere LIKE ?)")
+        params += [f'%{q_search}%'] * 4
+
+    sql = """
+        SELECT l.id, l.descriere, l.status, l.data,
+               COALESCE(l.ore_rar, 0) as ore_rar,
+               COALESCE(l.tarif_ora, 0) as tarif_ora,
+               COALESCE(l.cost, 0) as cost,
+               COALESCE(l.mecanic, '') as mecanic,
+               COALESCE(l.km, '') as km,
+               c.nume as client, c.id as id_client,
+               v.marca || ' ' || v.model as vehicul,
+               COALESCE(v.nr, '') as nr, v.id as id_vehicul
+        FROM lucrari l
+        JOIN vehicule v ON v.id = l.id_vehicul
+        JOIN clienti c ON c.id = v.id_client
+    """
+    if where:
+        sql += " WHERE " + " AND ".join(where)
+    sql += " ORDER BY CASE l.status WHEN 'in_lucru' THEN 0 ELSE 1 END, l.id DESC LIMIT 100"
+
+    cur.execute(sql, params)
+    lista = rows(cur)
+    con.close()
+    return render_template('lucrari.html', lucrari=lista, filtru=filtru,
+                           q=q_search, user=session['user'], activ='lucrari')
+
+
+@app.route('/lucrari/adauga', methods=['GET', 'POST'])
+@login_required
+def lucrare_adauga():
+    con, cur = get_db()
+    if request.method == 'POST':
+        id_vehicul = request.form.get('id_vehicul')
+        descriere  = request.form.get('descriere', '').strip()
+        km         = request.form.get('km', '')
+        ore_rar    = request.form.get('ore_rar') or 0
+        tarif_ora  = request.form.get('tarif_ora') or 0
+        mecanic    = request.form.get('mecanic', '').strip()
+        data       = request.form.get('data') or datetime.now().strftime('%Y-%m-%d')
+        cost = float(ore_rar) * float(tarif_ora)
+        cur.execute(q("""
+            INSERT INTO lucrari (id_vehicul, descriere, km, ore_rar, tarif_ora, cost, mecanic, status, data)
+            VALUES (?, ?, ?, ?, ?, ?, ?, 'in_lucru', ?)
+        """), (id_vehicul, descriere, km, ore_rar, tarif_ora, cost, mecanic, data))
+        con.commit()
+        con.close()
+        return redirect(url_for('lucrari'))
+
+    cur.execute("""
+        SELECT v.id, c.nume as client, v.marca || ' ' || v.model as vehicul, v.nr
+        FROM vehicule v JOIN clienti c ON c.id = v.id_client
+        ORDER BY c.nume, v.marca
+    """)
+    vehicule = rows(cur)
+    con.close()
+    return render_template('lucrare_form.html', l=None, vehicule=vehicule,
+                           user=session['user'], activ='lucrari')
+
+
+@app.route('/lucrari/editeaza/<int:lid>', methods=['GET', 'POST'])
+@login_required
+def lucrare_editeaza(lid):
+    con, cur = get_db()
+    if request.method == 'POST':
+        descriere = request.form.get('descriere', '').strip()
+        km        = request.form.get('km', '')
+        ore_rar   = request.form.get('ore_rar') or 0
+        tarif_ora = request.form.get('tarif_ora') or 0
+        mecanic   = request.form.get('mecanic', '').strip()
+        status    = request.form.get('status', 'in_lucru')
+        data      = request.form.get('data') or datetime.now().strftime('%Y-%m-%d')
+        cost = float(ore_rar) * float(tarif_ora)
+        cur.execute(q("""
+            UPDATE lucrari SET descriere=?, km=?, ore_rar=?, tarif_ora=?,
+                cost=?, mecanic=?, status=?, data=? WHERE id=?
+        """), (descriere, km, ore_rar, tarif_ora, cost, mecanic, status, data, lid))
+        con.commit()
+        con.close()
+        return redirect(url_for('lucrari'))
+
+    cur.execute(q("""
+        SELECT l.id, l.id_vehicul, l.descriere, l.km, l.ore_rar, l.tarif_ora,
+               l.cost, l.mecanic, l.status, l.data,
+               c.nume as client, v.marca || ' ' || v.model as vehicul, v.nr
+        FROM lucrari l
+        JOIN vehicule v ON v.id = l.id_vehicul
+        JOIN clienti c ON c.id = v.id_client
+        WHERE l.id = ?
+    """), (lid,))
+    l = one(cur)
+    con.close()
+    if not l:
+        return redirect(url_for('lucrari'))
+    return render_template('lucrare_form.html', l=l, vehicule=None,
+                           user=session['user'], activ='lucrari')
+
+
+@app.route('/lucrari/status/<int:lid>', methods=['POST'])
+@login_required
+def lucrare_status(lid):
+    nou_status = request.form.get('status', 'finalizat')
+    con, cur = get_db()
+    cur.execute(q("UPDATE lucrari SET status=? WHERE id=?"), (nou_status, lid))
+    con.commit()
+    con.close()
+    return redirect(url_for('lucrari'))
+
+
+@app.route('/lucrari/sterge/<int:lid>', methods=['POST'])
+@login_required
+def lucrare_sterge(lid):
+    con, cur = get_db()
+    cur.execute(q("DELETE FROM lucrari WHERE id=?"), (lid,))
+    con.commit()
+    con.close()
+    return redirect(url_for('lucrari'))
+
+
+# ─────────────────────────────────────────────────────────────
 #  Setari
 # ─────────────────────────────────────────────────────────────
 
